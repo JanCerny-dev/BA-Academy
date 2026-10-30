@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 SQL pro business analytiky · BA Academy</title>
+<meta name="description" content="Modul 10: SQL pro business analytiky">
+<link rel="stylesheet" href="../../assets/styl.css">
+<link rel="alternate" hreflang="en" href="../../m/10.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="../index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Celkový postup"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="../../m/10.html" lang="en" data-jazyk="en">EN</a><a href="#" lang="cs" aria-current="true" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Přihlásit</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Hlavní"><a href="../index.html">Úvod</a><a href="../path.html">Studijní cesta</a><a href="../modules.html" aria-current="page">Moduly</a><a href="../project.html">Capstone</a><a href="../courses.html">Udemy</a><a href="../videos.html">Videa</a><a href="../tools.html">Nástroje</a><a href="../sql.html">SQL lab</a><a href="../api.html">API lab</a><a href="../glossary.html">Slovník</a><a href="../interview.html">Pohovor</a><a href="../certifications.html">Certifikace</a><a href="../jobs.html">Pozice</a></nav>
+</header>
+<main id="obsah">
+
+<div class="modul-hlava">
+  <p class="drobky"><a href="../modules.html">Moduly</a> · Fáze C: Technická gramotnost</p>
+  <h1><span class="cislo">10</span> SQL pro business analytiky</h1>
+  <p class="odznaky"><span class="prio prio-p1" title="Inzerát to chce přímo, nebo se na to na pohovoru skoro jistě zeptají.">P1 · Nutné znát</span><span class="stitek">Krátká 5 min</span><span class="stitek">Hloubka 40 min</span></p>
+  
+  <p class="inzerat"><span>V cílovém inzerátu</span> “Disponujete základní znalostí SQL, prací s API a formáty JSON/XML”</p>
+  <div class="proc"><p>Inzerát chce základní SQL. Analytik ho používá každý týden: odpoví na business otázku, aniž by čekal na report, ověří, že dodaná změna funguje, najde špatná data a vyčíslí problém dřív, než někdo zaplatí opravu. Nemusíš navrhovat databáze ani ladit výkon. Potřebuješ jistě číst data pomocí <code>SELECT</code>, spojovat tabulky přes joiny a shrnovat pomocí <code>GROUP BY</code>. Všechny příklady tady běží nad datovou sadou ExportShield v SQL playgroundu na webu.</p></div>
+  <div class="postup" data-keys="nat-read-10-quick nat-read-10-deep nat-ex-m10-e1 nat-ex-m10-e2 nat-ex-m10-e3 nat-ex-m10-e4 nat-u-the-complete-sql-bootcamp nat-v-sql-alex-pl nat-v-sql-alex-4h nat-v-sql-fcc"><div class="postup-pruh"><span></span></div><span class="postup-text">postup v modulu</span></div>
+</div>
+<div class="zalozky" data-zalozky="m10">
+  <div class="zalozky-lista" role="tablist"><button type="button" role="tab" id="tab-quick" aria-controls="panel-quick" aria-selected="true">Krátká verze · 5 min</button><button type="button" role="tab" id="tab-deep" aria-controls="panel-deep" aria-selected="false">Do hloubky · 40 min</button><button type="button" role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false">Prakticky · 4</button><button type="button" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false">Ověř se · 8</button><button type="button" role="tab" id="tab-interview" aria-controls="panel-interview" aria-selected="false">Pohovor · 4</button><button type="button" role="tab" id="tab-resources" aria-controls="panel-resources" aria-selected="false">Zdroje · 8</button></div>
+  <section role="tabpanel" id="panel-quick" aria-labelledby="tab-quick" class="panel"><p><strong>SQL</strong> (Structured Query Language, strukturovaný dotazovací jazyk) je standardní jazyk pro práci s relačními databázemi. Dotaz popisuje, <em>co</em> chceš; databáze sama vymyslí, <em>jak</em> to získat.</p>
+<p><strong>Základní tvar dotazu:</strong></p>
+<div class="kod"><pre><code class="jazyk-text">SELECT   columns or calculations
+FROM     table
+JOIN     other table ON how rows match
+WHERE    filter on rows
+GROUP BY columns to group by
+HAVING   filter on groups
+ORDER BY sort order
+LIMIT    number of rows;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Ke čtení dat z tabulky stačí <code>SELECT</code> a <code>FROM</code>; ostatní klauzule jsou volitelné. Ty, které použiješ, musí být napsané v tomto pořadí.</p>
+<p><strong>Co která část dělá:</strong></p>
+<ul><li><code>SELECT name, city</code> vybírá sloupce. <code>SELECT *</code> vezme všechny (dobré na prozkoumání, ne do reportu).</li><li><code>WHERE</code> filtruje řádky: <code>=</code>, <code>&lt;&gt;</code> (nerovná se), <code>&gt;</code>, <code>&lt;</code>, <code>IN (&#x27;A&#x27;,&#x27;B&#x27;)</code>, <code>BETWEEN x AND y</code>, <code>LIKE &#x27;%text%&#x27;</code> (vzor), <code>IS NULL</code> (prázdné).</li><li><code>ORDER BY amount DESC</code> řadí; <code>LIMIT 5</code> ponechá prvních pět řádků.</li><li><code>DISTINCT</code> odstraní z výsledku duplicitní řádky.</li><li><strong>Aggregate functions</strong> (agregační funkce) shrnou mnoho řádků do jedné hodnoty: <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>.</li><li><code>GROUP BY status</code> vytvoří jeden řádek výsledku za každý status; agregace se pak počítají pro každou skupinu zvlášť. <code>HAVING</code> tyto skupiny filtruje.</li><li><strong>Joins</strong> (spojení) kombinují tabulky přes klíče. <code>INNER JOIN</code> ponechá jen řádky, které mají shodu na obou stranách. <code>LEFT JOIN</code> ponechá každý řádek z levé tabulky, a když vpravo shoda není, doplní pravou stranu hodnotou <code>NULL</code>.</li><li><code>CASE WHEN ... THEN ... ELSE ... END</code> je podmínka if/else uvnitř dotazu, hodí se na kategorie.</li></ul>
+<p><strong>NULL</strong> znamená „žádná hodnota“. Nikdy se ničemu nerovná, ani jinému NULL, takže musíš psát <code>paid_date IS NULL</code>, ne <code>paid_date = NULL</code>.</p>
+<p><strong>K čemu analytik SQL používá:</strong></p>
+<ol><li><strong>Odpovídá na business otázky</strong>: „Kolik škod jsme loni vyplatili a v jaké výši?“</li><li><strong>Ověřuje výsledky testů</strong>: po vydání nové verze (release) zkontroluje, že databáze obsahuje to, co říká požadavek.</li><li><strong>Kontroluje kvalitu dat</strong>: hledá chybějící, neplatná, duplicitní nebo protichůdná data.</li><li><strong>Vyčísluje problém</strong>: „18 z 39 rozhodnutí o úvěrovém limitu trvalo déle než 14 dní“ je silnější business case než „rozhodování je pomalé“.</li></ol>
+<p><strong>Čtení versus zápis.</strong> <code>INSERT</code>, <code>UPDATE</code> a <code>DELETE</code> data mění. Analytik je čte ve specifikacích a migračních skriptech, ale v produkci je spouští zřídka: změny tam jdou přes aplikace, schválené skripty a change management, s auditní stopou.</p>
+<p><strong>Kde si to vyzkoušet:</strong> SQL playground na webu (<code>sql.html</code>) má data ExportShield předem nahraná. Případně vlož <code>data/sql/exportshield.sql</code> do <a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a>. Pro základy s vedením má <a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a> krátké interaktivní lekce.</p>
+<p><strong>Na pohovor jednou větou:</strong> „Píšu SELECT dotazy s joiny, filtry a GROUP BY, abych odpověděla na otázky, ověřila výsledky testů a zkontrolovala kvalitu dat. Znám rozdíl mezi INNER a LEFT JOIN a vím, jak se chovají NULL hodnoty.“</p><h2 id='m10-key-terms'>Klíčové pojmy</h2><dl class='pojmy'><dt>SQL</dt><dd>(strukturovaný dotazovací jazyk) — Structured Query Language, standardní jazyk pro dotazování a změny dat v relačních databázích.</dd><dt>Query</dt><dd>(dotaz) — příkaz SQL, který žádá databázi o data, obvykle začíná SELECT.</dd><dt>WHERE</dt><dd>klauzule, která filtruje řádky před seskupením.</dd><dt>NULL</dt><dd>chybějící hodnota; testuje se pomocí IS NULL, nikdy pomocí = NULL.</dd><dt>Aggregate function</dt><dd>(agregační funkce) — funkce, která shrne mnoho řádků do jedné hodnoty: COUNT, SUM, AVG, MIN, MAX.</dd><dt>GROUP BY</dt><dd>klauzule, která vytvoří jeden řádek výsledku za skupinu, takže se agregace počítají po skupinách.</dd><dt>HAVING</dt><dd>klauzule, která filtruje skupiny po agregaci.</dd><dt>Alias</dt><dd>dočasný název sloupce nebo tabulky v dotazu (AS).</dd><dt>INNER JOIN</dt><dd>(vnitřní spojení) — spojení, které vrátí jen řádky se shodou v obou tabulkách.</dd><dt>LEFT JOIN</dt><dd>(levé vnější spojení) — spojení, které vrátí všechny řádky z levé tabulky, s NULL tam, kde pravá tabulka nemá shodu.</dd><dt>CASE WHEN</dt><dd>výraz if/else, který vrací hodnotu podle podmínek.</dd><dt>Subquery</dt><dd>(poddotaz) — dotaz vnořený do jiného dotazu.</dd><dt>EXISTS</dt><dd>podmínka, která je pravdivá, když poddotaz vrátí alespoň jeden řádek.</dd><dt>CTE (WITH)</dt><dd>pojmenovaný poddotaz definovaný na začátku dotazu kvůli čitelnosti.</dd><dt>Window function</dt><dd>(okenní funkce) — funkce, která počítá přes související řádky, aniž by je sloučila, např. ROW_NUMBER.</dd><dt>COALESCE</dt><dd>funkce, která vrátí první hodnotu ze svých argumentů, která není NULL.</dd><dt>DML</dt><dd>(jazyk pro manipulaci s daty) — data manipulation language: INSERT, UPDATE, DELETE, tedy příkazy, které mění data.</dd></dl><div class="hotovo"><label class="fajfka "><input type="checkbox" data-key="nat-read-10-quick"> <span>Krátkou verzi mám přečtenou</span></label></div></section><section role="tabpanel" id="panel-deep" aria-labelledby="tab-deep" class="panel" hidden><nav class="obsah-deep" aria-label="Obsah"><strong>V této části</strong><ul><li class="u3"><a href="#m10-p-prava-a-datov-sada">Příprava a datová sada</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-select-from-a-where">SELECT, FROM a WHERE</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-order-by-limit-distinct-a-aliasy">ORDER BY, LIMIT, DISTINCT a aliasy</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-agregace-group-by-a-having">Agregace, GROUP BY a HAVING</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-inner-join">INNER JOIN</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-left-join-a-pro-se-objevuj-null">LEFT JOIN a proč se objevují NULL</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-spojen-v-ce-tabulek">Spojení více tabulek</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-case-when">CASE WHEN</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-datumy-v-sqlite">Datumy v SQLite</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-poddotazy-a-exists">Poddotazy a EXISTS</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m10-common-table-expressions-with">Common table expressions (WITH)</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m10-window-functions-ochutn-vka">Window functions (ochutnávka)</a> <span class=prio-mini>P3</span></li><li class="u3"><a href="#m10-insert-update-delete-st-nespou-t-t">INSERT, UPDATE, DELETE: číst, nespouštět</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m10-jak-analytik-pou-v-sql-v-pr-ci">Jak analytik používá SQL v práci</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-e-en">Řešení</a></li></ul></nav><h3 id="m10-p-prava-a-datov-sada">Příprava a datová sada <span class="prio prio-p1">P1</span></h3>
+<p>Otevři SQL playground (<code>sql.html</code>). Tabulky ExportShield jsou nahrané: <code>countries</code>, <code>customers</code>, <code>buyers</code>, <code>policies</code>, <code>credit_limits</code>, <code>invoices</code>, <code>claims</code>, <code>payments</code>. Pokud chceš raději <a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a>, vlož do editoru celý obsah <code>data/sql/exportshield.sql</code> a jednou ho spusť; vytvoří a naplní tabulky.</p>
+<p>Dvě věci o datech, které pro příklady potřebuješ:</p>
+<ul><li><strong>„Dnes“ je 2026-09-30.</strong> Data jsou snímek (snapshot). Dotazy používají toto datum jako pevnou hodnotu místo aktuálního data, aby výsledky zůstaly stejné.</li><li><strong>Částky jsou v měně daného řádku</strong> (EUR nebo USD). Sečíst EUR a USD dohromady dává nesmyslné číslo, proto mnoho příkladů filtruje nebo seskupuje podle měny.</li></ul>
+<p>Datový model vysvětluje modul o datech a databázích. Zkráceně: zákazník (exportér) má pojistné smlouvy (policies); v rámci smlouvy žádá o úvěrové limity (credit limits) na odběratele (buyers); odběratelům posílá faktury; nezaplacená faktura může vést ke škodě (claim); škoda se vyrovná platbami (payments).</p>
+<p>Klíčová slova SQL nerozlišují velká a malá písmena (<code>select</code> funguje jako <code>SELECT</code>); psát je velkými písmeny je konvence kvůli čitelnosti. Textové hodnoty v uvozovkách porovnává SQLite (playground) i PostgreSQL s rozlišením velikosti písmen: <code>&#x27;Approved&#x27;</code> neodpovídá <code>&#x27;APPROVED&#x27;</code>. SQL Server a MySQL obvykle porovnávají text bez ohledu na velikost písmen, záleží na nastavení databáze (collation), takže si to ověř, než na tom postavíš dotaz.</p>
+<h3 id="m10-select-from-a-where">SELECT, FROM a WHERE <span class="prio prio-p1">P1</span></h3>
+<p>Nejjednodušší dotaz vrátí celou tabulku:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT * FROM countries;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 12 řádků, sloupce <code>code</code>, <code>name</code>, <code>risk_category</code>.</p>
+<p>Vyber sloupce a vyfiltruj řádky:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT code, name, risk_category
+FROM countries
+WHERE risk_category &gt;= 5;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 5 řádků: Brazil, Turkey, Kazakhstan (5), Egypt (6), Ukraine (7).</p>
+<p>Porovnávací operátory: <code>=</code>, <code>&lt;&gt;</code> (nerovná se; ve většině databází funguje i <code>!=</code>), <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>. Podmínky spojuješ pomocí <code>AND</code>, <code>OR</code> a <code>NOT</code>; když mícháš <code>AND</code> a <code>OR</code>, použij závorky, jinak se <code>AND</code> vyhodnotí dřív a výsledek tě překvapí.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, name, segment
+FROM customers
+WHERE segment &lt;&gt; &#x27;CORPORATE&#x27;;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 10 zákazníků (SME a MICRO).</p>
+<p><strong>IN</strong> testuje hodnotu proti seznamu:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, status, requested_amount, approved_amount
+FROM credit_limits
+WHERE status IN (&#x27;REDUCED&#x27;, &#x27;REJECTED&#x27;);</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 18 řádků (14 snížených, 4 zamítnuté). Podívej se na limit s id 6: REJECTED, ale <code>approved_amount</code> je 75 000. To je záměrně vložená chyba v kvalitě dat.</p>
+<p><strong>BETWEEN</strong> zahrnuje obě krajní hodnoty. Data uložená jako ISO text (<code>YYYY-MM-DD</code>) se porovnávají správně:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, issue_date
+FROM invoices
+WHERE issue_date BETWEEN &#x27;2026-01-01&#x27; AND &#x27;2026-03-31&#x27;;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 19 faktur vystavených v 1. čtvrtletí 2026.</p>
+<p><strong>LIKE</strong> hledá podle vzoru: <code>%</code> zastupuje libovolný počet znaků, <code>_</code> právě jeden znak.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT name, city
+FROM customers
+WHERE name LIKE &#x27;%a.s.&#x27;;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 5 akciových společností (názvy končící na „a.s.“). V SQLite <code>LIKE</code> nerozlišuje velká a malá písmena u anglické abecedy; jiné databáze se liší.</p>
+<p><strong>IS NULL</strong> najde chybějící hodnoty:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency, due_date
+FROM invoices
+WHERE paid_date IS NULL;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 31 nezaplacených faktur, některé ještě nejsou splatné. <code>WHERE paid_date = NULL</code> by vrátilo 0 řádků, protože porovnání s NULL nikdy není pravdivé.</p>
+<h3 id="m10-order-by-limit-distinct-a-aliasy">ORDER BY, LIMIT, DISTINCT a aliasy <span class="prio prio-p1">P1</span></h3>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency
+FROM invoices
+ORDER BY amount DESC
+LIMIT 5;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: pět největších faktur, první je INV-2025-07002 (157 900 EUR). Všimni si, že druhá je v USD; řazení podle částky napříč měnami stačí na rychlý pohled, ne do reportu.</p>
+<p>Výchozí je <code>ASC</code> (vzestupně). <code>LIMIT</code> je syntaxe SQLite, PostgreSQL a MySQL; SQL Server používá <code>SELECT TOP 5</code>, Oracle <code>FETCH FIRST 5 ROWS ONLY</code>.</p>
+<p><code>DISTINCT</code> odstraní duplicity:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT DISTINCT sector
+FROM buyers
+ORDER BY sector;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 10 odvětví, od Agriculture po Transport.</p>
+<p><strong>Aliasy</strong> přejmenují sloupce (<code>AS customer_name</code>) nebo dají tabulce krátký název (<code>customers AS c</code>). U joinů jsou aliasy tabulek nezbytné.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT c.name AS customer_name,
+       c.segment AS customer_segment
+FROM customers AS c
+WHERE c.city = &#x27;Praha&#x27;;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 1 řádek, Praha Rail Parts a.s.</p>
+<h3 id="m10-agregace-group-by-a-having">Agregace, GROUP BY a HAVING <span class="prio prio-p1">P1</span></h3>
+<p>Agregační funkce udělají z mnoha řádků jednu hodnotu.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT COUNT(*)          AS all_invoices,
+       COUNT(paid_date)  AS paid_invoices,
+       MIN(issue_date)   AS first_issued,
+       MAX(issue_date)   AS last_issued
+FROM invoices;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 78 faktur, 47 zaplacených, první vystavena 2024-04-22, poslední 2026-09-17. <code>COUNT(*)</code> počítá řádky; <code>COUNT(column)</code> počítá jen hodnoty, které nejsou NULL. Tento rozdíl je rychlý způsob, jak změřit úplnost dat.</p>
+<p><code>GROUP BY</code> vytvoří jeden řádek za každou skupinu:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT currency,
+       COUNT(*)              AS invoices,
+       SUM(amount)           AS total_amount,
+       ROUND(AVG(amount), 0) AS avg_amount
+FROM invoices
+GROUP BY currency;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: EUR 69 faktur, celkem 2 960 400; USD 9 faktur, 443 300.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT status, COUNT(*) AS claims, SUM(claimed_amount) AS claimed
+FROM claims
+GROUP BY status
+ORDER BY claims DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: PAID 7, IN_REVIEW 3, pak NOTIFIED a APPROVED (po 2) a REJECTED 1. (Součet <code>claimed</code> míchá měny, protože jedna zamítnutá a jedna nahlášená škoda jsou v USD; další části ukazují, jak to řešit.)</p>
+<p>Pravidlo pro <code>GROUP BY</code>: každý sloupec v <code>SELECT</code> musí být buď v <code>GROUP BY</code>, nebo uvnitř agregační funkce. SQLite je benevolentní a dovolí pravidlo porušit; vrátí hodnotu z libovolného řádku skupiny. Většina ostatních databází (PostgreSQL, SQL Server, Oracle, MySQL ve výchozím režimu) skončí chybou.</p>
+<p><code>WHERE</code> filtruje řádky <em>před</em> seskupením. <code>HAVING</code> filtruje skupiny <em>po</em> agregaci:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT buyer_id, COUNT(*) AS unpaid_invoices
+FROM invoices
+WHERE paid_date IS NULL
+GROUP BY buyer_id
+HAVING COUNT(*) &gt;= 3;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 4 odběratelé (ID 4, 5, 8, 19) se třemi a více nezaplacenými fakturami.</p>
+<h3 id="m10-inner-join">INNER JOIN <span class="prio prio-p1">P1</span></h3>
+<p>Data o jedné business události jsou rozložená do více tabulek. Join je znovu poskládá tím, že páruje klíče.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT i.invoice_no, i.amount, i.currency, b.name AS buyer
+FROM invoices AS i
+INNER JOIN buyers AS b ON b.id = i.buyer_id
+WHERE i.paid_date IS NULL
+ORDER BY i.amount DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 31 nezaplacených faktur, teď i se jmény odběratelů; největší je 119 100 USD od Great Lakes Industrial Supply Inc.</p>
+<p>Jak to číst: ke každé faktuře najdi odběratele, jehož <code>id</code> se rovná <code>buyer_id</code> faktury. <code>INNER JOIN</code> (nebo jen <code>JOIN</code>) ponechá jen dvojice, které se spárovaly. Faktura s neexistujícím odběratelem by tiše zmizela.</p>
+<p><strong>Past: joiny mohou násobit řádky.</strong> Když má pravá tabulka dva odpovídající řádky, levý řádek se objeví dvakrát:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT COUNT(*) AS rows_after_join
+FROM invoices AS i
+JOIN credit_limits AS l
+  ON l.policy_id = i.policy_id AND l.buyer_id = i.buyer_id;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 80, přestože faktur je jen 78. Smlouva 18 má pro odběratele 2 dva řádky úvěrového limitu (snížený limit a novou otevřenou žádost), takže každá ze dvou faktur tohoto odběratele se započítá dvakrát. Když sčítáš částky, vždy porovnej počet řádků před joinem a po něm.</p>
+<h3 id="m10-left-join-a-pro-se-objevuj-null">LEFT JOIN a proč se objevují NULL <span class="prio prio-p1">P1</span></h3>
+<p><code>LEFT JOIN</code> ponechá <strong>každý řádek z levé tabulky</strong> (té za <code>FROM</code>). Kde má pravá tabulka shodu, doplní se její sloupce. Kde shoda není, jsou sloupce pravé strany <code>NULL</code>.</p>
+<p>Porovnej tyto dva dotazy:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.id, b.name, b.country_code, co.name AS country, co.risk_category
+FROM buyers AS b
+INNER JOIN countries AS co ON co.code = b.country_code;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 24 řádků.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.id, b.name, b.country_code, co.name AS country, co.risk_category
+FROM buyers AS b
+LEFT JOIN countries AS co ON co.code = b.country_code
+ORDER BY co.risk_category DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 25 řádků. Odběratel 24, Baltic Timber Traders, nemá kód země, takže není s čím párovat. <code>INNER JOIN</code> ho bez varování vynechal; <code>LEFT JOIN</code> ho ponechá s <code>NULL</code> ve sloupcích <code>country</code> a <code>risk_category</code>. V reportu rizik je tiché vypadnutí odběratele skutečný problém.</p>
+<p>LEFT JOIN také odpoví na otázku „které záznamy <strong>nemají</strong> žádný související řádek?“:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.id, b.name
+FROM buyers AS b
+LEFT JOIN credit_limits AS l ON l.buyer_id = b.id
+WHERE l.id IS NULL;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 1 odběratel, Deccan Engineering Pvt Ltd, bez jakéhokoli úvěrového limitu.</p>
+<p>A ukáže škody s platbami i bez nich:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cl.id AS claim_id, cl.status, cl.indemnity_amount, p.id AS payment_id, p.amount
+FROM claims AS cl
+LEFT JOIN payments AS p ON p.claim_id = cl.id
+ORDER BY cl.id;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 17 řádků pro 15 škod. Škody 5 a 6 jsou tam dvakrát (vyplacené ve dvou splátkách). Škoda 7 má status PAID, ale sloupce platby jsou <code>NULL</code>: nekonzistence v datech.</p>
+<p>Praktické pravidlo: když otázka zní „všechna X, a k nim Y, pokud existuje“, použij <code>LEFT JOIN</code> s X vlevo. Existují i <code>RIGHT JOIN</code> a <code>FULL OUTER JOIN</code>; right join vždy přepíšeš na left join prohozením tabulek.</p>
+<h3 id="m10-spojen-v-ce-tabulek">Spojení více tabulek <span class="prio prio-p1">P1</span></h3>
+<p>Postupuj krok za krokem po cizích klíčích (foreign keys). Škoda → faktura → smlouva → zákazník a faktura → odběratel → země:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cl.id AS claim_id,
+       cu.name AS exporter,
+       b.name  AS buyer,
+       co.name AS buyer_country,
+       i.invoice_no,
+       cl.claimed_amount,
+       i.currency,
+       cl.status
+FROM claims AS cl
+JOIN invoices  AS i  ON i.id  = cl.invoice_id
+JOIN policies  AS p  ON p.id  = i.policy_id
+JOIN customers AS cu ON cu.id = p.customer_id
+JOIN buyers    AS b  ON b.id  = i.buyer_id
+LEFT JOIN countries AS co ON co.code = b.country_code
+ORDER BY cl.id;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 15 řádků, jeden za každou škodu, čitelné i pro business uživatele. Škoda 1: Moravia AgroTech a.s. proti Parana Agro Comercial Ltda (Brazílie), 24 200 EUR, PAID. Poslední join je záměrně LEFT JOIN, aby odběratel bez země nevypadl.</p>
+<p>Tip: dlouhé joiny stav po jedné tabulce a po každém kroku zkontroluj počet řádků.</p>
+<h3 id="m10-case-when">CASE WHEN <span class="prio prio-p1">P1</span></h3>
+<p><code>CASE</code> vytvoří hodnotu podle podmínek, které se vyhodnocují shora dolů; vyhrává první pravdivá větev.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT code, name, risk_category,
+       CASE
+         WHEN risk_category &lt;= 2 THEN &#x27;Low&#x27;
+         WHEN risk_category &lt;= 4 THEN &#x27;Medium&#x27;
+         ELSE &#x27;High&#x27;
+       END AS risk_band
+FROM countries;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>V kombinaci s <code>GROUP BY</code> je z CASE rychlá segmentace:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT CASE
+         WHEN risk_category &lt;= 2 THEN &#x27;Low&#x27;
+         WHEN risk_category &lt;= 4 THEN &#x27;Medium&#x27;
+         ELSE &#x27;High&#x27;
+       END AS risk_band,
+       COUNT(*) AS limits,
+       SUM(l.requested_amount) AS requested,
+       SUM(l.approved_amount)  AS approved
+FROM credit_limits AS l
+JOIN buyers AS b     ON b.id = l.buyer_id
+JOIN countries AS co ON co.code = b.country_code
+WHERE l.status &lt;&gt; &#x27;REQUESTED&#x27;
+GROUP BY risk_band
+ORDER BY risk_band;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: High 14 limitů (3,39 milionu požadováno, 1,43 milionu schváleno), Low 19 (3,76 / 3,40 milionu), Medium 5. Underwriteři v rizikových zemích schvalují mnohem menší podíl, jak se dá čekat. Pečlivý analytik zmíní dvě výhrady: částky míchají EUR a USD a jedno rozhodnutí o limitu chybí (rozhodnutí je 39, pásma dávají dohromady 38), protože odběratele bez země vyřadil INNER JOIN.</p>
+<p>Častý vzor je počítání pomocí CASE: <code>SUM(CASE WHEN status = &#x27;REJECTED&#x27; THEN 1 ELSE 0 END)</code> spočítá zamítnuté řádky uvnitř skupiny.</p>
+<h3 id="m10-datumy-v-sqlite">Datumy v SQLite <span class="prio prio-p1">P1</span></h3>
+<p>SQLite nemá samostatný datový typ pro datum; data se ukládají jako text <code>YYYY-MM-DD</code> a pracuje se s nimi pomocí funkcí:</p>
+<ul><li><code>date(&#x27;2026-09-30&#x27;, &#x27;-90 days&#x27;)</code> vrátí <code>2026-07-02</code>.</li><li><code>strftime(&#x27;%Y-%m&#x27;, issue_date)</code> vrátí rok a měsíc, např. <code>2026-03</code>.</li><li><code>julianday(date)</code> převede datum na pořadové číslo dne, takže rozdíl dvou takových čísel je počet dní mezi nimi.</li><li><code>date(&#x27;now&#x27;)</code> je dnešní datum; my místo něj používáme pevné datum snímku.</li></ul>
+<p>Počet dní po splatnosti u nezaplacených faktur:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, due_date,
+       CAST(julianday(&#x27;2026-09-30&#x27;) - julianday(due_date) AS INTEGER) AS days_overdue
+FROM invoices
+WHERE paid_date IS NULL
+  AND due_date &lt; &#x27;2026-09-30&#x27;
+ORDER BY days_overdue DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 23 faktur po splatnosti, nejstarší 798 dní po splatnosti (INV-2024-02003).</p>
+<p>Faktury po měsících:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT strftime(&#x27;%Y-%m&#x27;, issue_date) AS month, COUNT(*) AS invoices
+FROM invoices
+WHERE issue_date &gt;= &#x27;2026-01-01&#x27;
+GROUP BY month
+ORDER BY month;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 9 měsíců; nejvíc faktur má leden 2026 (10).</p>
+<p><strong>Jiné databáze se liší.</strong> SQL Server používá <code>DATEDIFF(day, a, b)</code> a <code>GETDATE()</code>, Oracle data přímo odečítá a používá <code>SYSDATE</code>, PostgreSQL používá <code>CURRENT_DATE</code> a <code>date_part</code>. Principy jsou stejné; názvy funkcí si dohledej pro databázi, se kterou pracuješ.</p>
+<h3 id="m10-poddotazy-a-exists">Poddotazy a EXISTS <span class="prio prio-p2">P2</span></h3>
+<p><strong>Subquery</strong> (poddotaz) je dotaz uvnitř jiného dotazu, v závorkách.</p>
+<p>Faktury nad průměrnou EUR fakturou:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency
+FROM invoices
+WHERE currency = &#x27;EUR&#x27;
+  AND amount &gt; (SELECT AVG(amount) FROM invoices WHERE currency = &#x27;EUR&#x27;)
+ORDER BY amount DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 22 faktur (průměr EUR je zhruba 42 900).</p>
+<p><code>EXISTS</code> ověřuje, zda související řádek existuje. Zákazníci s alespoň jednou škodou:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cu.id, cu.name
+FROM customers AS cu
+WHERE EXISTS (
+  SELECT 1
+  FROM claims cl
+  JOIN invoices i ON i.id = cl.invoice_id
+  JOIN policies p ON p.id = i.policy_id
+  WHERE p.customer_id = cu.id
+);</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 7 zákazníků. <code>NOT EXISTS</code> dá opak. <code>NOT IN</code> s poddotazem funguje také, ale nevrátí nic, pokud poddotaz obsahuje NULL, takže <code>NOT EXISTS</code> je bezpečnější zvyk:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT name FROM buyers
+WHERE id NOT IN (SELECT buyer_id FROM invoices);</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 3 odběratelé, kteří nikdy nedostali fakturu.</p>
+<h3 id="m10-common-table-expressions-with">Common table expressions (WITH) <span class="prio prio-p2">P2</span></h3>
+<p><strong>CTE</strong> (common table expression) dá poddotazu jméno na začátku dotazu, takže se složitý dotaz čte po krocích.</p>
+<div class="kod"><pre><code class="jazyk-sql">WITH overdue AS (
+  SELECT i.*, p.customer_id
+  FROM invoices i
+  JOIN policies p ON p.id = i.policy_id
+  WHERE i.paid_date IS NULL
+    AND i.due_date &lt; &#x27;2026-09-30&#x27;
+)
+SELECT cu.name, COUNT(*) AS overdue_invoices, SUM(o.amount) AS overdue_amount, o.currency
+FROM overdue o
+JOIN customers cu ON cu.id = o.customer_id
+GROUP BY cu.name, o.currency
+ORDER BY overdue_amount DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 11 řádků; Polabi Chemicals a.s. má největší částku po splatnosti v EUR (3 faktury, 139 100). Seskupení i podle měny drží EUR a USD odděleně.</p>
+<h3 id="m10-window-functions-ochutn-vka">Window functions (ochutnávka) <span class="prio prio-p3">P3</span></h3>
+<p><strong>Window functions</strong> (okenní funkce) počítají přes související řádky, <em>aniž</em> by je slučovaly do jednoho řádku. <code>ROW_NUMBER()</code> očísluje řádky uvnitř skupiny:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.name AS buyer, i.invoice_no, i.amount,
+       ROW_NUMBER() OVER (PARTITION BY i.buyer_id ORDER BY i.amount DESC) AS rank_in_buyer
+FROM invoices i
+JOIN buyers b ON b.id = i.buyer_id
+WHERE i.currency = &#x27;EUR&#x27;
+ORDER BY b.name, rank_in_buyer
+LIMIT 8;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: faktury každého odběratele očíslované od největší; Alpenmarkt Vertrieb GmbH jich má pět. Další užitečné: <code>SUM(...) OVER (ORDER BY date)</code> pro průběžné součty, <code>LAG()</code> pro porovnání s předchozím řádkem. Podporuje je SQLite od verze 3.25 a všechny hlavní databáze.</p>
+<h3 id="m10-insert-update-delete-st-nespou-t-t">INSERT, UPDATE, DELETE: číst, nespouštět <span class="prio prio-p2">P2</span></h3>
+<p>Tyto příkazy mění data. Měla bys jim rozumět, když je uvidíš v migračním skriptu, v přípravě testovacích dat nebo v opravě od dodavatele:</p>
+<div class="kod"><pre><code class="jazyk-sql">INSERT INTO countries (code, name, risk_category)
+VALUES (&#x27;MX&#x27;, &#x27;Mexico&#x27;, 4);
+
+UPDATE credit_limits
+SET approved_amount = 0
+WHERE id = 6;
+
+DELETE FROM payments
+WHERE id = 8;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Nejnebezpečnější chyba je <code>UPDATE</code> nebo <code>DELETE</code> bez <code>WHERE</code>: změní každý řádek v tabulce.</p>
+<p>Proč analytik v produkci data skoro nezapisuje:</p>
+<ul><li><strong>Audit a odpovědnost</strong>: v regulované pojišťovně musí být každá změna smlouvy nebo škody dohledatelná k osobě, důvodu a schválení. Aplikace to zaznamená; ruční <code>UPDATE</code> to obejde.</li><li><strong>Business logika</strong>: aplikace zároveň zapisuje historii, posílá notifikace a aktualizuje související záznamy. Přímá změna to všechno přeskočí a data zůstanou nekonzistentní.</li><li><strong>Segregation of duties</strong> (oddělení povinností): kdo změnu specifikuje, neměl by ji sám bez kontroly provádět.</li><li><strong>Change management</strong> (řízení změn): opravy dat jdou přes schválený skript, nejdřív otestovaný, který spustí dodavatel nebo provozní tým.</li></ul>
+<p>V testovacím prostředí nebo ve vlastní kopii dat (jako SQL playground) je experimentování v pořádku. Když data v playgroundu rozbiješ, načti je znovu.</p>
+<h3 id="m10-jak-analytik-pou-v-sql-v-pr-ci">Jak analytik používá SQL v práci <span class="prio prio-p1">P1</span></h3>
+<p><strong>1. Odpovědi na business otázky.</strong> „Kolik rozhodnutí o úvěrových limitech jsme udělali a jak dlouho trvala?“</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT COUNT(*) AS decisions,
+       ROUND(AVG(julianday(decided_on) - julianday(requested_on)), 1) AS avg_days,
+       SUM(CASE WHEN julianday(decided_on) - julianday(requested_on) &gt; 14 THEN 1 ELSE 0 END) AS over_14_days
+FROM credit_limits
+WHERE decided_on IS NOT NULL;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 39 rozhodnutí, v průměru 12,5 dne, 18 trvalo déle než 14 dní.</p>
+<p><strong>2. Vyčíslení problému pro business case.</strong> Poslední výsledek je velikost problému: skoro polovina rozhodnutí trvá déle než dva týdny. Pokud navrhovaná integrace s ARES ušetří na žádosti den, máš základ pro výpočet přínosu. Vždy uveď období, zdroj a výhrady (tady: jeden záznam má zápornou délku, chyba v datech).</p>
+<p><strong>3. Ověření výsledků testů.</strong> Převeď akceptační kritérium na dotaz, který musí vrátit nula řádků. Kritérium: „Limit APPROVED nebo REDUCED má vždy schválenou částku větší než nula a ne vyšší než požadovanou částku.“</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, status, requested_amount, approved_amount
+FROM credit_limits
+WHERE status IN (&#x27;APPROVED&#x27;, &#x27;REDUCED&#x27;)
+  AND (approved_amount &lt;= 0 OR approved_amount &gt; requested_amount);</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Výsledek: 0 řádků, takže v těchto datech kritérium platí. Takový dotaz můžeš pustit znovu po každém releasu.</p>
+<p><strong>4. Kontrola kvality dat.</strong> Hledej řádky, které porušují pravidla: chybějící hodnoty, neplatné formáty, rozpory, duplicity. Cvičení níže obsahují několik takových kontrol. Zjištění hlas s počty, příklady a dopadem, ne jen „data jsou špatná“.</p>
+<p>Zvyky, které tě ochrání před problémy: začni <code>SELECT * ... LIMIT 10</code>, abys data viděla; počítej řádky před každým joinem a po něm; nikdy nesčítej různé měny; ke každému číslu, které někomu posíláš, napiš datum snímku a použité filtry.</p>
+<h3 id="m10-e-en">Řešení</h3>
+<aside class="box box-tip"><strong class="box-nadpis">Tip</strong><p>Nejdřív zkus cvičení v sekci Hands-on. Porovnávej, až když máš vlastní dotaz; často existuje víc správných řešení. Všechny výsledky níže platí pro datovou sadu ExportShield s datem snímku 2026-09-30.</p></aside>
+<p><strong>1.</strong> 3 řádky: Rheinwerk Handels, Nordhafen Logistik, Bavaria Bau Supplies.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, name, sector
+FROM buyers
+WHERE country_code = &#x27;DE&#x27;;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>2.</strong> SME 8, CORPORATE 5, MICRO 2.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT segment, COUNT(*) AS customers
+FROM customers
+GROUP BY segment
+ORDER BY customers DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>3.</strong> 11 faktur; dvě z nich jsou v USD, takže „nad 100 000“ znamená různé hodnoty.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency
+FROM invoices
+WHERE amount &gt; 100000
+ORDER BY amount DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>4.</strong> 4 otevřené žádosti, ID 40 až 43, nejstarší z 2026-09-08.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, policy_id, buyer_id, requested_amount, currency, requested_on
+FROM credit_limits
+WHERE status = &#x27;REQUESTED&#x27;
+ORDER BY requested_on;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>5.</strong> 2 řádky se stejným IČO: stejný exportér registrovaný dvakrát (problém jedinečnosti).</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, name, ico
+FROM customers
+WHERE name LIKE &#x27;%Glass%&#x27;;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>6.</strong> EUR 5 004 000 a USD 980 000.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT currency, SUM(approved_amount) AS total_approved
+FROM credit_limits
+WHERE status IN (&#x27;APPROVED&#x27;, &#x27;REDUCED&#x27;)
+GROUP BY currency;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>7.</strong> E. Kralova 12, J. Marek 10, T. Bily 10, P. Novotna 7.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT underwriter, COUNT(*) AS decisions
+FROM credit_limits
+WHERE decided_on IS NOT NULL
+GROUP BY underwriter
+ORDER BY decisions DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>8.</strong> 8 odběratelů; první Dnipro Agro Holding (Ukrajina, 7). Odběratel bez země v seznamu není, a i to je zjištění.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.name AS buyer, co.name AS country, co.risk_category
+FROM buyers AS b
+JOIN countries AS co ON co.code = b.country_code
+WHERE co.risk_category &gt;= 5
+ORDER BY co.risk_category DESC, b.name;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>9.</strong> 25 řádků; Steppe Rail Service má 4 limity, Deccan Engineering 0. Použij <code>COUNT(l.id)</code>, ne <code>COUNT(*)</code>, jinak odběratelé bez limitu ukážou 1.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.name AS buyer, COUNT(l.id) AS credit_limits
+FROM buyers AS b
+LEFT JOIN credit_limits AS l ON l.buyer_id = b.id
+GROUP BY b.id, b.name
+ORDER BY credit_limits DESC, b.name;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>10.</strong> E. Kralova 25,0 % (3 z 12), J. Marek 10,0 %, ostatní 0 %. Zápis <code>100.0</code> místo <code>100</code> zabrání celočíselnému dělení, které by zaokrouhlilo dolů na celá čísla.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT underwriter,
+       COUNT(*) AS decisions,
+       SUM(CASE WHEN status = &#x27;REJECTED&#x27; THEN 1 ELSE 0 END) AS rejected,
+       ROUND(100.0 * SUM(CASE WHEN status = &#x27;REJECTED&#x27; THEN 1 ELSE 0 END) / COUNT(*), 1) AS rejected_pct
+FROM credit_limits
+WHERE decided_on IS NOT NULL
+GROUP BY underwriter
+ORDER BY rejected_pct DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>11.</strong> Průměry mezi 10,6 a 14,9 dne. T. Bily má minimum -5 dní: limit 19 byl rozhodnut dřív, než o něj někdo požádal.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT underwriter,
+       ROUND(AVG(julianday(decided_on) - julianday(requested_on)), 1) AS avg_days,
+       MIN(julianday(decided_on) - julianday(requested_on)) AS min_days,
+       MAX(julianday(decided_on) - julianday(requested_on)) AS max_days
+FROM credit_limits
+WHERE decided_on IS NOT NULL
+GROUP BY underwriter;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>12.</strong> 5 faktur, od 176 dní po splatnosti (INV-2026-01001) až po 97. Jedna z nich (INV-2026-06005) má navíc datum splatnosti před datem vystavení.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT i.invoice_no, i.amount, i.currency, i.due_date,
+       CAST(julianday(&#x27;2026-09-30&#x27;) - julianday(i.due_date) AS INTEGER) AS days_overdue
+FROM invoices AS i
+WHERE i.paid_date IS NULL
+  AND julianday(&#x27;2026-09-30&#x27;) - julianday(i.due_date) &gt; 90
+  AND NOT EXISTS (SELECT 1 FROM claims AS cl WHERE cl.invoice_id = i.id)
+ORDER BY days_overdue DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>13.</strong> INV-2026-01002 je tam dvakrát.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, COUNT(*) AS occurrences
+FROM invoices
+GROUP BY invoice_no
+HAVING COUNT(*) &gt; 1;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>14.</strong> Škoda 7: status PAID, plnění 15 570, platby 0. <code>COALESCE(x, 0)</code> nahradí NULL nulou, takže se zachytí i škody úplně bez plateb.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cl.id, cl.status, cl.indemnity_amount,
+       COALESCE(SUM(p.amount), 0) AS paid_total
+FROM claims AS cl
+LEFT JOIN payments AS p ON p.claim_id = cl.id
+WHERE cl.status = &#x27;PAID&#x27;
+GROUP BY cl.id, cl.status, cl.indemnity_amount
+HAVING COALESCE(SUM(p.amount), 0) &lt;&gt; cl.indemnity_amount;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>15.</strong> 11 řádků. Nejvyšší podíl má Brazílie (153 400 nárokováno z 460 400 fakturováno, 33,3 %), pak Kazachstán 26,2 % a Slovensko 24,6 %. Odběratelé bez země se zobrazí jako „(missing country)“.</p>
+<div class="kod"><pre><code class="jazyk-sql">WITH invoiced AS (
+  SELECT COALESCE(b.country_code, &#x27;??&#x27;) AS country_code, SUM(i.amount) AS invoiced_eur
+  FROM invoices i
+  JOIN buyers b ON b.id = i.buyer_id
+  WHERE i.currency = &#x27;EUR&#x27;
+  GROUP BY COALESCE(b.country_code, &#x27;??&#x27;)
+),
+claimed AS (
+  SELECT COALESCE(b.country_code, &#x27;??&#x27;) AS country_code, SUM(cl.claimed_amount) AS claimed_eur
+  FROM claims cl
+  JOIN invoices i ON i.id = cl.invoice_id
+  JOIN buyers b   ON b.id = i.buyer_id
+  WHERE i.currency = &#x27;EUR&#x27;
+  GROUP BY COALESCE(b.country_code, &#x27;??&#x27;)
+)
+SELECT COALESCE(co.name, &#x27;(missing country)&#x27;) AS country,
+       inv.invoiced_eur,
+       COALESCE(cl.claimed_eur, 0) AS claimed_eur,
+       ROUND(100.0 * COALESCE(cl.claimed_eur, 0) / inv.invoiced_eur, 1) AS claimed_pct
+FROM invoiced inv
+LEFT JOIN claimed cl   ON cl.country_code = inv.country_code
+LEFT JOIN countries co ON co.code = inv.country_code
+ORDER BY claimed_pct DESC;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div><div class="hotovo"><label class="fajfka "><input type="checkbox" data-key="nat-read-10-deep"> <span>Část do hloubky mám prostudovanou</span></label></div></section><section role="tabpanel" id="panel-practice" aria-labelledby="tab-practice" class="panel" hidden><div class="cviceni" id="m10-e1"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e1"> <span>SQL úlohy 1–5: základy</span></label><span class="meta">30 min · SQL playground (sql.html)</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> zabydlet se v SELECT, WHERE, ORDER BY a GROUP BY nad daty ExportShield.</p>
+<p>Otevři SQL playground (<code>sql.html</code>), nebo nahraj <code>data/sql/exportshield.sql</code> do <a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a>. Na každou úlohu napiš jeden dotaz a poznamenej si počet řádků.</p>
+<ol><li>Vypiš všechny odběratele sídlící v Německu (kód země <code>DE</code>) s jejich odvětvím.</li><li>Kolik zákazníků je v každém segmentu? Seřaď od největší skupiny.</li><li>Vypiš faktury s částkou nad 100 000, od největší. Zobraz měnu. Co je špatně na porovnávání těchto částek?</li><li>Které žádosti o úvěrový limit stále čekají na rozhodnutí? Nejstarší první.</li><li>Najdi zákazníky, jejichž název obsahuje „Glass“. Čeho si všimneš?</li></ol>
+<p><strong>Hotovo, když:</strong> máš pět funkčních dotazů a k úlohám 3 a 5 poznámku o jedné větě. Řešení jsou na konci Deep dive.</p></div></div>
+<div class="cviceni" id="m10-e2"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e2"> <span>SQL úlohy 6–10: joiny a agregace</span></label><span class="meta">45 min · SQL playground (sql.html)</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> kombinovat tabulky a shrnovat data.</p>
+<ol><li>Celková schválená částka všech úvěrových limitů APPROVED a REDUCED, po měnách.</li><li>Počet rozhodnutí o úvěrovém limitu na underwritera (bez otevřených žádostí).</li><li>Odběratelé v zemích s rizikovou kategorií 5 a vyšší: jméno odběratele, název země, riziková kategorie, nejrizikovější první.</li><li>Každý odběratel s počtem svých úvěrových limitů, včetně odběratelů bez limitu. (Nápověda: LEFT JOIN, a přemýšlej, co počítáš.)</li><li>Míra zamítnutí na underwritera v procentech, zaokrouhlená na jedno desetinné místo. (Nápověda: CASE WHEN uvnitř SUM.)</li></ol>
+<p><strong>Hotovo, když:</strong> všech pět dotazů běží, úloha 9 vrací 25 řádků a umíš jednou větou vysvětlit, proč úloha 9 potřebuje LEFT JOIN.</p></div></div>
+<div class="cviceni" id="m10-e3"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e3"> <span>SQL úlohy 11–15: analytické otázky</span></label><span class="meta">60 min · SQL playground (sql.html)</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> používat SQL jako analytik: data, chybějící údaje, kvalita dat a business poměr.</p>
+<ol><li>Průměrný, minimální a maximální počet dní mezi žádostí a rozhodnutím o úvěrovém limitu, po underwriterech. Která hodnota nemůže být správně a který záznam ji způsobuje?</li><li>Nezaplacené faktury víc než 90 dní po splatnosti k 2026-09-30 <strong>bez</strong> jakékoli škody. Proč by tento seznam mohl zajímat oddělení škod?</li><li>Najdi duplicitní čísla faktur.</li><li>Najdi škody se statusem PAID, u nichž se součet plateb liší od výše plnění, včetně škod úplně bez plateb.</li><li>Jen pro faktury v EUR: po zemích odběratelů celková fakturovaná částka, celková nárokovaná částka a nárokovaný podíl v procentech. Odběratelé bez země nesmí zmizet. (Nápověda: dvě CTE, pak LEFT JOIN.)</li></ol>
+<p><strong>Hotovo, když:</strong> všech pět dotazů běží a ke každému nalezenému datovému problému máš jeden řádek: co je špatně, kolik řádků a pravděpodobný business dopad.</p></div></div>
+<div class="cviceni" id="m10-e4"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e4"> <span>SQLBolt lekce 1–12</span></label><span class="meta">90 min · SQLBolt</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> procvičit základní syntaxi s okamžitou zpětnou vazbou, nezávisle na datech ExportShield.</p>
+<ol><li>Jdi na <a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a> a projdi lekce 1 až 12. Pokrývají SELECT, filtrování podmínkami, řazení, joiny včetně vnějších (outer joins), NULL, výrazy, agregace a pořadí, ve kterém se dotaz vykonává.</li><li>Po každé lekci napiš jeden dotaz stejného typu nad daty ExportShield v SQL playgroundu a zapiš si ho do vlastního taháku.</li><li>Po lekci 12 popiš vlastními slovy, v jakém pořadí databáze dotaz zpracovává (FROM a JOIN, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT) a proč z toho plyne, že alias ze SELECT nemůžeš použít ve WHERE.</li></ol>
+<p><strong>Hotovo, když:</strong> máš dokončených všech dvanáct lekcí a tvůj tahák obsahuje aspoň dvanáct dotazů nad ExportShield, jeden na lekci.</p></div></div></section><section role="tabpanel" id="panel-check" aria-labelledby="tab-check" class="panel" hidden><details class="otazka"><summary><span class="q">Jaký je rozdíl mezi WHERE a HAVING?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>WHERE filtruje jednotlivé řádky ještě před seskupením, takže nemůže používat agregace jako COUNT. HAVING filtruje skupiny po GROUP BY a agregaci, takže je používat může, například <code>HAVING COUNT(*) &gt;= 3</code>. V jednom dotazu můžeš použít obojí: WHERE odstraní zaplacené faktury a HAVING pak ponechá jen odběratele se třemi a více nezaplacenými.</p></div></details>
+<details class="otazka"><summary><span class="q">Proč <code>WHERE paid_date = NULL</code> nevrátí žádné řádky a co napsat místo toho?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>NULL znamená „neznámé“ a porovnání čehokoli s neznámou hodnotou dá výsledek „neznámé“, ne pravda. Řádky se vrací jen tehdy, když je podmínka pravdivá, takže žádný řádek neprojde. Napiš <code>WHERE paid_date IS NULL</code> (nebo <code>IS NOT NULL</code> pro opak).</p></div></details>
+<details class="otazka"><summary><span class="q">Spojíš <code>buyers</code> s <code>countries</code> přes INNER JOIN a dostaneš 24 řádků, ale odběratelů je 25. Co se stalo a jak to opravíš?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>Jeden odběratel nemá kód země, takže mu v <code>countries</code> neodpovídá žádný řádek a INNER JOIN ho vyřadí. Použij LEFT JOIN s <code>buyers</code> vlevo: zůstane všech 25 odběratelů a u odběratele bez shody budou sloupce země NULL. Pak rozhodni, jestli chybějící země je problém kvality dat, který je potřeba nahlásit.</p></div></details>
+<details class="otazka"><summary><span class="q">Po spojení faktur s úvěrovými limity je součet částek faktur vyšší než prostý součet přes faktury. Proč?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>Join znásobil řádky: když jedna faktura odpovídá dvěma řádkům úvěrového limitu (například existujícímu limitu a nové otevřené žádosti pro stejnou smlouvu a odběratele), faktura se objeví dvakrát a její částka se započítá dvakrát. Kontroluj počty řádků před joiny a po nich a ujisti se, že klíče joinu identifikují nejvýš jeden řádek na straně, kterou násobit nechceš.</p></div></details>
+<details class="otazka"><summary><span class="q">Jaký je rozdíl mezi <code>COUNT(*)</code> a <code>COUNT(paid_date)</code>?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p><code>COUNT(*)</code> počítá všechny řádky. <code>COUNT(paid_date)</code> počítá jen řádky, kde <code>paid_date</code> není NULL. V tabulce faktur to dává 78 a 47: zaplacených faktur je 47. Rozdíl je rychlá kontrola úplnosti nebo stavu.</p></div></details>
+<details class="otazka"><summary><span class="q">Kolega chce „celkovou hodnotu faktur po splatnosti“. Na co se zeptáš, než napíšeš dotaz?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>K jakému datu, a patří tam i faktury zaplacené pozdě, ale už zaplacené? Po splatnosti o jakýkoli počet dní, nebo nad nějaký práh? V jaké měně, a pokud jich je víc, přepočítat kurzem (jakým), nebo vykázat odděleně? Zahrnout faktury, ke kterým už existuje škoda? Jen u aktivních smluv? Když tyto předpoklady napíšeš k číslu, nestane se, že dva lidé dostanou různé součty.</p></div></details>
+<details class="otazka"><summary><span class="q">Proč business analytici v produkčních databázích skoro nespouštějí UPDATE ani DELETE?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>Přímé změny obcházejí business logiku aplikace, historii a notifikace, takže data mohou skončit nekonzistentní. Obcházejí také audit a schvalování, které regulované firmy jako pojišťovny a banky mít musí. Opravy dat proto jdou přes schválené, otestované skripty, které spouští odpovědný tým. Analytik specifikuje, co se má změnit, a výsledek ověří pomocí SELECT.</p></div></details>
+<details class="otazka"><summary><span class="q">Jak pomocí SQL ověříš akceptační kritérium?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>Přepiš kritérium na dotaz, který hledá porušení, takže očekávaný výsledek je nula řádků. Pro „schválený limit nikdy není vyšší než požadovaná částka“ vyber limity, kde <code>approved_amount &gt; requested_amount</code>. Spusť ho po testu a po každém releasu; každý vrácený řádek je defekt s konkrétním důkazem.</p></div></details></section><section role="tabpanel" id="panel-interview" aria-labelledby="tab-interview" class="panel" hidden><details class="pohovor"><summary><span class="q">Jaký je rozdíl mezi INNER JOIN a LEFT JOIN? Uveď příklad. <em>EN: What is the difference between INNER JOIN and LEFT JOIN? Give an example.</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li>INNER JOIN vrací jen řádky, které mají shodu v obou tabulkách.</li><li>LEFT JOIN vrací všechny řádky z levé tabulky; sloupce z pravé tabulky jsou NULL tam, kde nic neodpovídá.</li><li>Příklad: všichni odběratelé s jejich zemí; odběratel bez země s INNER JOIN zmizí, s LEFT JOIN zůstane.</li><li>LEFT JOIN plus <code>WHERE right.id IS NULL</code> najde záznamy bez souvisejícího záznamu (odběratelé bez úvěrového limitu).</li></ul>
+<p>Typická chyba: vysvětlovat joiny jen Vennovými diagramy a neříct, co se stane s řádky bez shody a proč se objevují NULL.</p></div></details>
+<details class="pohovor"><summary><span class="q">Jak jsi používala SQL v práci nebo v projektech? <em>EN: How have you used SQL in your work or projects?</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li>Konkrétní otázka, na kterou jsi odpověděla čísly, např. jak dlouho trvají rozhodnutí o úvěrových limitech.</li><li>Ověřování výsledků testů: akceptační kritéria přepsaná na dotazy, které musí vrátit nula řádků.</li><li>Kontroly kvality dat: duplicity, chybějící hodnoty, protichůdná data, s počty a dopadem.</li><li>Vyčíslení problému pro business case.</li><li>Co bys nedělala: měnit produkční data napřímo.</li></ul>
+<p>Typická chyba: říct „umím SQL“ bez jediného příkladu otázky, na kterou pomohlo odpovědět.</p></div></details>
+<details class="pohovor"><summary><span class="q">Napiš dotaz, který ukáže počet škod a celkovou nárokovanou částku podle statusu. <em>EN: Write a query that shows the number of claims and total claimed amount per status.</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li><code>SELECT status, COUNT(*) AS claims, SUM(claimed_amount) AS claimed FROM claims GROUP BY status ORDER BY claims DESC;</code></li><li>Při psaní krátce vysvětli každou klauzuli.</li><li>Zmiň problém s měnami: před sčítáním částek seskup i podle měny, nebo filtruj.</li><li>Zmiň kontrolu výsledku: součet počtů se rovná <code>SELECT COUNT(*) FROM claims</code>.</li></ul>
+<p>Typická chyba: vybrat sloupec, který není v GROUP BY ani v agregaci.</p></div></details>
+<details class="pohovor"><summary><span class="q">Jak kontroluješ kvalitu dat pomocí SQL? <em>EN: How do you check data quality with SQL?</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li>Úplnost (completeness): počty <code>IS NULL</code> a <code>COUNT(*)</code> versus <code>COUNT(column)</code>.</li><li>Platnost (validity): formáty a rozsahy, např. <code>length(ico) &lt;&gt; 8</code>, datum splatnosti před datem vystavení.</li><li>Konzistence (consistency): rozpory mezi poli a tabulkami, např. škody PAID bez plateb (LEFT JOIN).</li><li>Jedinečnost (uniqueness): <code>GROUP BY ... HAVING COUNT(*) &gt; 1</code>.</li><li>Uveď počet, příklady, dopad a příčinu (root cause) a navrhni preventivní validaci.</li></ul>
+<p>Typická chyba: vyjmenovat problémy, ale nevyčíslit je a neříct, proč jsou pro business důležité.</p></div></details></section><section role="tabpanel" id="panel-resources" aria-labelledby="tab-resources" class="panel" hidden><h3>Udemy</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-u-the-complete-sql-bootcamp"></label><div><a href="https://www.udemy.com/course/the-complete-sql-bootcamp/" target="_blank" rel="noopener">The Complete SQL Bootcamp: Go from Zero to Hero</a> <span class="stitek stitek-core">Hlavní</span><div class="meta">Jose Portilla · 9 h · ★ 4,6 (259 186 hodnocení) · aktualizace 2022-12</div><p>Klasický SQL kurz (260 tisíc hodnocení). Používá PostgreSQL, SQL hřiště na tomto webu běží na SQLite – základní SQL je stejné.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-u-learn-sql-from-scratch"></label><div><a href="https://www.udemy.com/course/learn-sql-from-scratch/" target="_blank" rel="noopener">SQL for Beginners: The Easiest Way to Learn SQL Step by Step</a> <span class="stitek">Volitelný</span><div class="meta">Code Star Academy · 8,5 h · ★ 4,6 (10 720 hodnocení) · aktualizace 2026-09</div><p>Alternativa k SQL Bootcampu, pokud ti vyhovuje pomalejší tempo. Aktualizováno 2026.</p></div></li></ul><h3>Videa (zdarma)</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-sql-alex-pl"></label><div><a href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8GT6N5ne2qpf603sF26m2PW" target="_blank" rel="noopener">SQL Basics for Data Analysts (playlist)</a><div class="meta">Alex The Analyst · Začátečník</div><p>SELECT, WHERE, GROUP BY, ORDER BY v krocích po 6–8 minutách.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-sql-alex-4h"></label><div><a href="https://www.youtube.com/watch?v=OT1RErkfLNQ" target="_blank" rel="noopener">Learn SQL Beginner to Advanced in Under 4 Hours</a><div class="meta">Alex The Analyst · 245 min · Začátečník až mírně pokročilý</div><p>Celý kurz zdarma: joiny, CTE, window functions.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-sql-fcc"></label><div><a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" rel="noopener">SQL Tutorial – Full Database Course for Beginners</a><div class="meta">freeCodeCamp.org · 261 min · Začátečník</div><p>Klasický celý kurz včetně návrhu databáze.</p></div></li></ul><h3>Nástroje k vyzkoušení</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-sqllab"></label><div><a href="../sql.html">SQL lab (this site)</a> <span class="stitek">Zdarma · přímo na webu</span><p>SQLite v tvém prohlížeči s datasetem ExportShield. Bez instalace, nic neopouští tvůj počítač.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-sqlbolt"></label><div><a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a> <span class="stitek">Zdarma · v prohlížeči</span><p>Krátké interaktivní lekce SQL s cvičeními. Dobrá rozcvička před modulem SQL.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-sqliteonline"></label><div><a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a> <span class="stitek">Zdarma · v prohlížeči</span><p>Online SQL editor: vlož skript ExportShield a dotazuj se v nástroji, který vypadá jako skutečný databázový klient.</p></div></li></ul><h3>Ke čtení (zdarma)</h3><ul class='zdroje'><li class="zdroj zdroj-bez"><div><a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">SQL tutoriál W3Schools</a><p>Rychlá příručka s editorem na vyzkoušení ke každému SQL příkazu.</p></div></li></ul></section>
+</div>
+<nav class="dalsi" aria-label="Navigace mezi moduly"><a href="09.html">← 09 Data a databáze pro analytiky</a><a href="11.html">11 API, JSON/XML a integrace systémů →</a></nav>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · samostudium k pozici IT Business Analyst · postup se ukládá v tomto prohlížeči
+  <span data-ucet-info hidden>a po přihlášení Googlem i v účtu</span>.</p>
+  <p class="pozn">Odkazy na Udemy a YouTube vedou na cizí weby. Obsah kurzů se sem nekopíruje, všechny výklady jsou vlastní.</p>
+</footer>
+<script src="../../assets/ucet-konfig.js"></script>
+<script src="../../assets/ucet.js"></script>
+<script src="../../assets/app.js"></script>
+
+</body>
+</html>

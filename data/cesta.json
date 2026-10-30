@@ -1,0 +1,268 @@
+{
+ "_pozn": "Studijní cesta (Full = vše, Essentials = essentials:true). Pole *_cs = český překlad.",
+ "steps": [
+  {
+   "weeks": "1",
+   "title": "What a BA actually does",
+   "modules": [
+    "01"
+   ],
+   "courses": [
+    "business-analysis-ba"
+   ],
+   "do": "Read module 01, start the BA Fundamentals course. Map your own automation work to BA activities (exercise m01-e1).",
+   "milestone": "You can explain the BA role in two minutes.",
+   "essentials": true,
+   "title_cs": "Co BA doopravdy dělá",
+   "do_cs": "Přečti si modul 01, začni kurz BA Fundamentals. Přiřaď svou vlastní automatizační práci k činnostem BA (cvičení m01-e1).",
+   "milestone_cs": "Umíš za dvě minuty vysvětlit roli BA."
+  },
+  {
+   "weeks": "2",
+   "title": "How IT projects run",
+   "modules": [
+    "02"
+   ],
+   "courses": [
+    "agile-fundamentals-scrum-kanban-scrumban"
+   ],
+   "do": "Module 02, Agile Fundamentals course. Finish BA Fundamentals.",
+   "milestone": "You know Scrum roles and events and what UAT/PROD mean.",
+   "essentials": true,
+   "title_cs": "Jak běží IT projekty",
+   "do_cs": "Modul 02, kurz Agile Fundamentals. Dokonči BA Fundamentals.",
+   "milestone_cs": "Znáš role a události Scrumu a víš, co znamená UAT/PROD."
+  },
+  {
+   "weeks": "3",
+   "title": "Problems before solutions",
+   "modules": [
+    "03"
+   ],
+   "courses": [
+    "identify-the-problem"
+   ],
+   "do": "Module 03. Write a problem statement and a small business case.",
+   "milestone": "Capstone step 1: problem statement.",
+   "essentials": false,
+   "title_cs": "Nejdřív problém, pak řešení",
+   "do_cs": "Modul 03. Napiš problem statement a malý business case.",
+   "milestone_cs": "Krok 1 závěrečného projektu: problem statement."
+  },
+  {
+   "weeks": "4–5",
+   "title": "BPMN process modeling",
+   "modules": [
+    "04"
+   ],
+   "courses": [
+    "bpmnwithbrian"
+   ],
+   "do": "Module 04 Deep dive, BPMN course, model AS-IS and TO-BE in bpmn.io.",
+   "milestone": "Capstone step 2: AS-IS and TO-BE BPMN.",
+   "essentials": true,
+   "title_cs": "Modelování procesů v BPMN",
+   "do_cs": "Modul 04 do hloubky (Deep dive), kurz BPMN, vymodeluj AS-IS a TO-BE v bpmn.io.",
+   "milestone_cs": "Krok 2 závěrečného projektu: AS-IS a TO-BE v BPMN."
+  },
+  {
+   "weeks": "6",
+   "title": "Eliciting requirements",
+   "modules": [
+    "05"
+   ],
+   "courses": [],
+   "do": "Module 05. Run a mock stakeholder interview.",
+   "milestone": "Capstone step 3: interview notes and stakeholder map.",
+   "essentials": false,
+   "title_cs": "Elicitace požadavků",
+   "do_cs": "Modul 05. Udělej cvičný rozhovor se stakeholderem.",
+   "milestone_cs": "Krok 3 závěrečného projektu: poznámky z rozhovoru a mapa stakeholderů."
+  },
+  {
+   "weeks": "7–8",
+   "title": "Writing specifications",
+   "modules": [
+    "06"
+   ],
+   "courses": [
+    "business-analysis-write-manage-prioritize-requirements"
+   ],
+   "do": "Module 06 Deep dive, Requirements Mastery course. Write a vendor-facing functional specification.",
+   "milestone": "Capstone step 4: functional specification.",
+   "essentials": true,
+   "title_cs": "Psaní specifikací",
+   "do_cs": "Modul 06 do hloubky (Deep dive), kurz Requirements Mastery. Napiš funkční specifikaci pro dodavatele.",
+   "milestone_cs": "Krok 4 závěrečného projektu: funkční specifikace."
+  },
+  {
+   "weeks": "9",
+   "title": "User stories, Gherkin, Jira",
+   "modules": [
+    "07"
+   ],
+   "courses": [
+    "writing-effective-user-stories"
+   ],
+   "do": "Module 07, User Story course. Set up a free Jira board with a backlog.",
+   "milestone": "Capstone step 5: backlog with stories and acceptance criteria.",
+   "essentials": true,
+   "title_cs": "User stories, Gherkin, Jira",
+   "do_cs": "Modul 07, kurz o user stories. Založ si bezplatný Jira board s backlogem.",
+   "milestone_cs": "Krok 5 závěrečného projektu: backlog se stories a acceptance criteria."
+  },
+  {
+   "weeks": "10",
+   "title": "UML diagrams",
+   "modules": [
+    "08"
+   ],
+   "courses": [
+    "visual-modeling-master-class"
+   ],
+   "do": "Module 08. Sequence diagram of the ARES lookup, state diagram of a claim.",
+   "milestone": "You can read and draw use case, sequence and state diagrams.",
+   "essentials": false,
+   "title_cs": "UML diagramy",
+   "do_cs": "Modul 08. Sekvenční diagram vyhledání v ARES, stavový diagram pojistné události.",
+   "milestone_cs": "Umíš číst a kreslit use case, sekvenční a stavové diagramy."
+  },
+  {
+   "weeks": "11",
+   "title": "Data and databases",
+   "modules": [
+    "09"
+   ],
+   "courses": [],
+   "do": "Module 09. Draw the ER diagram of the ExportShield dataset.",
+   "milestone": "Capstone step 6: data model.",
+   "essentials": false,
+   "title_cs": "Data a databáze",
+   "do_cs": "Modul 09. Nakresli ER diagram datasetu ExportShield.",
+   "milestone_cs": "Krok 6 závěrečného projektu: datový model."
+  },
+  {
+   "weeks": "12–13",
+   "title": "SQL",
+   "modules": [
+    "10"
+   ],
+   "courses": [
+    "the-complete-sql-bootcamp"
+   ],
+   "do": "Module 10, SQL Bootcamp (sections on SELECT, JOIN, GROUP BY are the priority), 15 tasks in the SQL playground.",
+   "milestone": "Capstone step 7: SQL queries answering business questions.",
+   "essentials": true,
+   "title_cs": "SQL",
+   "do_cs": "Modul 10, SQL Bootcamp (přednost mají části o SELECT, JOIN, GROUP BY), 15 úloh v SQL hřišti.",
+   "milestone_cs": "Krok 7 závěrečného projektu: SQL dotazy, které odpovídají na byznysové otázky."
+  },
+  {
+   "weeks": "14–15",
+   "title": "APIs, JSON, XML",
+   "modules": [
+    "11"
+   ],
+   "courses": [
+    "api-with-postman-for-absolute-beginners",
+    "api-documentation-1-json-and-xml"
+   ],
+   "do": "Module 11, both API courses, Postman collection with ARES and JSONPlaceholder.",
+   "milestone": "Capstone step 8: integration specification and Postman collection.",
+   "essentials": true,
+   "title_cs": "API, JSON, XML",
+   "do_cs": "Modul 11, oba kurzy o API, kolekce v Postmanu s ARES a JSONPlaceholder.",
+   "milestone_cs": "Krok 8 závěrečného projektu: specifikace integrace a kolekce v Postmanu."
+  },
+  {
+   "weeks": "16",
+   "title": "Systems and architecture",
+   "modules": [
+    "12"
+   ],
+   "courses": [],
+   "do": "Module 12. C4 context diagram of the ExportShield landscape.",
+   "milestone": "You can follow an architect's whiteboard.",
+   "essentials": false,
+   "title_cs": "Systémy a architektura",
+   "do_cs": "Modul 12. Kontextový diagram C4 prostředí ExportShield.",
+   "milestone_cs": "Zvládneš sledovat, co architekt kreslí na tabuli."
+  },
+  {
+   "weeks": "17",
+   "title": "Testing and UAT",
+   "modules": [
+    "13"
+   ],
+   "courses": [
+    "software-testing-business-analyst"
+   ],
+   "do": "Module 13, testing course. Test cases and a UAT plan.",
+   "milestone": "Capstone step 9: UAT plan and test cases.",
+   "essentials": true,
+   "title_cs": "Testování a UAT",
+   "do_cs": "Modul 13, kurz testování. Test cases a UAT plán.",
+   "milestone_cs": "Krok 9 závěrečného projektu: UAT plán a test cases."
+  },
+  {
+   "weeks": "18–19",
+   "title": "Low-code automation",
+   "modules": [
+    "14"
+   ],
+   "courses": [
+    "microsoft-power-automate-crash-course"
+   ],
+   "do": "Module 14, Power Automate course. Build the credit-limit automation in Make or Power Automate.",
+   "milestone": "Capstone step 10: a working automation.",
+   "essentials": true,
+   "title_cs": "Low-code automatizace",
+   "do_cs": "Modul 14, kurz Power Automate. Postav automatizaci úvěrového limitu v Make nebo Power Automate.",
+   "milestone_cs": "Krok 10 závěrečného projektu: funkční automatizace."
+  },
+  {
+   "weeks": "20–21",
+   "title": "AI in business processes",
+   "modules": [
+    "15"
+   ],
+   "courses": [
+    "ai-for-business-analysts-the-complete-training-course"
+   ],
+   "do": "Module 15, AI for BA course. Design an AI-assisted triage with evaluation criteria.",
+   "milestone": "Capstone step 11: AI use-case canvas.",
+   "essentials": false,
+   "title_cs": "AI v byznysových procesech",
+   "do_cs": "Modul 15, kurz AI for BA. Navrhni třídění (triage) s pomocí AI včetně kritérií vyhodnocení.",
+   "milestone_cs": "Krok 11 závěrečného projektu: AI use-case canvas."
+  },
+  {
+   "weeks": "22",
+   "title": "Stakeholders and presenting",
+   "modules": [
+    "16"
+   ],
+   "courses": [],
+   "do": "Module 16. Weekly status report and a 5-minute recorded presentation.",
+   "milestone": "Capstone step 12: final presentation.",
+   "essentials": false,
+   "title_cs": "Stakeholdeři a prezentace",
+   "do_cs": "Modul 16. Týdenní status report a 5minutová nahraná prezentace.",
+   "milestone_cs": "Krok 12 závěrečného projektu: závěrečná prezentace."
+  },
+  {
+   "weeks": "23–24",
+   "title": "Interview ready",
+   "modules": [
+    "17"
+   ],
+   "courses": [],
+   "do": "Module 17. STAR stories, mock case, portfolio. Start applying.",
+   "milestone": "Portfolio done, first interviews booked.",
+   "essentials": true,
+   "title_cs": "Připraven na pohovor",
+   "do_cs": "Modul 17. Příběhy metodou STAR, cvičná případová studie, portfolio. Začni posílat přihlášky.",
+   "milestone_cs": "Portfolio hotové, první pohovory domluvené."
+  }
+ ]
+}

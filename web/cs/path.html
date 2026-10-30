@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studijní cesta · BA Academy</title>
+<meta name="description" content="Samostudium od nuly k pozici IT Business Analyst.">
+<link rel="stylesheet" href="../assets/styl.css">
+<link rel="alternate" hreflang="en" href="../path.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Celkový postup"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="../path.html" lang="en" data-jazyk="en">EN</a><a href="#" lang="cs" aria-current="true" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Přihlásit</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Hlavní"><a href="index.html">Úvod</a><a href="path.html" aria-current="page">Studijní cesta</a><a href="modules.html">Moduly</a><a href="project.html">Capstone</a><a href="courses.html">Udemy</a><a href="videos.html">Videa</a><a href="tools.html">Nástroje</a><a href="sql.html">SQL lab</a><a href="api.html">API lab</a><a href="glossary.html">Slovník</a><a href="interview.html">Pohovor</a><a href="certifications.html">Certifikace</a><a href="jobs.html">Pozice</a></nav>
+</header>
+<main id="obsah">
+
+<h1>Studijní cesta</h1>
+<p>Počítej zhruba s <strong>8–10 hodinami týdně</strong>. Každý týden se střídá teorie a praxe: přečíst, podívat se, pak něco udělat ve skutečném nástroji. Capstone roste spolu s moduly, takže na konci máš portfolio, ne jen poznámky.</p>
+<div class="filtr" role="group" aria-label="Cesta">
+  <button type="button" class="tlacitko" data-cesta="full" aria-pressed="true" id="full">Plná cesta (~24 týdnů)</button>
+  <button type="button" class="tlacitko" data-cesta="essentials" aria-pressed="false" id="essentials">Zkrácená cesta (~10–12 týdnů)</button>
+</div>
+<div class="box box-note" data-jen-essentials hidden><strong class="box-nadpis">Zkrácená cesta</strong>
+<p>Udělej kroky označené <em>Essentials</em>, u ostatních modulů si přečti <em>krátkou verzi</em> a v capstonu udělej kroky 2, 4, 5, 7, 8, 9 a 10. Do hloubky jen BPMN (04), specifikace (06), user stories (07), SQL (10) a API (11) – ty inzerát chce výslovně. Zhruba 100–120 hodin.</p></div>
+<ol class="cesta" data-cesta-seznam><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 1</div>
+<div class="krok-telo"><h3>Co BA doopravdy dělá <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/01.html">01 Role IT business analytika</a></p><p>Přečti si modul 01, začni kurz BA Fundamentals. Přiřaď svou vlastní automatizační práci k činnostem BA (cvičení m01-e1).</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/business-analysis-ba/" target="_blank" rel="noopener">Business Analysis Fundamentals – IIBA endorsed</a> (8.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Umíš za dvě minuty vysvětlit roli BA.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-1"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 2</div>
+<div class="krok-telo"><h3>Jak běží IT projekty <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/02.html">02 Jak se dodávají IT projekty</a></p><p>Modul 02, kurz Agile Fundamentals. Dokonči BA Fundamentals.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/agile-fundamentals-scrum-kanban-scrumban/" target="_blank" rel="noopener">Agile Fundamentals: Including Scrum &amp; Kanban</a> (4.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Znáš role a události Scrumu a víš, co znamená UAT/PROD.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-2"> <span>Hotovo</span></label></div></li><li class="krok">
+<div class="krok-tyden">Týden 3</div>
+<div class="krok-telo"><h3>Nejdřív problém, pak řešení </h3>
+<p class="krok-moduly"><a href="m/03.html">03 Analýza problému, zlepšování procesů a kandidáti na automatizaci</a></p><p>Modul 03. Napiš problem statement a malý business case.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/identify-the-problem/" target="_blank" rel="noopener">Identify &amp; Define the Problem with Business Analysis</a> (3.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 1 závěrečného projektu: problem statement.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-3"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 4–5</div>
+<div class="krok-telo"><h3>Modelování procesů v BPMN <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/04.html">04 Modelování procesů v BPMN 2.0</a></p><p>Modul 04 do hloubky (Deep dive), kurz BPMN, vymodeluj AS-IS a TO-BE v bpmn.io.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/bpmnwithbrian/" target="_blank" rel="noopener">Practical BPMN 2.0 for Real Enterprise Process Flows</a> (3 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 2 závěrečného projektu: AS-IS a TO-BE v BPMN.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-4-5"> <span>Hotovo</span></label></div></li><li class="krok">
+<div class="krok-tyden">Týden 6</div>
+<div class="krok-telo"><h3>Elicitace požadavků </h3>
+<p class="krok-moduly"><a href="m/05.html">05 Získávání požadavků (elicitace)</a></p><p>Modul 05. Udělej cvičný rozhovor se stakeholderem.</p>
+
+<p class="milnik"><strong>Milník:</strong> Krok 3 závěrečného projektu: poznámky z rozhovoru a mapa stakeholderů.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-6"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 7–8</div>
+<div class="krok-telo"><h3>Psaní specifikací <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/06.html">06 Psaní požadavků a specifikací</a></p><p>Modul 06 do hloubky (Deep dive), kurz Requirements Mastery. Napiš funkční specifikaci pro dodavatele.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/business-analysis-write-manage-prioritize-requirements/" target="_blank" rel="noopener">Requirements Mastery – Write, Document, Manage &amp; Prioritize</a> (4.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 4 závěrečného projektu: funkční specifikace.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-7-8"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 9</div>
+<div class="krok-telo"><h3>User stories, Gherkin, Jira <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/07.html">07 Agilní požadavky: user stories, akceptační kritéria a Jira</a></p><p>Modul 07, kurz o user stories. Založ si bezplatný Jira board s backlogem.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/writing-effective-user-stories/" target="_blank" rel="noopener">The Ultimate User Story Guide: Crafting Agile Requirements</a> (4 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 5 závěrečného projektu: backlog se stories a acceptance criteria.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-9"> <span>Hotovo</span></label></div></li><li class="krok">
+<div class="krok-tyden">Týden 10</div>
+<div class="krok-telo"><h3>UML diagramy </h3>
+<p class="krok-moduly"><a href="m/08.html">08 UML 2.5 pro business analytiky</a></p><p>Modul 08. Sekvenční diagram vyhledání v ARES, stavový diagram pojistné události.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/visual-modeling-master-class/" target="_blank" rel="noopener">Business Analysis Modeling Skills &amp; Techniques</a> (6.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Umíš číst a kreslit use case, sekvenční a stavové diagramy.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-10"> <span>Hotovo</span></label></div></li><li class="krok">
+<div class="krok-tyden">Týden 11</div>
+<div class="krok-telo"><h3>Data a databáze </h3>
+<p class="krok-moduly"><a href="m/09.html">09 Data a databáze pro analytiky</a></p><p>Modul 09. Nakresli ER diagram datasetu ExportShield.</p>
+
+<p class="milnik"><strong>Milník:</strong> Krok 6 závěrečného projektu: datový model.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-11"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 12–13</div>
+<div class="krok-telo"><h3>SQL <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/10.html">10 SQL pro business analytiky</a></p><p>Modul 10, SQL Bootcamp (přednost mají části o SELECT, JOIN, GROUP BY), 15 úloh v SQL hřišti.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/the-complete-sql-bootcamp/" target="_blank" rel="noopener">The Complete SQL Bootcamp: Go from Zero to Hero</a> (9 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 7 závěrečného projektu: SQL dotazy, které odpovídají na byznysové otázky.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-12-13"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 14–15</div>
+<div class="krok-telo"><h3>API, JSON, XML <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/11.html">11 API, JSON/XML a integrace systémů</a></p><p>Modul 11, oba kurzy o API, kolekce v Postmanu s ARES a JSONPlaceholder.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/api-with-postman-for-absolute-beginners/" target="_blank" rel="noopener">Introduction to REST APIs for Absolute Beginners</a> (3.5 h)</li><li><a href="https://www.udemy.com/course/api-documentation-1-json-and-xml/" target="_blank" rel="noopener">Learn API Technical Writing: JSON and XML for Writers</a> (1.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 8 závěrečného projektu: specifikace integrace a kolekce v Postmanu.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-14-15"> <span>Hotovo</span></label></div></li><li class="krok">
+<div class="krok-tyden">Týden 16</div>
+<div class="krok-telo"><h3>Systémy a architektura </h3>
+<p class="krok-moduly"><a href="m/12.html">12 Systémy a architektura pro analytiky</a></p><p>Modul 12. Kontextový diagram C4 prostředí ExportShield.</p>
+
+<p class="milnik"><strong>Milník:</strong> Zvládneš sledovat, co architekt kreslí na tabuli.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-16"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 17</div>
+<div class="krok-telo"><h3>Testování a UAT <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/13.html">13 Testování, UAT a přebírání dodávek od dodavatele</a></p><p>Modul 13, kurz testování. Test cases a UAT plán.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/software-testing-business-analyst/" target="_blank" rel="noopener">Business Analyst: Software Testing Processes &amp; Techniques</a> (3 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 9 závěrečného projektu: UAT plán a test cases.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-17"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 18–19</div>
+<div class="krok-telo"><h3>Low-code automatizace <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/14.html">14 Low-code automatizace a algoritmické myšlení</a></p><p>Modul 14, kurz Power Automate. Postav automatizaci úvěrového limitu v Make nebo Power Automate.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/microsoft-power-automate-crash-course/" target="_blank" rel="noopener">Microsoft Power Automate Crash Course – 2026 Update</a> (6.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 10 závěrečného projektu: funkční automatizace.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-18-19"> <span>Hotovo</span></label></div></li><li class="krok">
+<div class="krok-tyden">Týden 20–21</div>
+<div class="krok-telo"><h3>AI v byznysových procesech </h3>
+<p class="krok-moduly"><a href="m/15.html">15 AI v business procesech</a></p><p>Modul 15, kurz AI for BA. Navrhni třídění (triage) s pomocí AI včetně kritérií vyhodnocení.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/ai-for-business-analysts-the-complete-training-course/" target="_blank" rel="noopener">AI for Business Analysts – The Complete Course</a> (4.5 h)</li></ul>
+<p class="milnik"><strong>Milník:</strong> Krok 11 závěrečného projektu: AI use-case canvas.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-20-21"> <span>Hotovo</span></label></div></li><li class="krok">
+<div class="krok-tyden">Týden 22</div>
+<div class="krok-telo"><h3>Stakeholdeři a prezentace </h3>
+<p class="krok-moduly"><a href="m/16.html">16 Stakeholdeři, komunikace, prezentace a školení</a></p><p>Modul 16. Týdenní status report a 5minutová nahraná prezentace.</p>
+
+<p class="milnik"><strong>Milník:</strong> Krok 12 závěrečného projektu: závěrečná prezentace.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-22"> <span>Hotovo</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Týden 23–24</div>
+<div class="krok-telo"><h3>Připraven na pohovor <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/17.html">17 Příprava na pohovor a portfolio</a></p><p>Modul 17. Příběhy metodou STAR, cvičná případová studie, portfolio. Začni posílat přihlášky.</p>
+
+<p class="milnik"><strong>Milník:</strong> Portfolio hotové, první pohovory domluvené.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-23-24"> <span>Hotovo</span></label></div></li></ol>
+<h2>Proč v tomhle pořadí</h2>
+<ul>
+<li><strong>Nejdřív role a dodávka</strong> – všechno ostatní dává smysl, až když víš, kdo co v IT projektu dělá.</li>
+<li><strong>Modelování procesů brzy</strong> – navazuje na to, co už děláš, a rychle přinese výsledek ve skutečném nástroji.</li>
+<li><strong>Požadavky před technologií</strong> – SQL a API jsou nástroje na ověření a popis požadavků, ne cíl sám o sobě.</li>
+<li><strong>Testování, low-code a AI později</strong> – potřebují předchozí části (požadavky, data, API).</li>
+<li><strong>Příprava na pohovor na konci, hlásit se dřív</strong> – po krocích Essentials se můžeš začít hlásit a zbytek dodělávat během pohovorů.</li>
+</ul>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · samostudium k pozici IT Business Analyst · postup se ukládá v tomto prohlížeči
+  <span data-ucet-info hidden>a po přihlášení Googlem i v účtu</span>.</p>
+  <p class="pozn">Odkazy na Udemy a YouTube vedou na cizí weby. Obsah kurzů se sem nekopíruje, všechny výklady jsou vlastní.</p>
+</footer>
+<script src="../assets/ucet-konfig.js"></script>
+<script src="../assets/ucet.js"></script>
+<script src="../assets/app.js"></script>
+
+</body>
+</html>

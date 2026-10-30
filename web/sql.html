@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL lab · BA Academy</title>
+<meta name="description" content="Self-study path from zero to IT Business Analyst.">
+<link rel="stylesheet" href="assets/styl.css">
+<link rel="alternate" hreflang="cs" href="cs/sql.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Skip to content</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Overall progress"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="#" lang="en" aria-current="true" data-jazyk="en">EN</a><a href="cs/sql.html" lang="cs" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Sign in</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Main"><a href="index.html">Home</a><a href="path.html">Learning path</a><a href="modules.html">Modules</a><a href="project.html">Capstone</a><a href="courses.html">Udemy</a><a href="videos.html">Videos</a><a href="tools.html">Tools</a><a href="sql.html" aria-current="page">SQL lab</a><a href="api.html">API lab</a><a href="glossary.html">Glossary</a><a href="interview.html">Interview</a><a href="certifications.html">Certificates</a><a href="jobs.html">Jobs</a></nav>
+</header>
+<main id="obsah">
+
+<h1>SQL lab</h1>
+<p>A real SQLite database running in your browser, loaded with the fictional <strong>ExportShield Insurance</strong> data (exporters, buyers, policies, credit limits, invoices, claims, payments). Nothing is sent anywhere. Reload the page to reset the data.</p>
+<div class="sql-lab">
+  <div class="sql-schema" data-sql-schema><p>Loading database…</p></div>
+  <div class="sql-prace">
+    <label for="sql-dotaz" class="nadpis-pole">Query</label>
+    <textarea id="sql-dotaz" spellcheck="false" rows="8">SELECT c.name AS exporter, COUNT(p.id) AS policies
+FROM customers c
+LEFT JOIN policies p ON p.customer_id = c.id
+GROUP BY c.name
+ORDER BY policies DESC;</textarea>
+    <p class="sql-akce"><button type="button" class="tlacitko tlacitko-hlavni" data-sql-spust>Run (Ctrl+Enter)</button>
+    <select data-sql-priklady aria-label="Example queries"><option value="">Example queries…</option></select></p>
+    <div data-sql-vysledek class="sql-vysledek" aria-live="polite"></div>
+  </div>
+</div>
+<p class="pozn">Module 10 has 15 graded tasks for this lab. SQLite dialect: dates are text (YYYY-MM-DD); use <code>date()</code> and <code>julianday()</code>. The dataset is a snapshot as of 2026-09-30.</p>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · self-study path to IT Business Analyst · progress is saved in this browser
+  <span data-ucet-info hidden>and, after signing in with Google, in your account</span>.</p>
+  <p class="pozn">Udemy and YouTube links lead to external sites. Course content is not copied here; all explanations are original.</p>
+</footer>
+<script src="assets/ucet-konfig.js"></script>
+<script src="assets/ucet.js"></script>
+<script src="assets/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script><script src="assets/data/exportshield.js"></script><script src="assets/sql-lab.js"></script>
+</body>
+</html>

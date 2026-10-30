@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API lab · BA Academy</title>
+<meta name="description" content="Samostudium od nuly k pozici IT Business Analyst.">
+<link rel="stylesheet" href="../assets/styl.css">
+<link rel="alternate" hreflang="en" href="../api.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Celkový postup"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="../api.html" lang="en" data-jazyk="en">EN</a><a href="#" lang="cs" aria-current="true" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Přihlásit</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Hlavní"><a href="index.html">Úvod</a><a href="path.html">Studijní cesta</a><a href="modules.html">Moduly</a><a href="project.html">Capstone</a><a href="courses.html">Udemy</a><a href="videos.html">Videa</a><a href="tools.html">Nástroje</a><a href="sql.html">SQL lab</a><a href="api.html" aria-current="page">API lab</a><a href="glossary.html">Slovník</a><a href="interview.html">Pohovor</a><a href="certifications.html">Certifikace</a><a href="jobs.html">Pozice</a></nav>
+</header>
+<main id="obsah">
+
+<h1>API lab</h1>
+<p>Posílej skutečné HTTP požadavky z prohlížeče a čti odpověď, podobně jako v Postmanu. Dvě veřejná API bez klíče:</p>
+<ul>
+<li><strong>ARES</strong> – oficiální registr ekonomických subjektů (GET firmy podle IČO). Přesně takové dohledání dnes underwriter dělá ručně.</li>
+<li><strong>JSONPlaceholder</strong> – cvičné REST API; zkusit můžeš i POST, PUT a DELETE (nic se doopravdy neuloží).</li>
+</ul>
+<div class="api-lab">
+  <div class="api-radek">
+    <label class="sr" for="api-metoda">Metoda</label>
+    <select id="api-metoda" data-api-metoda><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select>
+    <label class="sr" for="api-url">URL</label>
+    <input id="api-url" data-api-url type="url" value="https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/00006947">
+    <button type="button" class="tlacitko tlacitko-hlavni" data-api-posli>Odeslat</button>
+  </div>
+  <p class="api-predvolby">Předvolby: <span data-api-predvolby></span></p>
+  <label for="api-telo" class="nadpis-pole">Tělo požadavku (JSON, pro POST/PUT)</label>
+  <textarea id="api-telo" data-api-telo rows="5" spellcheck="false">{
+  "title": "Credit limit request",
+  "body": "Buyer: Rheinwerk Handels GmbH, amount 250000 EUR",
+  "userId": 1
+}</textarea>
+  <div class="api-odpoved" data-api-odpoved aria-live="polite"></div>
+</div>
+<h2>Čeho si všímat</h2>
+<ul>
+<li><strong>Stavový kód</strong>: 200 OK, 201 Created, 404 Not Found (zkus neexistující IČO, např. 00000001), 400 Bad Request (zkus písmena místo číslic).</li>
+<li><strong>Strukturu</strong> JSONu: objekty <code>{ }</code>, pole <code>[ ]</code>, vnořená pole jako <code>sidlo.nazevObce</code>.</li>
+<li><strong>Dobu</strong> odpovědi – nefunkční požadavky často určují, jak rychle musí integrace odpovědět.</li>
+<li>Která pole bys <strong>namapovala</strong> do záznamu odběratele v PolicyHubu (modul 11, cvičení na mapování polí).</li>
+</ul>
+<p class="pozn">Některá API volání z webových stránek blokují (CORS). Postman tohle omezení nemá – na ostatní API použij jeho.</p>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · samostudium k pozici IT Business Analyst · postup se ukládá v tomto prohlížeči
+  <span data-ucet-info hidden>a po přihlášení Googlem i v účtu</span>.</p>
+  <p class="pozn">Odkazy na Udemy a YouTube vedou na cizí weby. Obsah kurzů se sem nekopíruje, všechny výklady jsou vlastní.</p>
+</footer>
+<script src="../assets/ucet-konfig.js"></script>
+<script src="../assets/ucet.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/api-lab.js"></script>
+</body>
+</html>

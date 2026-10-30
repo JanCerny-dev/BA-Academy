@@ -1,0 +1,106 @@
+{
+ "_pozn": "Inzeráty z jobs.cz a kariérních stránek, živé 30. 10. 2026. Inzeráty rychle mizí, slouží jako ukázka požadavků.",
+ "jobs": [
+  {
+   "title": "IT Business Analyst",
+   "company": "EMNT (for a stable investment group)",
+   "location": "Praha",
+   "seen": "Oct 2026",
+   "salary": "90,000 CZK / month",
+   "url": "https://careers.emnt-solutions.com/job/45591/it-business-analyst",
+   "requirements": "Change requests from departments → technical specifications for vendors; design in line with the architecture; vendors and stakeholders; supporting testers and testing deliveries; **low-code automation**; presenting and training; **AI integration**. Basic **SQL, API, JSON/XML**, **UML or BPMN**.",
+   "fit": "The target role. Every module and every capstone step maps to a line of this ad (see the table at the end of the Capstone page).",
+   "requirements_cs": "Změnové požadavky z oddělení → technické specifikace pro dodavatele; návrh v souladu s architekturou; dodavatelé a stakeholdeři; podpora testerů a testovacích dodávek; **low-code automatizace**; prezentování a školení; **integrace AI**. Základy **SQL, API, JSON/XML**, **UML nebo BPMN**.",
+   "fit_cs": "Cílová role. Každý modul a každý krok závěrečného projektu odpovídá nějakému řádku tohoto inzerátu (viz tabulka na konci stránky Capstone)."
+  },
+  {
+   "title": "Aplikační specialista / IS analytik – junior",
+   "company": "via NO77 s.r.o. for an international developer",
+   "location": "Praha – Nové Město",
+   "seen": "Oct 2026",
+   "url": "https://www.jobs.cz/rpd/2001469850/",
+   "requirements": "Process digitalisation, coordinating an external vendor, change requests from business owners, input specifications for new projects, testing new features, user support. Databases and system logic, some programming experience, English pre-intermediate.",
+   "fit": "**Closest match for a career changer.** Modules 02, 06, 13 and 14 plus the capstone cover the duties almost one to one.",
+   "requirements_cs": "Digitalizace procesů, koordinace externího dodavatele, změnové požadavky od vlastníků byznysu, vstupní specifikace pro nové projekty, testování nových funkcí, podpora uživatelů. Databáze a logika systémů, nějaká zkušenost s programováním, angličtina na úrovni pre-intermediate.",
+   "fit_cs": "**Nejbližší shoda pro člověka, který mění obor.** Moduly 02, 06, 13 a 14 plus závěrečný projekt pokrývají povinnosti téměř jedna k jedné."
+  },
+  {
+   "title": "Business analytik – junior/medior",
+   "company": "Česká podnikatelská pojišťovna (VIG)",
+   "location": "Praha – Karlín",
+   "seen": "Oct 2026",
+   "url": "https://www.jobs.cz/rpd/2001412247/",
+   "requirements": "Junior level accepted. Insurance domain. (Details on the company site.)",
+   "fit": "Insurance background is a real advantage here – your current domain plus modules 04–07.",
+   "requirements_cs": "Přijmou i juniora. Pojišťovnictví. (Podrobnosti na stránkách firmy.)",
+   "fit_cs": "Zkušenost z pojišťovnictví je tu skutečná výhoda – tvoje současná doména plus moduly 04–07."
+  },
+  {
+   "title": "IT Business Analyst",
+   "company": "BNP Paribas Cardif",
+   "location": "Praha – Libeň, hybrid",
+   "seen": "Oct 2026",
+   "url": "https://www.jobs.cz/rpd/2001443201/",
+   "requirements": "Business needs → technical solutions, API definitions and functional specifications, user stories, testing, data migration. REST/SOAP, Postman, Kafka, UML/BPMN, MSSQL, Jira/Confluence, Enterprise Architect, English B2+. Insurance background is an advantage.",
+   "fit": "Modules 06, 07, 08, 10, 11 and 13. Kafka and Enterprise Architect go beyond this path – mention you know the concepts (messaging in module 11, UML tools in 08).",
+   "requirements_cs": "Byznysové potřeby → technická řešení, definice API a funkční specifikace, user stories, testování, migrace dat. REST/SOAP, Postman, Kafka, UML/BPMN, MSSQL, Jira/Confluence, Enterprise Architect, angličtina B2+. Zkušenost z pojišťovnictví je výhodou.",
+   "fit_cs": "Moduly 06, 07, 08, 10, 11 a 13. Kafka a Enterprise Architect jdou nad rámec této cesty – zmiň, že znáš principy (messaging v modulu 11, UML nástroje v modulu 08)."
+  },
+  {
+   "title": "IT Analytik/čka – integrace a automatizace",
+   "company": "MONETA Money Bank",
+   "location": "Praha – Michle",
+   "seen": "Oct 2026",
+   "url": "https://www.jobs.cz/rpd/2001505032/",
+   "requirements": "Integration and automation analysis in a bank. (Details on the company site.)",
+   "fit": "Modules 11, 12 and 14 – APIs, architecture and automation – plus capstone steps 8 and 10.",
+   "requirements_cs": "Analýza integrací a automatizace v bance. (Podrobnosti na stránkách firmy.)",
+   "fit_cs": "Moduly 11, 12 a 14 – API, architektura a automatizace – plus kroky 8 a 10 závěrečného projektu."
+  },
+  {
+   "title": "IT business analytik/čka – part-time (6 h/day)",
+   "company": "Volkswagen Financial Services",
+   "location": "Praha – Vokovice",
+   "seen": "Oct 2026",
+   "url": "https://www.jobs.cz/rpd/2001498273/",
+   "requirements": "IT business analysis in financial services, part-time. (Details on the company site.)",
+   "fit": "Part-time can be a softer way in while finishing the path.",
+   "requirements_cs": "IT business analýza ve finančních službách, částečný úvazek. (Podrobnosti na stránkách firmy.)",
+   "fit_cs": "Částečný úvazek může být mírnější cesta dovnitř, zatímco dokončuješ studijní cestu."
+  },
+  {
+   "title": "Business/IT analytik",
+   "company": "CENDIS s.p.",
+   "location": "Praha – Holešovice",
+   "seen": "Oct 2026",
+   "salary": "75,000–90,000 CZK",
+   "url": "https://www.jobs.cz/rpd/2001477216/",
+   "requirements": "UML, BPMN, Enterprise Architect, REST/SOAP, Jira/Confluence, functional specifications, support for test design. Proven independent analyst experience.",
+   "fit": "Mid level – shows where you will be in 1–2 years and what it pays. The skill list matches modules 04, 06, 08, 11 and 13.",
+   "requirements_cs": "UML, BPMN, Enterprise Architect, REST/SOAP, Jira/Confluence, funkční specifikace, podpora návrhu testů. Prokazatelná praxe samostatného analytika.",
+   "fit_cs": "Úroveň medior – ukazuje, kde budeš za 1–2 roky a kolik se za to platí. Seznam dovedností odpovídá modulům 04, 06, 08, 11 a 13."
+  },
+  {
+   "title": "IT Business Analyst – SW engineering projects",
+   "company": "ADASTRA CZ",
+   "location": "Praha – Karlín",
+   "seen": "Oct 2026",
+   "url": "https://www.jobs.cz/rpd/2001406478/",
+   "requirements": "Functional, non-functional and technical specifications; work with architects and developers; regular use of AI tools. Prior analysis experience required.",
+   "fit": "Not junior, but shows the trend: BAs are expected to use AI tools daily (module 15).",
+   "requirements_cs": "Funkční, nefunkční a technické specifikace; spolupráce s architekty a vývojáři; pravidelné používání AI nástrojů. Vyžaduje předchozí praxi v analýze.",
+   "fit_cs": "Není pro juniory, ale ukazuje trend: od BA se čeká, že AI nástroje používají denně (modul 15)."
+  },
+  {
+   "title": "Junior Tester / Test Analyst",
+   "company": "Avenga Czechia",
+   "location": "Praha – Libeň",
+   "seen": "Oct 2026",
+   "url": "https://www.jobs.cz/rpd/2001487741/",
+   "requirements": "Requirements analysis, test scenarios, about half test execution, integration testing. SQL, Postman/SoapUI, basics of systems and integrations.",
+   "fit": "An alternative entry route into IT: modules 10, 11 and 13. Many BAs started as test analysts.",
+   "requirements_cs": "Analýza požadavků, testovací scénáře, zhruba polovina času exekuce testů, integrační testování. SQL, Postman/SoapUI, základy systémů a integrací.",
+   "fit_cs": "Alternativní vstup do IT: moduly 10, 11 a 13. Hodně BA začínalo jako test analytici."
+  }
+ ]
+}

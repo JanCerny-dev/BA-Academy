@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>API lab · BA Academy</title>
+<meta name="description" content="Self-study path from zero to IT Business Analyst.">
+<link rel="stylesheet" href="assets/styl.css">
+<link rel="alternate" hreflang="cs" href="cs/api.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Skip to content</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Overall progress"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="#" lang="en" aria-current="true" data-jazyk="en">EN</a><a href="cs/api.html" lang="cs" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Sign in</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Main"><a href="index.html">Home</a><a href="path.html">Learning path</a><a href="modules.html">Modules</a><a href="project.html">Capstone</a><a href="courses.html">Udemy</a><a href="videos.html">Videos</a><a href="tools.html">Tools</a><a href="sql.html">SQL lab</a><a href="api.html" aria-current="page">API lab</a><a href="glossary.html">Glossary</a><a href="interview.html">Interview</a><a href="certifications.html">Certificates</a><a href="jobs.html">Jobs</a></nav>
+</header>
+<main id="obsah">
+
+<h1>API lab</h1>
+<p>Send real HTTP requests from your browser and read the response, like in Postman. Two public APIs that need no key:</p>
+<ul>
+<li><strong>ARES</strong> – the official Czech business register (GET a company by its IČO). This is the kind of lookup an underwriter does manually today.</li>
+<li><strong>JSONPlaceholder</strong> – a fake REST API for practice; you can also try POST, PUT and DELETE (nothing is really saved).</li>
+</ul>
+<div class="api-lab">
+  <div class="api-radek">
+    <label class="sr" for="api-metoda">Method</label>
+    <select id="api-metoda" data-api-metoda><option>GET</option><option>POST</option><option>PUT</option><option>DELETE</option></select>
+    <label class="sr" for="api-url">URL</label>
+    <input id="api-url" data-api-url type="url" value="https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/00006947">
+    <button type="button" class="tlacitko tlacitko-hlavni" data-api-posli>Send</button>
+  </div>
+  <p class="api-predvolby">Presets: <span data-api-predvolby></span></p>
+  <label for="api-telo" class="nadpis-pole">Request body (JSON, for POST/PUT)</label>
+  <textarea id="api-telo" data-api-telo rows="5" spellcheck="false">{
+  "title": "Credit limit request",
+  "body": "Buyer: Rheinwerk Handels GmbH, amount 250000 EUR",
+  "userId": 1
+}</textarea>
+  <div class="api-odpoved" data-api-odpoved aria-live="polite"></div>
+</div>
+<h2>What to notice</h2>
+<ul>
+<li>The <strong>status code</strong>: 200 OK, 201 Created, 404 Not Found (try a non-existent IČO like 00000001), 400 Bad Request (try letters instead of digits).</li>
+<li>The <strong>structure</strong> of the JSON: objects <code>{ }</code>, arrays <code>[ ]</code>, nested fields such as <code>sidlo.nazevObce</code>.</li>
+<li>The <strong>time</strong> it took – non-functional requirements often say how fast an integration must answer.</li>
+<li>Which fields you would <strong>map</strong> into the PolicyHub buyer record (module 11, exercise on field mapping).</li>
+</ul>
+<p class="pozn">Some APIs block calls from web pages (CORS). Postman does not have that limitation – use it for everything else.</p>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · self-study path to IT Business Analyst · progress is saved in this browser
+  <span data-ucet-info hidden>and, after signing in with Google, in your account</span>.</p>
+  <p class="pozn">Udemy and YouTube links lead to external sites. Course content is not copied here; all explanations are original.</p>
+</footer>
+<script src="assets/ucet-konfig.js"></script>
+<script src="assets/ucet.js"></script>
+<script src="assets/app.js"></script>
+<script src="assets/api-lab.js"></script>
+</body>
+</html>

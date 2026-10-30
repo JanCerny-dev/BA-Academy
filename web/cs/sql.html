@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL lab · BA Academy</title>
+<meta name="description" content="Samostudium od nuly k pozici IT Business Analyst.">
+<link rel="stylesheet" href="../assets/styl.css">
+<link rel="alternate" hreflang="en" href="../sql.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Celkový postup"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="../sql.html" lang="en" data-jazyk="en">EN</a><a href="#" lang="cs" aria-current="true" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Přihlásit</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Hlavní"><a href="index.html">Úvod</a><a href="path.html">Studijní cesta</a><a href="modules.html">Moduly</a><a href="project.html">Capstone</a><a href="courses.html">Udemy</a><a href="videos.html">Videa</a><a href="tools.html">Nástroje</a><a href="sql.html" aria-current="page">SQL lab</a><a href="api.html">API lab</a><a href="glossary.html">Slovník</a><a href="interview.html">Pohovor</a><a href="certifications.html">Certifikace</a><a href="jobs.html">Pozice</a></nav>
+</header>
+<main id="obsah">
+
+<h1>SQL lab</h1>
+<p>Skutečná databáze SQLite přímo v prohlížeči s fiktivními daty pojišťovny <strong>ExportShield Insurance</strong> (exportéři, odběratelé, smlouvy, limity, faktury, škody, platby). Nic se nikam neposílá. Obnovením stránky se data vrátí do původního stavu.</p>
+<div class="sql-lab">
+  <div class="sql-schema" data-sql-schema><p>Načítám databázi…</p></div>
+  <div class="sql-prace">
+    <label for="sql-dotaz" class="nadpis-pole">Dotaz</label>
+    <textarea id="sql-dotaz" spellcheck="false" rows="8">SELECT c.name AS exporter, COUNT(p.id) AS policies
+FROM customers c
+LEFT JOIN policies p ON p.customer_id = c.id
+GROUP BY c.name
+ORDER BY policies DESC;</textarea>
+    <p class="sql-akce"><button type="button" class="tlacitko tlacitko-hlavni" data-sql-spust>Spustit (Ctrl+Enter)</button>
+    <select data-sql-priklady aria-label="Ukázkové dotazy"><option value="">Ukázkové dotazy…</option></select></p>
+    <div data-sql-vysledek class="sql-vysledek" aria-live="polite"></div>
+  </div>
+</div>
+<p class="pozn">Modul 10 má pro tento lab 15 úloh od lehkých po těžké. Dialekt SQLite: data jsou text (RRRR-MM-DD), použij <code>date()</code> a <code>julianday()</code>. Data jsou stav k 30. 9. 2026.</p>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · samostudium k pozici IT Business Analyst · postup se ukládá v tomto prohlížeči
+  <span data-ucet-info hidden>a po přihlášení Googlem i v účtu</span>.</p>
+  <p class="pozn">Odkazy na Udemy a YouTube vedou na cizí weby. Obsah kurzů se sem nekopíruje, všechny výklady jsou vlastní.</p>
+</footer>
+<script src="../assets/ucet-konfig.js"></script>
+<script src="../assets/ucet.js"></script>
+<script src="../assets/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sql.js/1.10.3/sql-wasm.js"></script><script src="../assets/data/exportshield.js"></script><script src="../assets/sql-lab.js"></script>
+</body>
+</html>

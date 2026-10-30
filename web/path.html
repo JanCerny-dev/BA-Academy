@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Learning path · BA Academy</title>
+<meta name="description" content="Self-study path from zero to IT Business Analyst.">
+<link rel="stylesheet" href="assets/styl.css">
+<link rel="alternate" hreflang="cs" href="cs/path.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Skip to content</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Overall progress"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="#" lang="en" aria-current="true" data-jazyk="en">EN</a><a href="cs/path.html" lang="cs" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Sign in</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Main"><a href="index.html">Home</a><a href="path.html" aria-current="page">Learning path</a><a href="modules.html">Modules</a><a href="project.html">Capstone</a><a href="courses.html">Udemy</a><a href="videos.html">Videos</a><a href="tools.html">Tools</a><a href="sql.html">SQL lab</a><a href="api.html">API lab</a><a href="glossary.html">Glossary</a><a href="interview.html">Interview</a><a href="certifications.html">Certificates</a><a href="jobs.html">Jobs</a></nav>
+</header>
+<main id="obsah">
+
+<h1>Learning path</h1>
+<p>Plan for about <strong>8–10 hours a week</strong>. It mixes theory and practice every week: read, watch, then do something in a real tool. The capstone project grows alongside the modules, so by the end you have a portfolio, not just notes.</p>
+<div class="filtr" role="group" aria-label="Route">
+  <button type="button" class="tlacitko" data-cesta="full" aria-pressed="true" id="full">Full route (~24 weeks)</button>
+  <button type="button" class="tlacitko" data-cesta="essentials" aria-pressed="false" id="essentials">Essentials route (~10–12 weeks)</button>
+</div>
+<div class="box box-note" data-jen-essentials hidden><strong class="box-nadpis">Essentials route</strong>
+<p>Do the steps marked <em>Essentials</em>, read the <em>Quick version</em> of every other module, and in the capstone do steps 2, 4, 5, 7, 8, 9 and 10. Deep dives only for BPMN (04), specifications (06), user stories (07), SQL (10) and APIs (11) – those are explicit in the job ad. Roughly 100–120 hours.</p></div>
+<ol class="cesta" data-cesta-seznam><li class="krok krok-essentials">
+<div class="krok-tyden">Week 1</div>
+<div class="krok-telo"><h3>What a BA actually does <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/01.html">01 The IT Business Analyst role</a></p><p>Read module 01, start the BA Fundamentals course. Map your own automation work to BA activities (exercise m01-e1).</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/business-analysis-ba/" target="_blank" rel="noopener">Business Analysis Fundamentals – IIBA endorsed</a> (8.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> You can explain the BA role in two minutes.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-1"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 2</div>
+<div class="krok-telo"><h3>How IT projects run <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/02.html">02 How IT projects are delivered</a></p><p>Module 02, Agile Fundamentals course. Finish BA Fundamentals.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/agile-fundamentals-scrum-kanban-scrumban/" target="_blank" rel="noopener">Agile Fundamentals: Including Scrum &amp; Kanban</a> (4.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> You know Scrum roles and events and what UAT/PROD mean.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-2"> <span>Done</span></label></div></li><li class="krok">
+<div class="krok-tyden">Week 3</div>
+<div class="krok-telo"><h3>Problems before solutions </h3>
+<p class="krok-moduly"><a href="m/03.html">03 Problem analysis, process improvement and automation candidates</a></p><p>Module 03. Write a problem statement and a small business case.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/identify-the-problem/" target="_blank" rel="noopener">Identify &amp; Define the Problem with Business Analysis</a> (3.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 1: problem statement.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-3"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 4–5</div>
+<div class="krok-telo"><h3>BPMN process modeling <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/04.html">04 Process modeling with BPMN 2.0</a></p><p>Module 04 Deep dive, BPMN course, model AS-IS and TO-BE in bpmn.io.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/bpmnwithbrian/" target="_blank" rel="noopener">Practical BPMN 2.0 for Real Enterprise Process Flows</a> (3 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 2: AS-IS and TO-BE BPMN.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-4-5"> <span>Done</span></label></div></li><li class="krok">
+<div class="krok-tyden">Week 6</div>
+<div class="krok-telo"><h3>Eliciting requirements </h3>
+<p class="krok-moduly"><a href="m/05.html">05 Requirements elicitation</a></p><p>Module 05. Run a mock stakeholder interview.</p>
+
+<p class="milnik"><strong>Milestone:</strong> Capstone step 3: interview notes and stakeholder map.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-6"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 7–8</div>
+<div class="krok-telo"><h3>Writing specifications <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/06.html">06 Writing requirements and specifications</a></p><p>Module 06 Deep dive, Requirements Mastery course. Write a vendor-facing functional specification.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/business-analysis-write-manage-prioritize-requirements/" target="_blank" rel="noopener">Requirements Mastery – Write, Document, Manage &amp; Prioritize</a> (4.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 4: functional specification.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-7-8"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 9</div>
+<div class="krok-telo"><h3>User stories, Gherkin, Jira <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/07.html">07 Agile requirements: user stories, acceptance criteria and Jira</a></p><p>Module 07, User Story course. Set up a free Jira board with a backlog.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/writing-effective-user-stories/" target="_blank" rel="noopener">The Ultimate User Story Guide: Crafting Agile Requirements</a> (4 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 5: backlog with stories and acceptance criteria.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-9"> <span>Done</span></label></div></li><li class="krok">
+<div class="krok-tyden">Week 10</div>
+<div class="krok-telo"><h3>UML diagrams </h3>
+<p class="krok-moduly"><a href="m/08.html">08 UML 2.5 for business analysts</a></p><p>Module 08. Sequence diagram of the ARES lookup, state diagram of a claim.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/visual-modeling-master-class/" target="_blank" rel="noopener">Business Analysis Modeling Skills &amp; Techniques</a> (6.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> You can read and draw use case, sequence and state diagrams.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-10"> <span>Done</span></label></div></li><li class="krok">
+<div class="krok-tyden">Week 11</div>
+<div class="krok-telo"><h3>Data and databases </h3>
+<p class="krok-moduly"><a href="m/09.html">09 Data and databases for analysts</a></p><p>Module 09. Draw the ER diagram of the ExportShield dataset.</p>
+
+<p class="milnik"><strong>Milestone:</strong> Capstone step 6: data model.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-11"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 12–13</div>
+<div class="krok-telo"><h3>SQL <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/10.html">10 SQL for business analysts</a></p><p>Module 10, SQL Bootcamp (sections on SELECT, JOIN, GROUP BY are the priority), 15 tasks in the SQL playground.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/the-complete-sql-bootcamp/" target="_blank" rel="noopener">The Complete SQL Bootcamp: Go from Zero to Hero</a> (9 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 7: SQL queries answering business questions.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-12-13"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 14–15</div>
+<div class="krok-telo"><h3>APIs, JSON, XML <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/11.html">11 APIs, JSON/XML and system integrations</a></p><p>Module 11, both API courses, Postman collection with ARES and JSONPlaceholder.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/api-with-postman-for-absolute-beginners/" target="_blank" rel="noopener">Introduction to REST APIs for Absolute Beginners</a> (3.5 h)</li><li><a href="https://www.udemy.com/course/api-documentation-1-json-and-xml/" target="_blank" rel="noopener">Learn API Technical Writing: JSON and XML for Writers</a> (1.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 8: integration specification and Postman collection.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-14-15"> <span>Done</span></label></div></li><li class="krok">
+<div class="krok-tyden">Week 16</div>
+<div class="krok-telo"><h3>Systems and architecture </h3>
+<p class="krok-moduly"><a href="m/12.html">12 Systems and architecture for analysts</a></p><p>Module 12. C4 context diagram of the ExportShield landscape.</p>
+
+<p class="milnik"><strong>Milestone:</strong> You can follow an architect&#x27;s whiteboard.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-16"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 17</div>
+<div class="krok-telo"><h3>Testing and UAT <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/13.html">13 Testing, UAT and accepting vendor deliveries</a></p><p>Module 13, testing course. Test cases and a UAT plan.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/software-testing-business-analyst/" target="_blank" rel="noopener">Business Analyst: Software Testing Processes &amp; Techniques</a> (3 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 9: UAT plan and test cases.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-17"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 18–19</div>
+<div class="krok-telo"><h3>Low-code automation <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/14.html">14 Low-code automation and algorithmic thinking</a></p><p>Module 14, Power Automate course. Build the credit-limit automation in Make or Power Automate.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/microsoft-power-automate-crash-course/" target="_blank" rel="noopener">Microsoft Power Automate Crash Course – 2026 Update</a> (6.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 10: a working automation.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-18-19"> <span>Done</span></label></div></li><li class="krok">
+<div class="krok-tyden">Week 20–21</div>
+<div class="krok-telo"><h3>AI in business processes </h3>
+<p class="krok-moduly"><a href="m/15.html">15 AI in business processes</a></p><p>Module 15, AI for BA course. Design an AI-assisted triage with evaluation criteria.</p>
+<ul class="krok-kurzy"><li><a href="https://www.udemy.com/course/ai-for-business-analysts-the-complete-training-course/" target="_blank" rel="noopener">AI for Business Analysts – The Complete Course</a> (4.5 h)</li></ul>
+<p class="milnik"><strong>Milestone:</strong> Capstone step 11: AI use-case canvas.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-20-21"> <span>Done</span></label></div></li><li class="krok">
+<div class="krok-tyden">Week 22</div>
+<div class="krok-telo"><h3>Stakeholders and presenting </h3>
+<p class="krok-moduly"><a href="m/16.html">16 Stakeholders, communication, presenting and training</a></p><p>Module 16. Weekly status report and a 5-minute recorded presentation.</p>
+
+<p class="milnik"><strong>Milestone:</strong> Capstone step 12: final presentation.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-22"> <span>Done</span></label></div></li><li class="krok krok-essentials">
+<div class="krok-tyden">Week 23–24</div>
+<div class="krok-telo"><h3>Interview ready <span class="stitek stitek-core">Essentials</span></h3>
+<p class="krok-moduly"><a href="m/17.html">17 Interview preparation and portfolio</a></p><p>Module 17. STAR stories, mock case, portfolio. Start applying.</p>
+
+<p class="milnik"><strong>Milestone:</strong> Portfolio done, first interviews booked.</p>
+<label class="fajfka "><input type="checkbox" data-key="nat-path-23-24"> <span>Done</span></label></div></li></ol>
+<h2>Why this order</h2>
+<ul>
+<li><strong>Role and delivery first</strong> – everything else makes sense once you know who does what in an IT project.</li>
+<li><strong>Process modeling early</strong> – it builds on what you already do and gives quick wins in a real tool.</li>
+<li><strong>Requirements before technology</strong> – SQL and APIs are tools for checking and specifying requirements, not goals in themselves.</li>
+<li><strong>Testing, low-code and AI late</strong> – they need the earlier pieces (requirements, data, APIs) to make sense.</li>
+<li><strong>Interview prep at the end, applications earlier</strong> – once the Essentials steps are done you can start applying; keep going with the rest while you interview.</li>
+</ul>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · self-study path to IT Business Analyst · progress is saved in this browser
+  <span data-ucet-info hidden>and, after signing in with Google, in your account</span>.</p>
+  <p class="pozn">Udemy and YouTube links lead to external sites. Course content is not copied here; all explanations are original.</p>
+</footer>
+<script src="assets/ucet-konfig.js"></script>
+<script src="assets/ucet.js"></script>
+<script src="assets/app.js"></script>
+
+</body>
+</html>

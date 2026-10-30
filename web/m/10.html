@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>10 SQL for business analysts · BA Academy</title>
+<meta name="description" content="Module 10: SQL for business analysts">
+<link rel="stylesheet" href="../assets/styl.css">
+<link rel="alternate" hreflang="cs" href="../cs/m/10.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Skip to content</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="../index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Overall progress"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="#" lang="en" aria-current="true" data-jazyk="en">EN</a><a href="../cs/m/10.html" lang="cs" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Sign in</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Main"><a href="../index.html">Home</a><a href="../path.html">Learning path</a><a href="../modules.html" aria-current="page">Modules</a><a href="../project.html">Capstone</a><a href="../courses.html">Udemy</a><a href="../videos.html">Videos</a><a href="../tools.html">Tools</a><a href="../sql.html">SQL lab</a><a href="../api.html">API lab</a><a href="../glossary.html">Glossary</a><a href="../interview.html">Interview</a><a href="../certifications.html">Certificates</a><a href="../jobs.html">Jobs</a></nav>
+</header>
+<main id="obsah">
+
+<div class="modul-hlava">
+  <p class="drobky"><a href="../modules.html">Modules</a> · Phase C: Technical literacy</p>
+  <h1><span class="cislo">10</span> SQL for business analysts</h1>
+  <p class="odznaky"><span class="prio prio-p1" title="The ad asks for it directly, or interviewers almost always test it.">P1 · Must know</span><span class="stitek">Quick 5 min</span><span class="stitek">Deep 40 min</span></p>
+  
+  <p class="inzerat"><span>In the target job ad (original Czech wording)</span> “Disponujete základní znalostí SQL, prací s API a formáty JSON/XML”</p>
+  <div class="proc"><p>The job ad asks for basic SQL. Analysts use it every week: to answer a business question without waiting for a report, to check that a delivered change works, to find bad data, and to put a number on a problem before anyone pays for a fix. You do not need to design databases or tune performance. You need to read data confidently with <code>SELECT</code>, combine tables with joins, and summarize with <code>GROUP BY</code>. Every example here runs on the ExportShield dataset in the site's SQL playground.</p></div>
+  <div class="postup" data-keys="nat-read-10-quick nat-read-10-deep nat-ex-m10-e1 nat-ex-m10-e2 nat-ex-m10-e3 nat-ex-m10-e4 nat-u-the-complete-sql-bootcamp nat-v-sql-alex-pl nat-v-sql-alex-4h nat-v-sql-fcc"><div class="postup-pruh"><span></span></div><span class="postup-text">module progress</span></div>
+</div>
+<div class="zalozky" data-zalozky="m10">
+  <div class="zalozky-lista" role="tablist"><button type="button" role="tab" id="tab-quick" aria-controls="panel-quick" aria-selected="true">Quick version · 5 min</button><button type="button" role="tab" id="tab-deep" aria-controls="panel-deep" aria-selected="false">Deep dive · 40 min</button><button type="button" role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false">Hands-on · 4</button><button type="button" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false">Self-check · 8</button><button type="button" role="tab" id="tab-interview" aria-controls="panel-interview" aria-selected="false">Interview · 4</button><button type="button" role="tab" id="tab-resources" aria-controls="panel-resources" aria-selected="false">Resources · 8</button></div>
+  <section role="tabpanel" id="panel-quick" aria-labelledby="tab-quick" class="panel"><p><strong>SQL</strong> (Structured Query Language) is the standard language for working with relational databases. A query describes <em>what</em> you want; the database works out <em>how</em> to get it.</p>
+<p><strong>The basic shape of a query:</strong></p>
+<div class="kod"><pre><code class="jazyk-text">SELECT   columns or calculations
+FROM     table
+JOIN     other table ON how rows match
+WHERE    filter on rows
+GROUP BY columns to group by
+HAVING   filter on groups
+ORDER BY sort order
+LIMIT    number of rows;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>To read data from a table you need only <code>SELECT</code> and <code>FROM</code>; the other clauses are optional. The clauses you use must be written in this order.</p>
+<p><strong>What each part does:</strong></p>
+<ul><li><code>SELECT name, city</code> picks columns. <code>SELECT *</code> takes all of them (fine for exploring, not for reports).</li><li><code>WHERE</code> filters rows: <code>=</code>, <code>&lt;&gt;</code> (not equal), <code>&gt;</code>, <code>&lt;</code>, <code>IN (&#x27;A&#x27;,&#x27;B&#x27;)</code>, <code>BETWEEN x AND y</code>, <code>LIKE &#x27;%text%&#x27;</code> (pattern), <code>IS NULL</code> (empty).</li><li><code>ORDER BY amount DESC</code> sorts; <code>LIMIT 5</code> keeps the first five rows.</li><li><code>DISTINCT</code> removes duplicate rows from the result.</li><li><strong>Aggregate functions</strong> summarize many rows into one value: <code>COUNT</code>, <code>SUM</code>, <code>AVG</code>, <code>MIN</code>, <code>MAX</code>.</li><li><code>GROUP BY status</code> makes one result row per status; aggregates are then calculated per group. <code>HAVING</code> filters those groups.</li><li><strong>Joins</strong> combine tables through keys. <code>INNER JOIN</code> keeps only rows that match on both sides. <code>LEFT JOIN</code> keeps every row from the left table and fills the right side with <code>NULL</code> when there is no match.</li><li><code>CASE WHEN ... THEN ... ELSE ... END</code> is if/else inside a query, useful for categories.</li></ul>
+<p><strong>NULL</strong> means "no value". It is never equal to anything, not even another NULL, so you must write <code>paid_date IS NULL</code>, not <code>paid_date = NULL</code>.</p>
+<p><strong>How analysts use SQL:</strong></p>
+<ol><li><strong>Answer business questions</strong>: "How many claims did we pay last year, and for how much?"</li><li><strong>Verify test results</strong>: after a release, check that the database contains what the requirement says.</li><li><strong>Check data quality</strong>: find missing, invalid, duplicate or contradictory data.</li><li><strong>Size a problem</strong>: "18 of 39 credit limit decisions took more than 14 days" is a stronger business case than "decisions are slow".</li></ol>
+<p><strong>Reading versus writing.</strong> <code>INSERT</code>, <code>UPDATE</code> and <code>DELETE</code> change data. Analysts read them in specifications and migration scripts, but rarely run them in production: changes there go through applications, approved scripts and change management, with an audit trail.</p>
+<p><strong>Where to practice:</strong> the site's SQL playground (<code>sql.html</code>) has the ExportShield data preloaded. Alternatively paste <code>data/sql/exportshield.sql</code> into <a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a>. For guided basics, <a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a> has short interactive lessons.</p>
+<p><strong>Interview one-liner:</strong> "I write SELECT queries with joins, filters and GROUP BY to answer questions, verify test results and check data quality. I know the difference between INNER and LEFT JOIN and how NULLs behave."</p><h2 id='m10-key-terms'>Key terms</h2><dl class='pojmy'><dt>SQL</dt><dd>Structured Query Language, the standard language for querying and changing data in relational databases.</dd><dt>Query</dt><dd>a SQL statement that asks the database for data, usually starting with SELECT.</dd><dt>WHERE</dt><dd>the clause that filters rows before grouping.</dd><dt>NULL</dt><dd>a missing value; tested with IS NULL, never with = NULL.</dd><dt>Aggregate function</dt><dd>a function that summarizes many rows into one value: COUNT, SUM, AVG, MIN, MAX.</dd><dt>GROUP BY</dt><dd>the clause that makes one result row per group so aggregates are calculated per group.</dd><dt>HAVING</dt><dd>the clause that filters groups after aggregation.</dd><dt>Alias</dt><dd>a temporary name for a column or table in a query (AS).</dd><dt>INNER JOIN</dt><dd>a join that returns only rows with a match in both tables.</dd><dt>LEFT JOIN</dt><dd>a join that returns all rows from the left table, with NULLs where the right table has no match.</dd><dt>CASE WHEN</dt><dd>an if/else expression that returns a value based on conditions.</dd><dt>Subquery</dt><dd>a query nested inside another query.</dd><dt>EXISTS</dt><dd>a condition that is true when a subquery returns at least one row.</dd><dt>CTE (WITH)</dt><dd>a named subquery defined at the start of a query to make it readable.</dd><dt>Window function</dt><dd>a function that calculates across related rows without collapsing them, e.g. ROW_NUMBER.</dd><dt>COALESCE</dt><dd>a function that returns the first non-NULL value from its arguments.</dd><dt>DML</dt><dd>data manipulation language: INSERT, UPDATE, DELETE, the statements that change data.</dd></dl><div class="hotovo"><label class="fajfka "><input type="checkbox" data-key="nat-read-10-quick"> <span>I have read the quick version</span></label></div></section><section role="tabpanel" id="panel-deep" aria-labelledby="tab-deep" class="panel" hidden><nav class="obsah-deep" aria-label="Deep dive contents"><strong>In this deep dive</strong><ul><li class="u3"><a href="#m10-setup-and-the-dataset">Setup and the dataset</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-select-from-and-where">SELECT, FROM and WHERE</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-order-by-limit-distinct-and-aliases">ORDER BY, LIMIT, DISTINCT and aliases</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-aggregates-group-by-and-having">Aggregates, GROUP BY and HAVING</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-inner-join">INNER JOIN</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-left-join-and-why-nulls-appear">LEFT JOIN and why NULLs appear</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-joining-many-tables">Joining many tables</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-case-when">CASE WHEN</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-dates-in-sqlite">Dates in SQLite</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-subqueries-and-exists">Subqueries and EXISTS</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m10-common-table-expressions-with">Common table expressions (WITH)</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m10-window-functions-teaser">Window functions (teaser)</a> <span class=prio-mini>P3</span></li><li class="u3"><a href="#m10-insert-update-delete-read-don-t-run">INSERT, UPDATE, DELETE: read, don&#x27;t run</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m10-how-analysts-use-sql-at-work">How analysts use SQL at work</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m10-solutions">Solutions</a></li></ul></nav><h3 id="m10-setup-and-the-dataset">Setup and the dataset <span class="prio prio-p1">P1</span></h3>
+<p>Open the SQL playground (<code>sql.html</code>). The ExportShield tables are loaded: <code>countries</code>, <code>customers</code>, <code>buyers</code>, <code>policies</code>, <code>credit_limits</code>, <code>invoices</code>, <code>claims</code>, <code>payments</code>. If you prefer <a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a>, paste the whole content of <code>data/sql/exportshield.sql</code> into the editor and run it once; it creates and fills the tables.</p>
+<p>Two facts about the data you need for the examples:</p>
+<ul><li><strong>"Today" is 2026-09-30.</strong> The data is a snapshot. Queries use this date as a fixed value instead of the current date so that results stay the same.</li><li><strong>Amounts are in the row's currency</strong> (EUR or USD). Adding EUR and USD together gives a meaningless number, so many examples filter or group by currency.</li></ul>
+<p>The data model is explained in the data module. Short version: a customer (exporter) holds policies; under a policy it requests credit limits on buyers; it sends invoices to buyers; an unpaid invoice can lead to a claim; a claim is settled by payments.</p>
+<p>SQL keywords are not case-sensitive (<code>select</code> works like <code>SELECT</code>); writing them in capitals is a readability convention. Text values in quotes are compared case-sensitively in SQLite (the playground) and PostgreSQL: <code>&#x27;Approved&#x27;</code> does not match <code>&#x27;APPROVED&#x27;</code>. SQL Server and MySQL usually compare text case-insensitively, depending on the database settings (collation), so check before you rely on it.</p>
+<h3 id="m10-select-from-and-where">SELECT, FROM and WHERE <span class="prio prio-p1">P1</span></h3>
+<p>The simplest query returns a whole table:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT * FROM countries;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 12 rows, columns <code>code</code>, <code>name</code>, <code>risk_category</code>.</p>
+<p>Pick columns and filter rows:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT code, name, risk_category
+FROM countries
+WHERE risk_category &gt;= 5;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 5 rows: Brazil, Turkey, Kazakhstan (5), Egypt (6), Ukraine (7).</p>
+<p>Comparison operators: <code>=</code>, <code>&lt;&gt;</code> (not equal; <code>!=</code> also works in most databases), <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>. Combine conditions with <code>AND</code>, <code>OR</code> and <code>NOT</code>; use parentheses when you mix <code>AND</code> and <code>OR</code>, otherwise <code>AND</code> is evaluated first and results surprise you.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, name, segment
+FROM customers
+WHERE segment &lt;&gt; &#x27;CORPORATE&#x27;;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 10 customers (SME and MICRO).</p>
+<p><strong>IN</strong> tests against a list:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, status, requested_amount, approved_amount
+FROM credit_limits
+WHERE status IN (&#x27;REDUCED&#x27;, &#x27;REJECTED&#x27;);</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 18 rows (14 reduced, 4 rejected). Look at the limit with id 6: REJECTED, but <code>approved_amount</code> is 75,000. That is a planted data quality issue.</p>
+<p><strong>BETWEEN</strong> includes both ends. Dates stored as ISO text (<code>YYYY-MM-DD</code>) compare correctly:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, issue_date
+FROM invoices
+WHERE issue_date BETWEEN &#x27;2026-01-01&#x27; AND &#x27;2026-03-31&#x27;;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 19 invoices issued in Q1 2026.</p>
+<p><strong>LIKE</strong> matches patterns: <code>%</code> stands for any number of characters, <code>_</code> for exactly one.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT name, city
+FROM customers
+WHERE name LIKE &#x27;%a.s.&#x27;;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 5 joint-stock companies (names ending in "a.s."). In SQLite, <code>LIKE</code> ignores upper/lower case for English letters; other databases differ.</p>
+<p><strong>IS NULL</strong> finds missing values:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency, due_date
+FROM invoices
+WHERE paid_date IS NULL;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 31 unpaid invoices, some not yet due. <code>WHERE paid_date = NULL</code> would return 0 rows, because a comparison with NULL is never true.</p>
+<h3 id="m10-order-by-limit-distinct-and-aliases">ORDER BY, LIMIT, DISTINCT and aliases <span class="prio prio-p1">P1</span></h3>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency
+FROM invoices
+ORDER BY amount DESC
+LIMIT 5;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: the five largest invoices, starting with INV-2025-07002 (157,900 EUR). Note the second one is in USD; sorting by amount across currencies is fine for a quick look but not for a report.</p>
+<p><code>ASC</code> (ascending) is the default. <code>LIMIT</code> is SQLite, PostgreSQL and MySQL syntax; SQL Server uses <code>SELECT TOP 5</code>, Oracle uses <code>FETCH FIRST 5 ROWS ONLY</code>.</p>
+<p><code>DISTINCT</code> removes duplicates:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT DISTINCT sector
+FROM buyers
+ORDER BY sector;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 10 sectors, from Agriculture to Transport.</p>
+<p><strong>Aliases</strong> rename columns (<code>AS customer_name</code>) or give tables a short name (<code>customers AS c</code>). Table aliases become essential with joins.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT c.name AS customer_name,
+       c.segment AS customer_segment
+FROM customers AS c
+WHERE c.city = &#x27;Praha&#x27;;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 1 row, Praha Rail Parts a.s.</p>
+<h3 id="m10-aggregates-group-by-and-having">Aggregates, GROUP BY and HAVING <span class="prio prio-p1">P1</span></h3>
+<p>Aggregate functions turn many rows into one value.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT COUNT(*)          AS all_invoices,
+       COUNT(paid_date)  AS paid_invoices,
+       MIN(issue_date)   AS first_issued,
+       MAX(issue_date)   AS last_issued
+FROM invoices;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 78 invoices, 47 paid, first issued 2024-04-22, last 2026-09-17. <code>COUNT(*)</code> counts rows; <code>COUNT(column)</code> counts only non-NULL values. That difference is a quick way to measure completeness.</p>
+<p><code>GROUP BY</code> produces one row per group:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT currency,
+       COUNT(*)              AS invoices,
+       SUM(amount)           AS total_amount,
+       ROUND(AVG(amount), 0) AS avg_amount
+FROM invoices
+GROUP BY currency;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: EUR 69 invoices, 2,960,400 in total; USD 9 invoices, 443,300.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT status, COUNT(*) AS claims, SUM(claimed_amount) AS claimed
+FROM claims
+GROUP BY status
+ORDER BY claims DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: PAID 7, IN_REVIEW 3, then NOTIFIED, APPROVED (2 each) and REJECTED 1. (The <code>claimed</code> total mixes currencies because one rejected and one notified claim are in USD; the next sections show how to handle that.)</p>
+<p>The rule for <code>GROUP BY</code>: every column in <code>SELECT</code> must either be in <code>GROUP BY</code> or inside an aggregate function. SQLite is lenient and lets you break the rule, returning a value from an arbitrary row of the group; most other databases (PostgreSQL, SQL Server, Oracle, MySQL in its default mode) raise an error.</p>
+<p><code>WHERE</code> filters rows <em>before</em> grouping. <code>HAVING</code> filters groups <em>after</em> aggregation:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT buyer_id, COUNT(*) AS unpaid_invoices
+FROM invoices
+WHERE paid_date IS NULL
+GROUP BY buyer_id
+HAVING COUNT(*) &gt;= 3;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 4 buyers (IDs 4, 5, 8, 19) with three or more unpaid invoices.</p>
+<h3 id="m10-inner-join">INNER JOIN <span class="prio prio-p1">P1</span></h3>
+<p>Data about one business event is spread across tables. A join puts it back together by matching keys.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT i.invoice_no, i.amount, i.currency, b.name AS buyer
+FROM invoices AS i
+INNER JOIN buyers AS b ON b.id = i.buyer_id
+WHERE i.paid_date IS NULL
+ORDER BY i.amount DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: the 31 unpaid invoices, now with buyer names; the largest is 119,100 USD from Great Lakes Industrial Supply Inc.</p>
+<p>How to read it: for each invoice, find the buyer whose <code>id</code> equals the invoice's <code>buyer_id</code>. <code>INNER JOIN</code> (or just <code>JOIN</code>) keeps only pairs that match. An invoice with a non-existent buyer would silently disappear.</p>
+<p><strong>Pitfall: joins can multiply rows.</strong> If the right table has two matching rows, the left row appears twice:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT COUNT(*) AS rows_after_join
+FROM invoices AS i
+JOIN credit_limits AS l
+  ON l.policy_id = i.policy_id AND l.buyer_id = i.buyer_id;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 80, although there are only 78 invoices. Policy 18 has two credit limit rows for buyer 2 (a reduced limit and a new open request), so each of that buyer's two invoices is counted twice. Always compare the row count before and after a join when you sum amounts.</p>
+<h3 id="m10-left-join-and-why-nulls-appear">LEFT JOIN and why NULLs appear <span class="prio prio-p1">P1</span></h3>
+<p><code>LEFT JOIN</code> keeps <strong>every row from the left table</strong> (the one after <code>FROM</code>). Where the right table has a match, its columns are filled in. Where there is no match, the right-side columns are <code>NULL</code>.</p>
+<p>Compare these two queries:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.id, b.name, b.country_code, co.name AS country, co.risk_category
+FROM buyers AS b
+INNER JOIN countries AS co ON co.code = b.country_code;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 24 rows.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.id, b.name, b.country_code, co.name AS country, co.risk_category
+FROM buyers AS b
+LEFT JOIN countries AS co ON co.code = b.country_code
+ORDER BY co.risk_category DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 25 rows. Buyer 24, Baltic Timber Traders, has no country code, so there is nothing to match. <code>INNER JOIN</code> dropped it without warning; <code>LEFT JOIN</code> keeps it with <code>NULL</code> in <code>country</code> and <code>risk_category</code>. For a risk report, losing a buyer silently is a real problem.</p>
+<p>LEFT JOIN also answers "which ones have <strong>no</strong> related row?":</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.id, b.name
+FROM buyers AS b
+LEFT JOIN credit_limits AS l ON l.buyer_id = b.id
+WHERE l.id IS NULL;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 1 buyer, Deccan Engineering Pvt Ltd, without any credit limit.</p>
+<p>And it shows claims with and without payments:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cl.id AS claim_id, cl.status, cl.indemnity_amount, p.id AS payment_id, p.amount
+FROM claims AS cl
+LEFT JOIN payments AS p ON p.claim_id = cl.id
+ORDER BY cl.id;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 17 rows for 15 claims. Claims 5 and 6 appear twice (paid in two instalments). Claim 7 has status PAID but <code>NULL</code> payment columns: a consistency problem.</p>
+<p>Rule of thumb: when the question is "all X, with Y if there is one", use <code>LEFT JOIN</code> with X on the left. <code>RIGHT JOIN</code> and <code>FULL OUTER JOIN</code> also exist; you can always rewrite a right join as a left join by swapping the tables.</p>
+<h3 id="m10-joining-many-tables">Joining many tables <span class="prio prio-p1">P1</span></h3>
+<p>Follow the foreign keys step by step. Claim → invoice → policy → customer, and invoice → buyer → country:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cl.id AS claim_id,
+       cu.name AS exporter,
+       b.name  AS buyer,
+       co.name AS buyer_country,
+       i.invoice_no,
+       cl.claimed_amount,
+       i.currency,
+       cl.status
+FROM claims AS cl
+JOIN invoices  AS i  ON i.id  = cl.invoice_id
+JOIN policies  AS p  ON p.id  = i.policy_id
+JOIN customers AS cu ON cu.id = p.customer_id
+JOIN buyers    AS b  ON b.id  = i.buyer_id
+LEFT JOIN countries AS co ON co.code = b.country_code
+ORDER BY cl.id;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 15 rows, one per claim, readable for a business user. Claim 1: Moravia AgroTech a.s. against Parana Agro Comercial Ltda (Brazil), 24,200 EUR, PAID. The last join is a LEFT JOIN on purpose, so that a buyer without a country would not drop out.</p>
+<p>Tip: build long joins one table at a time and check the row count after each step.</p>
+<h3 id="m10-case-when">CASE WHEN <span class="prio prio-p1">P1</span></h3>
+<p><code>CASE</code> creates a value based on conditions, evaluated top to bottom; the first true branch wins.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT code, name, risk_category,
+       CASE
+         WHEN risk_category &lt;= 2 THEN &#x27;Low&#x27;
+         WHEN risk_category &lt;= 4 THEN &#x27;Medium&#x27;
+         ELSE &#x27;High&#x27;
+       END AS risk_band
+FROM countries;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Combined with <code>GROUP BY</code>, CASE turns into a quick segmentation:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT CASE
+         WHEN risk_category &lt;= 2 THEN &#x27;Low&#x27;
+         WHEN risk_category &lt;= 4 THEN &#x27;Medium&#x27;
+         ELSE &#x27;High&#x27;
+       END AS risk_band,
+       COUNT(*) AS limits,
+       SUM(l.requested_amount) AS requested,
+       SUM(l.approved_amount)  AS approved
+FROM credit_limits AS l
+JOIN buyers AS b     ON b.id = l.buyer_id
+JOIN countries AS co ON co.code = b.country_code
+WHERE l.status &lt;&gt; &#x27;REQUESTED&#x27;
+GROUP BY risk_band
+ORDER BY risk_band;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: High 14 limits (3.39 million requested, 1.43 million approved), Low 19 (3.76 / 3.40 million), Medium 5. Underwriters approve a much smaller share in high-risk countries, as expected. Two caveats a careful analyst would mention: the amounts mix EUR and USD, and one decided limit is missing (39 decisions exist, the bands add up to 38) because the buyer without a country was dropped by the INNER JOIN.</p>
+<p>A common pattern is counting with CASE: <code>SUM(CASE WHEN status = &#x27;REJECTED&#x27; THEN 1 ELSE 0 END)</code> counts rejected rows inside a group.</p>
+<h3 id="m10-dates-in-sqlite">Dates in SQLite <span class="prio prio-p1">P1</span></h3>
+<p>SQLite has no separate date type; dates are stored as text <code>YYYY-MM-DD</code> and handled with functions:</p>
+<ul><li><code>date(&#x27;2026-09-30&#x27;, &#x27;-90 days&#x27;)</code> returns <code>2026-07-02</code>.</li><li><code>strftime(&#x27;%Y-%m&#x27;, issue_date)</code> returns the year and month, e.g. <code>2026-03</code>.</li><li><code>julianday(date)</code> converts a date to a day number, so subtracting two of them gives the number of days between them.</li><li><code>date(&#x27;now&#x27;)</code> is today's date; we use the fixed snapshot date instead.</li></ul>
+<p>Days overdue for unpaid invoices:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, due_date,
+       CAST(julianday(&#x27;2026-09-30&#x27;) - julianday(due_date) AS INTEGER) AS days_overdue
+FROM invoices
+WHERE paid_date IS NULL
+  AND due_date &lt; &#x27;2026-09-30&#x27;
+ORDER BY days_overdue DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 23 overdue invoices, the oldest 798 days overdue (INV-2024-02003).</p>
+<p>Invoices per month:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT strftime(&#x27;%Y-%m&#x27;, issue_date) AS month, COUNT(*) AS invoices
+FROM invoices
+WHERE issue_date &gt;= &#x27;2026-01-01&#x27;
+GROUP BY month
+ORDER BY month;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 9 months; January 2026 has the most invoices (10).</p>
+<p><strong>Other databases differ.</strong> SQL Server uses <code>DATEDIFF(day, a, b)</code> and <code>GETDATE()</code>, Oracle subtracts dates directly and uses <code>SYSDATE</code>, PostgreSQL uses <code>CURRENT_DATE</code> and <code>date_part</code>. The concepts are the same; look up the function names for the database you work with.</p>
+<h3 id="m10-subqueries-and-exists">Subqueries and EXISTS <span class="prio prio-p2">P2</span></h3>
+<p>A <strong>subquery</strong> is a query inside another query, in brackets.</p>
+<p>Invoices above the average EUR invoice:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency
+FROM invoices
+WHERE currency = &#x27;EUR&#x27;
+  AND amount &gt; (SELECT AVG(amount) FROM invoices WHERE currency = &#x27;EUR&#x27;)
+ORDER BY amount DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 22 invoices (the EUR average is about 42,900).</p>
+<p><code>EXISTS</code> checks whether a related row exists. Customers with at least one claim:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cu.id, cu.name
+FROM customers AS cu
+WHERE EXISTS (
+  SELECT 1
+  FROM claims cl
+  JOIN invoices i ON i.id = cl.invoice_id
+  JOIN policies p ON p.id = i.policy_id
+  WHERE p.customer_id = cu.id
+);</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 7 customers. <code>NOT EXISTS</code> gives the opposite. <code>NOT IN</code> with a subquery also works, but it returns nothing if the subquery contains a NULL, so <code>NOT EXISTS</code> is the safer habit:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT name FROM buyers
+WHERE id NOT IN (SELECT buyer_id FROM invoices);</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 3 buyers that never received an invoice.</p>
+<h3 id="m10-common-table-expressions-with">Common table expressions (WITH) <span class="prio prio-p2">P2</span></h3>
+<p>A <strong>CTE</strong> (common table expression) gives a subquery a name at the top of the query, so a complex query reads as steps.</p>
+<div class="kod"><pre><code class="jazyk-sql">WITH overdue AS (
+  SELECT i.*, p.customer_id
+  FROM invoices i
+  JOIN policies p ON p.id = i.policy_id
+  WHERE i.paid_date IS NULL
+    AND i.due_date &lt; &#x27;2026-09-30&#x27;
+)
+SELECT cu.name, COUNT(*) AS overdue_invoices, SUM(o.amount) AS overdue_amount, o.currency
+FROM overdue o
+JOIN customers cu ON cu.id = o.customer_id
+GROUP BY cu.name, o.currency
+ORDER BY overdue_amount DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 11 rows; Polabi Chemicals a.s. has the largest overdue EUR amount (3 invoices, 139,100). Grouping by currency as well keeps EUR and USD apart.</p>
+<h3 id="m10-window-functions-teaser">Window functions (teaser) <span class="prio prio-p3">P3</span></h3>
+<p>Window functions calculate across related rows <em>without</em> collapsing them into one row. <code>ROW_NUMBER()</code> ranks rows within a group:</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.name AS buyer, i.invoice_no, i.amount,
+       ROW_NUMBER() OVER (PARTITION BY i.buyer_id ORDER BY i.amount DESC) AS rank_in_buyer
+FROM invoices i
+JOIN buyers b ON b.id = i.buyer_id
+WHERE i.currency = &#x27;EUR&#x27;
+ORDER BY b.name, rank_in_buyer
+LIMIT 8;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: each buyer's invoices numbered from the largest; Alpenmarkt Vertrieb GmbH has five. Other useful ones: <code>SUM(...) OVER (ORDER BY date)</code> for running totals, <code>LAG()</code> to compare with the previous row. Supported by SQLite 3.25 and later and by all major databases.</p>
+<h3 id="m10-insert-update-delete-read-don-t-run">INSERT, UPDATE, DELETE: read, don't run <span class="prio prio-p2">P2</span></h3>
+<p>These statements change data. You should understand them when you see them in a migration script, a test data setup or a vendor's fix:</p>
+<div class="kod"><pre><code class="jazyk-sql">INSERT INTO countries (code, name, risk_category)
+VALUES (&#x27;MX&#x27;, &#x27;Mexico&#x27;, 4);
+
+UPDATE credit_limits
+SET approved_amount = 0
+WHERE id = 6;
+
+DELETE FROM payments
+WHERE id = 8;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>The most dangerous mistake is an <code>UPDATE</code> or <code>DELETE</code> without <code>WHERE</code>: it changes every row in the table.</p>
+<p>Why analysts rarely write data in production:</p>
+<ul><li><strong>Audit and accountability</strong>: in a regulated insurer, every change to a policy or claim must be traceable to a person, a reason and an approval. Applications record that; a manual <code>UPDATE</code> bypasses it.</li><li><strong>Business logic</strong>: the application also writes history, sends notifications and updates related records. A direct change skips all of that and leaves the data inconsistent.</li><li><strong>Segregation of duties</strong>: the person who specifies a change should not be the one who executes it unchecked.</li><li><strong>Change management</strong>: data fixes go through an approved script, tested first, run by the vendor or operations team.</li></ul>
+<p>In a test environment or in your own copy of the data (like the SQL playground), experimenting is fine. If you break the playground data, reload it.</p>
+<h3 id="m10-how-analysts-use-sql-at-work">How analysts use SQL at work <span class="prio prio-p1">P1</span></h3>
+<p><strong>1. Answering business questions.</strong> "How many credit limit decisions did we make and how long did they take?"</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT COUNT(*) AS decisions,
+       ROUND(AVG(julianday(decided_on) - julianday(requested_on)), 1) AS avg_days,
+       SUM(CASE WHEN julianday(decided_on) - julianday(requested_on) &gt; 14 THEN 1 ELSE 0 END) AS over_14_days
+FROM credit_limits
+WHERE decided_on IS NOT NULL;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 39 decisions, average 12.5 days, 18 took more than 14 days.</p>
+<p><strong>2. Sizing a problem for a business case.</strong> The last result is the size of the problem: almost half of the decisions take more than two weeks. If a proposed ARES integration saves a day per request, you now have a base to calculate the benefit. Always state the period, the source and the caveats (here: one record has a negative duration, a data error).</p>
+<p><strong>3. Verifying test results.</strong> Turn an acceptance criterion into a query that must return zero rows. Criterion: "An APPROVED or REDUCED limit always has an approved amount greater than zero and not higher than the requested amount."</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, status, requested_amount, approved_amount
+FROM credit_limits
+WHERE status IN (&#x27;APPROVED&#x27;, &#x27;REDUCED&#x27;)
+  AND (approved_amount &lt;= 0 OR approved_amount &gt; requested_amount);</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p>Result: 0 rows, so the criterion holds in this data. A query like this can be rerun after every release.</p>
+<p><strong>4. Checking data quality.</strong> Search for rows that break rules: missing values, invalid formats, contradictions, duplicates. The exercises below contain several such checks. Report findings with counts, examples and impact, not just "the data is bad".</p>
+<p>Habits that keep you out of trouble: start with <code>SELECT * ... LIMIT 10</code> to see the data; count rows before and after each join; never add up different currencies; write down the snapshot date and filters next to every number you send to someone.</p>
+<h3 id="m10-solutions">Solutions</h3>
+<aside class="box box-tip"><strong class="box-nadpis">Tip</strong><p>Try the exercises in the Hands-on section first. Compare only after you have your own query; there are often several correct solutions. All results below are for the ExportShield dataset with snapshot date 2026-09-30.</p></aside>
+<p><strong>1.</strong> 3 rows: Rheinwerk Handels, Nordhafen Logistik, Bavaria Bau Supplies.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, name, sector
+FROM buyers
+WHERE country_code = &#x27;DE&#x27;;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>2.</strong> SME 8, CORPORATE 5, MICRO 2.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT segment, COUNT(*) AS customers
+FROM customers
+GROUP BY segment
+ORDER BY customers DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>3.</strong> 11 invoices; two of them are in USD, so "over 100,000" means different values.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, amount, currency
+FROM invoices
+WHERE amount &gt; 100000
+ORDER BY amount DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>4.</strong> 4 open requests, IDs 40 to 43, the oldest from 2026-09-08.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, policy_id, buyer_id, requested_amount, currency, requested_on
+FROM credit_limits
+WHERE status = &#x27;REQUESTED&#x27;
+ORDER BY requested_on;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>5.</strong> 2 rows with the same company ID: the same exporter registered twice (a uniqueness issue).</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT id, name, ico
+FROM customers
+WHERE name LIKE &#x27;%Glass%&#x27;;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>6.</strong> EUR 5,004,000 and USD 980,000.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT currency, SUM(approved_amount) AS total_approved
+FROM credit_limits
+WHERE status IN (&#x27;APPROVED&#x27;, &#x27;REDUCED&#x27;)
+GROUP BY currency;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>7.</strong> E. Kralova 12, J. Marek 10, T. Bily 10, P. Novotna 7.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT underwriter, COUNT(*) AS decisions
+FROM credit_limits
+WHERE decided_on IS NOT NULL
+GROUP BY underwriter
+ORDER BY decisions DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>8.</strong> 8 buyers; Dnipro Agro Holding (Ukraine, 7) first. The buyer without a country is not in the list, and that is a finding too.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.name AS buyer, co.name AS country, co.risk_category
+FROM buyers AS b
+JOIN countries AS co ON co.code = b.country_code
+WHERE co.risk_category &gt;= 5
+ORDER BY co.risk_category DESC, b.name;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>9.</strong> 25 rows; Steppe Rail Service has 4 limits, Deccan Engineering 0. Use <code>COUNT(l.id)</code>, not <code>COUNT(*)</code>, or buyers without limits show 1.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT b.name AS buyer, COUNT(l.id) AS credit_limits
+FROM buyers AS b
+LEFT JOIN credit_limits AS l ON l.buyer_id = b.id
+GROUP BY b.id, b.name
+ORDER BY credit_limits DESC, b.name;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>10.</strong> E. Kralova 25.0 % (3 of 12), J. Marek 10.0 %, the others 0 %. Writing <code>100.0</code> instead of <code>100</code> avoids integer division, which would round down to whole numbers.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT underwriter,
+       COUNT(*) AS decisions,
+       SUM(CASE WHEN status = &#x27;REJECTED&#x27; THEN 1 ELSE 0 END) AS rejected,
+       ROUND(100.0 * SUM(CASE WHEN status = &#x27;REJECTED&#x27; THEN 1 ELSE 0 END) / COUNT(*), 1) AS rejected_pct
+FROM credit_limits
+WHERE decided_on IS NOT NULL
+GROUP BY underwriter
+ORDER BY rejected_pct DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>11.</strong> Averages between 10.6 and 14.9 days. T. Bily has a minimum of -5 days: limit 19 was decided before it was requested.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT underwriter,
+       ROUND(AVG(julianday(decided_on) - julianday(requested_on)), 1) AS avg_days,
+       MIN(julianday(decided_on) - julianday(requested_on)) AS min_days,
+       MAX(julianday(decided_on) - julianday(requested_on)) AS max_days
+FROM credit_limits
+WHERE decided_on IS NOT NULL
+GROUP BY underwriter;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>12.</strong> 5 invoices, from 176 days overdue (INV-2026-01001) down to 97. One of them (INV-2026-06005) also has a due date before its issue date.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT i.invoice_no, i.amount, i.currency, i.due_date,
+       CAST(julianday(&#x27;2026-09-30&#x27;) - julianday(i.due_date) AS INTEGER) AS days_overdue
+FROM invoices AS i
+WHERE i.paid_date IS NULL
+  AND julianday(&#x27;2026-09-30&#x27;) - julianday(i.due_date) &gt; 90
+  AND NOT EXISTS (SELECT 1 FROM claims AS cl WHERE cl.invoice_id = i.id)
+ORDER BY days_overdue DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>13.</strong> INV-2026-01002 appears twice.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT invoice_no, COUNT(*) AS occurrences
+FROM invoices
+GROUP BY invoice_no
+HAVING COUNT(*) &gt; 1;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>14.</strong> Claim 7: status PAID, indemnity 15,570, payments 0. <code>COALESCE(x, 0)</code> replaces NULL with 0, so claims without any payment are caught.</p>
+<div class="kod"><pre><code class="jazyk-sql">SELECT cl.id, cl.status, cl.indemnity_amount,
+       COALESCE(SUM(p.amount), 0) AS paid_total
+FROM claims AS cl
+LEFT JOIN payments AS p ON p.claim_id = cl.id
+WHERE cl.status = &#x27;PAID&#x27;
+GROUP BY cl.id, cl.status, cl.indemnity_amount
+HAVING COALESCE(SUM(p.amount), 0) &lt;&gt; cl.indemnity_amount;</code></pre><button type="button" class="kopirovat">Copy</button></div>
+<p><strong>15.</strong> 11 rows. Brazil has the highest share (153,400 claimed of 460,400 invoiced, 33.3 %), then Kazakhstan 26.2 % and Slovakia 24.6 %. Buyers without a country appear as "(missing country)".</p>
+<div class="kod"><pre><code class="jazyk-sql">WITH invoiced AS (
+  SELECT COALESCE(b.country_code, &#x27;??&#x27;) AS country_code, SUM(i.amount) AS invoiced_eur
+  FROM invoices i
+  JOIN buyers b ON b.id = i.buyer_id
+  WHERE i.currency = &#x27;EUR&#x27;
+  GROUP BY COALESCE(b.country_code, &#x27;??&#x27;)
+),
+claimed AS (
+  SELECT COALESCE(b.country_code, &#x27;??&#x27;) AS country_code, SUM(cl.claimed_amount) AS claimed_eur
+  FROM claims cl
+  JOIN invoices i ON i.id = cl.invoice_id
+  JOIN buyers b   ON b.id = i.buyer_id
+  WHERE i.currency = &#x27;EUR&#x27;
+  GROUP BY COALESCE(b.country_code, &#x27;??&#x27;)
+)
+SELECT COALESCE(co.name, &#x27;(missing country)&#x27;) AS country,
+       inv.invoiced_eur,
+       COALESCE(cl.claimed_eur, 0) AS claimed_eur,
+       ROUND(100.0 * COALESCE(cl.claimed_eur, 0) / inv.invoiced_eur, 1) AS claimed_pct
+FROM invoiced inv
+LEFT JOIN claimed cl   ON cl.country_code = inv.country_code
+LEFT JOIN countries co ON co.code = inv.country_code
+ORDER BY claimed_pct DESC;</code></pre><button type="button" class="kopirovat">Copy</button></div><div class="hotovo"><label class="fajfka "><input type="checkbox" data-key="nat-read-10-deep"> <span>I have worked through the deep dive</span></label></div></section><section role="tabpanel" id="panel-practice" aria-labelledby="tab-practice" class="panel" hidden><div class="cviceni" id="m10-e1"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e1"> <span>SQL tasks 1–5: basics</span></label><span class="meta">30 min · SQL playground (sql.html)</span></div><div class="cviceni-telo"><p><strong>Goal:</strong> get comfortable with SELECT, WHERE, ORDER BY and GROUP BY on the ExportShield data.</p>
+<p>Open the SQL playground (<code>sql.html</code>), or load <code>data/sql/exportshield.sql</code> into <a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a>. Write one query per task and note the number of rows.</p>
+<ol><li>List all buyers based in Germany (country code <code>DE</code>) with their sector.</li><li>How many customers are there in each segment? Sort from the largest group.</li><li>List invoices with an amount over 100,000, largest first. Show the currency. What is wrong with comparing these amounts?</li><li>Which credit limit requests are still waiting for a decision? Show the oldest first.</li><li>Find customers whose name contains "Glass". What do you notice?</li></ol>
+<p><strong>Done when:</strong> you have five working queries and a one-sentence note for tasks 3 and 5. Solutions are at the end of the Deep dive.</p></div></div>
+<div class="cviceni" id="m10-e2"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e2"> <span>SQL tasks 6–10: joins and aggregates</span></label><span class="meta">45 min · SQL playground (sql.html)</span></div><div class="cviceni-telo"><p><strong>Goal:</strong> combine tables and summarize data.</p>
+<ol><li>Total approved amount of all APPROVED and REDUCED credit limits, per currency.</li><li>Number of credit limit decisions per underwriter (exclude open requests).</li><li>Buyers in countries with risk category 5 or higher: buyer name, country name, risk category, highest risk first.</li><li>Every buyer with the number of credit limits it has, including buyers with none. (Hint: LEFT JOIN, and think about what you count.)</li><li>Rejection rate per underwriter in percent, rounded to one decimal place. (Hint: CASE WHEN inside SUM.)</li></ol>
+<p><strong>Done when:</strong> all five queries run, task 9 returns 25 rows, and you can explain in one sentence why task 9 needs a LEFT JOIN.</p></div></div>
+<div class="cviceni" id="m10-e3"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e3"> <span>SQL tasks 11–15: analyst questions</span></label><span class="meta">60 min · SQL playground (sql.html)</span></div><div class="cviceni-telo"><p><strong>Goal:</strong> use SQL the way an analyst does: dates, missing data, data quality and a business ratio.</p>
+<ol><li>Average, minimum and maximum number of days between request and decision of a credit limit, per underwriter. Which value cannot be right, and which record causes it?</li><li>Unpaid invoices more than 90 days past due on 2026-09-30 <strong>without</strong> any claim. Why might this list interest the claims department?</li><li>Find duplicate invoice numbers.</li><li>Find claims with status PAID where the sum of payments differs from the indemnity amount, including claims with no payments at all.</li><li>For EUR invoices only: per buyer country, the total invoiced amount, the total claimed amount and the claimed share in percent. Buyers without a country must not disappear. (Hint: two CTEs, then LEFT JOIN.)</li></ol>
+<p><strong>Done when:</strong> all five queries run and for each data problem you found you have written one line: what is wrong, how many rows, and the likely business impact.</p></div></div>
+<div class="cviceni" id="m10-e4"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m10-e4"> <span>SQLBolt lessons 1–12</span></label><span class="meta">90 min · SQLBolt</span></div><div class="cviceni-telo"><p><strong>Goal:</strong> practice the core syntax with instant feedback, independent of the ExportShield data.</p>
+<ol><li>Go to <a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a> and complete lessons 1 to 12. They cover SELECT, filtering with constraints, sorting, joins including outer joins, NULLs, expressions, aggregates and the order in which a query is executed.</li><li>After each lesson, write one query of the same type against the ExportShield data in the SQL playground and note it in your own cheat sheet.</li><li>After lesson 12, write down in your own words the order in which the database processes a query (FROM and JOIN, WHERE, GROUP BY, HAVING, SELECT, ORDER BY, LIMIT) and why that explains that you cannot use a SELECT alias in WHERE.</li></ol>
+<p><strong>Done when:</strong> all twelve lessons are completed and your cheat sheet has at least twelve ExportShield queries, one per lesson.</p></div></div></section><section role="tabpanel" id="panel-check" aria-labelledby="tab-check" class="panel" hidden><details class="otazka"><summary><span class="q">What is the difference between WHERE and HAVING?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p>WHERE filters individual rows before they are grouped, so it cannot use aggregates like COUNT. HAVING filters the groups after GROUP BY and aggregation, so it can use them, for example <code>HAVING COUNT(*) &gt;= 3</code>. You can use both in one query: WHERE removes paid invoices, then HAVING keeps only buyers with three or more unpaid ones.</p></div></details>
+<details class="otazka"><summary><span class="q">Why does <code>WHERE paid_date = NULL</code> return no rows, and what should you write instead?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p>NULL means unknown, and comparing anything with an unknown value gives "unknown", not true. Rows are returned only when the condition is true, so no rows qualify. Write <code>WHERE paid_date IS NULL</code> (or <code>IS NOT NULL</code> for the opposite).</p></div></details>
+<details class="otazka"><summary><span class="q">You join <code>buyers</code> to <code>countries</code> with INNER JOIN and get 24 rows, but there are 25 buyers. What happened, and how do you fix it?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p>One buyer has no country code, so no row in <code>countries</code> matches and INNER JOIN drops it. Use LEFT JOIN with <code>buyers</code> on the left: all 25 buyers are kept, and the country columns are NULL for the buyer without a match. Then decide whether the missing country is a data quality issue to report.</p></div></details>
+<details class="otazka"><summary><span class="q">After joining invoices to credit limits, the sum of invoice amounts is higher than the plain sum over invoices. Why?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p>The join multiplied rows: when one invoice matches two credit limit rows (for example an existing limit and a new open request for the same policy and buyer), the invoice appears twice and its amount is counted twice. Check row counts before and after joins and make sure the join keys identify at most one row on the side you do not want to multiply.</p></div></details>
+<details class="otazka"><summary><span class="q">What is the difference between <code>COUNT(*)</code> and <code>COUNT(paid_date)</code>?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p><code>COUNT(*)</code> counts all rows. <code>COUNT(paid_date)</code> counts only rows where <code>paid_date</code> is not NULL. In the invoices table that gives 78 and 47: 47 invoices are paid. The difference is a quick completeness or status check.</p></div></details>
+<details class="otazka"><summary><span class="q">A colleague asks for "the total value of overdue invoices". What questions do you ask before writing the query?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p>As of which date, and are invoices paid late but now paid included? Overdue by any number of days, or beyond a threshold? Which currency, and if several, should amounts be converted at which rate or reported separately? Include invoices that already have a claim? Under active policies only? Writing these assumptions next to the number avoids two people getting different totals.</p></div></details>
+<details class="otazka"><summary><span class="q">Why do business analysts rarely run UPDATE or DELETE in production databases?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p>Direct changes bypass the application's business logic, history and notifications, so data can end up inconsistent. They also bypass audit and approval, which regulated companies such as insurers and banks must have. Data fixes therefore go through approved, tested scripts run by the responsible team. The analyst specifies what should change and verifies the result with SELECT.</p></div></details>
+<details class="otazka"><summary><span class="q">How can you use SQL to verify an acceptance criterion?</span><span class="ukaz">Show answer</span></summary><div class="odpoved"><p>Rewrite the criterion as a query that finds violations, so that the expected result is zero rows. For "an approved limit is never higher than the requested amount", select limits where <code>approved_amount &gt; requested_amount</code>. Run it after the test and after each release; any row returned is a defect with concrete evidence.</p></div></details></section><section role="tabpanel" id="panel-interview" aria-labelledby="tab-interview" class="panel" hidden><details class="pohovor"><summary><span class="q">What is the difference between INNER JOIN and LEFT JOIN? Give an example.</span><span class="ukaz">What a strong answer covers</span></summary><div class="odpoved"><ul><li>INNER JOIN returns only rows that match in both tables.</li><li>LEFT JOIN returns all rows from the left table; columns from the right table are NULL where nothing matches.</li><li>Example: all buyers with their country; a buyer without a country disappears with INNER JOIN but stays with LEFT JOIN.</li><li>LEFT JOIN plus <code>WHERE right.id IS NULL</code> finds records without a related record (buyers with no credit limit).</li></ul>
+<p>Typical mistake: explaining joins with Venn diagrams only, without saying what happens to unmatched rows and why NULLs appear.</p></div></details>
+<details class="pohovor"><summary><span class="q">How have you used SQL in your work or projects?</span><span class="ukaz">What a strong answer covers</span></summary><div class="odpoved"><ul><li>A concrete question you answered with numbers, e.g. how long credit limit decisions take.</li><li>Verifying test results: acceptance criteria rewritten as queries that must return zero rows.</li><li>Data quality checks: duplicates, missing values, contradictory dates, with counts and impact.</li><li>Sizing a problem for a business case.</li><li>What you would not do: change production data directly.</li></ul>
+<p>Typical mistake: saying "I know SQL" without a single example of a question it helped answer.</p></div></details>
+<details class="pohovor"><summary><span class="q">Write a query that shows the number of claims and total claimed amount per status.</span><span class="ukaz">What a strong answer covers</span></summary><div class="odpoved"><ul><li><code>SELECT status, COUNT(*) AS claims, SUM(claimed_amount) AS claimed FROM claims GROUP BY status ORDER BY claims DESC;</code></li><li>Explain each clause briefly while writing.</li><li>Mention the currency issue: group by currency as well, or filter, before adding amounts.</li><li>Mention checking the result: total of counts equals <code>SELECT COUNT(*) FROM claims</code>.</li></ul>
+<p>Typical mistake: selecting a column that is neither in GROUP BY nor aggregated.</p></div></details>
+<details class="pohovor"><summary><span class="q">How do you check data quality with SQL?</span><span class="ukaz">What a strong answer covers</span></summary><div class="odpoved"><ul><li>Completeness: <code>IS NULL</code> counts and <code>COUNT(*)</code> versus <code>COUNT(column)</code>.</li><li>Validity: formats and ranges, e.g. <code>length(ico) &lt;&gt; 8</code>, due date before issue date.</li><li>Consistency: contradictions across fields and tables, e.g. PAID claims without payments (LEFT JOIN).</li><li>Uniqueness: <code>GROUP BY ... HAVING COUNT(*) &gt; 1</code>.</li><li>Report count, examples, impact and root cause, and propose a preventive validation.</li></ul>
+<p>Typical mistake: listing problems without quantifying them or saying why they matter to the business.</p></div></details></section><section role="tabpanel" id="panel-resources" aria-labelledby="tab-resources" class="panel" hidden><h3>Udemy</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-u-the-complete-sql-bootcamp"></label><div><a href="https://www.udemy.com/course/the-complete-sql-bootcamp/" target="_blank" rel="noopener">The Complete SQL Bootcamp: Go from Zero to Hero</a> <span class="stitek stitek-core">Core</span><div class="meta">Jose Portilla · 9 h · ★ 4.6 (259,186 ratings) · updated 2022-12</div><p>The classic SQL course (260k ratings). Uses PostgreSQL; the site&#x27;s SQL playground uses SQLite – basic SQL is the same.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-u-learn-sql-from-scratch"></label><div><a href="https://www.udemy.com/course/learn-sql-from-scratch/" target="_blank" rel="noopener">SQL for Beginners: The Easiest Way to Learn SQL Step by Step</a> <span class="stitek">Optional</span><div class="meta">Code Star Academy · 8.5 h · ★ 4.6 (10,720 ratings) · updated 2026-09</div><p>Alternative to the SQL Bootcamp if you prefer a slower pace. Updated 2026.</p></div></li></ul><h3>Videos (free)</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-sql-alex-pl"></label><div><a href="https://www.youtube.com/playlist?list=PLUaB-1hjhk8GT6N5ne2qpf603sF26m2PW" target="_blank" rel="noopener">SQL Basics for Data Analysts (playlist)</a><div class="meta">Alex The Analyst · Beginner</div><p>SELECT, WHERE, GROUP BY, ORDER BY in 6–8 minute steps.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-sql-alex-4h"></label><div><a href="https://www.youtube.com/watch?v=OT1RErkfLNQ" target="_blank" rel="noopener">Learn SQL Beginner to Advanced in Under 4 Hours</a><div class="meta">Alex The Analyst · 245 min · Beginner to Intermediate</div><p>Free full course: joins, CTEs, window functions.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-sql-fcc"></label><div><a href="https://www.youtube.com/watch?v=HXV3zeQKqGY" target="_blank" rel="noopener">SQL Tutorial – Full Database Course for Beginners</a><div class="meta">freeCodeCamp.org · 261 min · Beginner</div><p>Classic full course including database design.</p></div></li></ul><h3>Tools to try</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-sqllab"></label><div><a href="../sql.html">SQL lab (this site)</a> <span class="stitek">Free · in this site</span><p>SQLite in your browser with the ExportShield dataset. No installation, nothing leaves your computer.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-sqlbolt"></label><div><a href="https://sqlbolt.com/" target="_blank" rel="noopener">SQLBolt</a> <span class="stitek">Free · browser</span><p>Short interactive SQL lessons with exercises. Good warm-up before the SQL module.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-sqliteonline"></label><div><a href="https://sqliteonline.com/" target="_blank" rel="noopener">SQLite Online</a> <span class="stitek">Free · browser</span><p>Online SQL editor; paste the ExportShield script and query it in a tool that looks like a real database client.</p></div></li></ul><h3>Reading (free)</h3><ul class='zdroje'><li class="zdroj zdroj-bez"><div><a href="https://www.w3schools.com/sql/" target="_blank" rel="noopener">W3Schools SQL tutorial</a><p>Quick reference with a try-it editor for every SQL command.</p></div></li></ul></section>
+</div>
+<nav class="dalsi" aria-label="Module navigation"><a href="09.html">← 09 Data and databases for analysts</a><a href="11.html">11 APIs, JSON/XML and system integrations →</a></nav>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · self-study path to IT Business Analyst · progress is saved in this browser
+  <span data-ucet-info hidden>and, after signing in with Google, in your account</span>.</p>
+  <p class="pozn">Udemy and YouTube links lead to external sites. Course content is not copied here; all explanations are original.</p>
+</footer>
+<script src="../assets/ucet-konfig.js"></script>
+<script src="../assets/ucet.js"></script>
+<script src="../assets/app.js"></script>
+
+</body>
+</html>

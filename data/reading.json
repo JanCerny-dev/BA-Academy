@@ -1,0 +1,166 @@
+{
+ "items": [
+  {
+   "id": "babok",
+   "title": "BABOK Guide overview (IIBA)",
+   "url": "https://www.iiba.org/standards-and-resources/babok/",
+   "what": "The standard body of knowledge for business analysis. The overview is free; the full guide comes with IIBA membership.",
+   "modules": [
+    "01"
+   ],
+   "title_cs": "Přehled BABOK Guide (IIBA)",
+   "what_cs": "Standardní soubor znalostí (body of knowledge) business analýzy. Přehled je zdarma, celý průvodce je součástí členství v IIBA."
+  },
+  {
+   "id": "scrumguide",
+   "title": "The Scrum Guide (2020)",
+   "url": "https://scrumguides.org/scrum-guide.html",
+   "what": "The official 13-page definition of Scrum. Read it once in full.",
+   "modules": [
+    "02",
+    "07"
+   ],
+   "what_cs": "Oficiální definice Scrumu na 13 stranách. Přečti si ji jednou celou."
+  },
+  {
+   "id": "bpmn-poster",
+   "title": "BPMN 2.0 poster (PDF)",
+   "url": "https://bpm-conference.org/assets/docs/bpmn-poster/BPMN2_0_Poster_EN.pdf",
+   "what": "All BPMN symbols on one page. Print it and keep it next to you while modelling.",
+   "modules": [
+    "04"
+   ],
+   "title_cs": "Plakát BPMN 2.0 (PDF)",
+   "what_cs": "Všechny symboly BPMN na jedné stránce. Vytiskni si ho a měj ho při modelování vedle sebe."
+  },
+  {
+   "id": "camunda-primer",
+   "title": "Camunda BPMN primer",
+   "url": "https://docs.camunda.io/docs/components/modeler/bpmn/bpmn-primer/",
+   "what": "Clear practical intro to BPMN from the people who make Camunda.",
+   "modules": [
+    "04"
+   ],
+   "title_cs": "Úvod do BPMN od Camundy",
+   "what_cs": "Srozumitelný praktický úvod do BPMN od lidí, kteří dělají Camundu."
+  },
+  {
+   "id": "bpmn-spec",
+   "title": "BPMN 2.0.2 specification (OMG)",
+   "url": "https://www.omg.org/spec/BPMN/2.0.2/About-BPMN",
+   "what": "The official standard – for looking things up, not for reading cover to cover.",
+   "modules": [
+    "04"
+   ],
+   "title_cs": "Specifikace BPMN 2.0.2 (OMG)",
+   "what_cs": "Oficiální standard – na dohledávání, ne na čtení od začátku do konce."
+  },
+  {
+   "id": "uml-diagrams",
+   "title": "uml-diagrams.org",
+   "url": "https://www.uml-diagrams.org/",
+   "what": "Examples and explanations of every UML diagram type.",
+   "modules": [
+    "08"
+   ],
+   "what_cs": "Příklady a vysvětlení všech typů UML diagramů."
+  },
+  {
+   "id": "ireb-syllabus",
+   "title": "IREB CPRE Foundation Level syllabus v3.3.0 (PDF)",
+   "url": "https://hub.ireb.org/media/pages/resources/cpre-foundation-level-syllabus/9c084b1cfd-1787039954/cpre_foundationlevel_syllabus_en_v.3.3.0.pdf",
+   "what": "Free, compact and rigorous summary of requirements engineering. Good reference even without the exam.",
+   "modules": [
+    "06",
+    "05"
+   ],
+   "title_cs": "Sylabus IREB CPRE Foundation Level v3.3.0 (PDF)",
+   "what_cs": "Bezplatné, stručné a přesné shrnutí requirements engineeringu. Dobrá příručka i bez zkoušky."
+  },
+  {
+   "id": "atlassian-agile",
+   "title": "Atlassian Agile Coach",
+   "url": "https://www.atlassian.com/agile",
+   "what": "Short articles on Scrum, Kanban, user stories, epics and estimation.",
+   "modules": [
+    "07",
+    "02"
+   ],
+   "what_cs": "Krátké články o Scrumu, Kanbanu, user stories, epicech a odhadování."
+  },
+  {
+   "id": "postman-learning",
+   "title": "Postman Learning Center",
+   "url": "https://learning.postman.com/",
+   "what": "Official docs and tutorials for Postman.",
+   "modules": [
+    "11"
+   ],
+   "what_cs": "Oficiální dokumentace a návody k Postmanu."
+  },
+  {
+   "id": "ares-dev",
+   "title": "ARES – information for developers (Czech)",
+   "url": "https://ares.gov.cz/stranky/vyvojar-info",
+   "what": "Official documentation of the ARES API, including a Swagger UI.",
+   "modules": [
+    "11"
+   ],
+   "title_cs": "ARES – informace pro vývojáře (česky)",
+   "what_cs": "Oficiální dokumentace ARES API včetně Swagger UI."
+  },
+  {
+   "id": "cnb-api",
+   "title": "ČNB API (Swagger)",
+   "url": "https://api.cnb.cz/cnbapi/swagger-ui.html",
+   "what": "Czech National Bank exchange-rate API in JSON – compare it with the plain-text daily rates file.",
+   "modules": [
+    "11"
+   ],
+   "what_cs": "API kurzů ČNB v JSONu – porovnej ho s textovým souborem denních kurzů."
+  },
+  {
+   "id": "w3s-sql",
+   "title": "W3Schools SQL tutorial",
+   "url": "https://www.w3schools.com/sql/",
+   "what": "Quick reference with a try-it editor for every SQL command.",
+   "modules": [
+    "10"
+   ],
+   "title_cs": "SQL tutoriál W3Schools",
+   "what_cs": "Rychlá příručka s editorem na vyzkoušení ke každému SQL příkazu."
+  },
+  {
+   "id": "mslearn-pp",
+   "title": "Microsoft Learn – Power Platform training",
+   "url": "https://learn.microsoft.com/en-us/training/powerplatform/",
+   "what": "Free official learning paths for Power Automate and Power Apps.",
+   "modules": [
+    "14"
+   ],
+   "title_cs": "Microsoft Learn – školení Power Platform",
+   "what_cs": "Bezplatné oficiální vzdělávací cesty pro Power Automate a Power Apps."
+  },
+  {
+   "id": "pp-devplan",
+   "title": "Power Apps Developer Plan (Microsoft Learn)",
+   "url": "https://learn.microsoft.com/en-us/power-platform/developer/plan",
+   "what": "Read the current conditions before you sign up – they change from 15 November 2026.",
+   "modules": [
+    "14"
+   ],
+   "what_cs": "Než se zaregistruješ, přečti si aktuální podmínky – od 15. listopadu 2026 se mění."
+  },
+  {
+   "id": "modern-analyst",
+   "title": "Modern Analyst – templates",
+   "url": "https://www.modernanalyst.com/Resources/Templates/tabid/146/Default.aspx",
+   "what": "Free BA templates (requirements documents, use cases, checklists) to compare with your own.",
+   "modules": [
+    "06"
+   ],
+   "title_cs": "Modern Analyst – šablony",
+   "what_cs": "Bezplatné šablony pro BA (dokumenty požadavků, use cases, checklisty) na porovnání s tvými vlastními."
+  }
+ ]
+}

@@ -1,0 +1,879 @@
+{
+ "_pozn": "YouTube, ověřeno skriptem 30. 10. 2026 (název, kanál, délka).",
+ "videos": [
+  {
+   "id": "ba-what",
+   "topic": "What a BA does",
+   "modules": [
+    "01"
+   ],
+   "title": "What is a Business Analyst and what do they do?",
+   "channel": "Jeremy Aschenbrenner (The BA Guide)",
+   "url": "https://www.youtube.com/watch?v=8z8uKPEwRdo",
+   "min": 3,
+   "level": "Beginner",
+   "why": "Shortest clear definition of the role.",
+   "why_cs": "Nejkratší srozumitelná definice role.",
+   "topic_cs": "Co dělá BA",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "ba-clayton",
+   "topic": "What a BA does",
+   "modules": [
+    "01"
+   ],
+   "title": "What is Business Analysis? And what is a Business Analyst?",
+   "channel": "Online PM Courses – Mike Clayton",
+   "url": "https://www.youtube.com/watch?v=xFsrdEtOqzg",
+   "min": 8,
+   "level": "Beginner",
+   "why": "Structured overview with the BABOK framing.",
+   "why_cs": "Strukturovaný přehled v rámci BABOK.",
+   "topic_cs": "Co dělá BA",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "ba-day",
+   "topic": "What a BA does",
+   "modules": [
+    "01"
+   ],
+   "title": "A Day in the Life of a Business Analyst",
+   "channel": "Business Analysis Excellence – Esta Lessing",
+   "url": "https://www.youtube.com/watch?v=_kPsTVjJZhk",
+   "min": 14,
+   "level": "Beginner",
+   "why": "Realistic daily routine from an experienced BA.",
+   "why_cs": "Realistický běžný den zkušené BA.",
+   "topic_cs": "Co dělá BA",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "ba-junior-day",
+   "topic": "What a BA does",
+   "modules": [
+    "01"
+   ],
+   "title": "Day in the Life of an Entry-Level Agile Business Analyst",
+   "channel": "Angelo the BA",
+   "url": "https://www.youtube.com/watch?v=aq6XcSD6SQ0",
+   "min": 7,
+   "level": "Beginner",
+   "why": "What a junior BA actually does in an agile team.",
+   "why_cs": "Co junior BA v agilním týmu opravdu dělá.",
+   "topic_cs": "Co dělá BA",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "ba-pm-po",
+   "topic": "What a BA does",
+   "modules": [
+    "01",
+    "02"
+   ],
+   "title": "What's the difference between BA, PM and PO?",
+   "channel": "Business Analysis with The Brazilian BA",
+   "url": "https://www.youtube.com/watch?v=S4m30jMjsPM",
+   "min": 13,
+   "level": "Beginner",
+   "why": "Separates three roles that job ads often mix up.",
+   "why_cs": "Rozliší tři role, které inzeráty často pletou dohromady.",
+   "topic_cs": "Co dělá BA",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "ba-vs-po",
+   "topic": "What a BA does",
+   "modules": [
+    "01",
+    "07"
+   ],
+   "title": "How is a product owner different to a business analyst?",
+   "channel": "Growing Scrum Masters",
+   "url": "https://www.youtube.com/watch?v=KhuTrzzEJpM",
+   "min": 6,
+   "level": "Beginner",
+   "why": "BA vs PO inside Scrum teams.",
+   "why_cs": "BA vs. PO ve Scrum týmech.",
+   "topic_cs": "Co dělá BA",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "elicit",
+   "topic": "Requirements",
+   "modules": [
+    "05"
+   ],
+   "title": "Introduction to Requirements Elicitation Techniques",
+   "channel": "BA-EXPERTS",
+   "url": "https://www.youtube.com/watch?v=31P2eHJLF7g",
+   "min": 6,
+   "level": "Beginner",
+   "why": "Interviews, workshops, observation – an overview.",
+   "why_cs": "Rozhovory, workshopy, pozorování – přehled.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "brd-srs",
+   "topic": "Requirements",
+   "modules": [
+    "06"
+   ],
+   "title": "Business Requirements vs. Functional Specifications (BRD vs. SRS)",
+   "channel": "BA BLOCKS",
+   "url": "https://www.youtube.com/watch?v=3eRpTLnLoi8",
+   "min": 14,
+   "level": "Beginner",
+   "why": "Where the business need ends and the vendor specification begins.",
+   "why_cs": "Kde končí byznysová potřeba a kde začíná specifikace pro dodavatele.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "usecase-write",
+   "topic": "Requirements",
+   "modules": [
+    "06",
+    "08"
+   ],
+   "title": "How to Write a Use Case",
+   "channel": "Bridging the Gap",
+   "url": "https://www.youtube.com/watch?v=RHdGn7WMWos",
+   "min": 13,
+   "level": "Beginner",
+   "why": "Step-by-step written use case.",
+   "why_cs": "Psaný use case krok za krokem.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "usecase-example",
+   "topic": "Requirements",
+   "modules": [
+    "06"
+   ],
+   "title": "Use Case Description EXAMPLE",
+   "channel": "The Business Analysis Doctor",
+   "url": "https://www.youtube.com/watch?v=WuNQLhx3dd8",
+   "min": 18,
+   "level": "Beginner/Intermediate",
+   "why": "A full worked use case specification.",
+   "why_cs": "Kompletní zpracovaná specifikace use casu.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "stories-ac",
+   "topic": "Requirements",
+   "modules": [
+    "07"
+   ],
+   "title": "How I Write Great User Stories with Strong Acceptance Criteria",
+   "channel": "Angelo the BA",
+   "url": "https://www.youtube.com/watch?v=rh3AUDS_bMA",
+   "min": 10,
+   "level": "Beginner",
+   "why": "Practical story and acceptance-criteria writing.",
+   "why_cs": "Praktické psaní stories a acceptance criteria.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "stories-vs-uc",
+   "topic": "Requirements",
+   "modules": [
+    "07",
+    "06"
+   ],
+   "title": "User Stories vs Use Cases",
+   "channel": "Bridging the Gap",
+   "url": "https://www.youtube.com/watch?v=Vnf3xg3oY4A",
+   "min": 7,
+   "level": "Beginner",
+   "why": "When to use which.",
+   "why_cs": "Kdy použít které.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "gherkin-1min",
+   "topic": "Requirements",
+   "modules": [
+    "07"
+   ],
+   "title": "What Is Gherkin?",
+   "channel": "LitheSpeed",
+   "url": "https://www.youtube.com/watch?v=bxeNxhOSGJg",
+   "min": 1,
+   "level": "Beginner",
+   "why": "One-minute intro to Given/When/Then.",
+   "why_cs": "Minutový úvod do Given/When/Then.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "gherkin-deep",
+   "topic": "Requirements",
+   "modules": [
+    "07",
+    "13"
+   ],
+   "title": "Clarify Your Acceptance Criteria with GIVEN-WHEN-THEN",
+   "channel": "Software Excellence Alliance",
+   "url": "https://www.youtube.com/watch?v=igxoZw44iPA",
+   "min": 48,
+   "level": "Intermediate",
+   "why": "Gherkin in depth; links acceptance criteria to tests.",
+   "why_cs": "Gherkin do hloubky, propojuje acceptance criteria s testy.",
+   "topic_cs": "Požadavky",
+   "level_cs": "Mírně pokročilý"
+  },
+  {
+   "id": "bpmn-what",
+   "topic": "BPMN",
+   "modules": [
+    "04"
+   ],
+   "title": "What is Business Process Model and Notation (BPMN)?",
+   "channel": "Camunda",
+   "url": "https://www.youtube.com/watch?v=MkXhkiRiovA",
+   "min": 2,
+   "level": "Beginner",
+   "why": "Official two-minute intro.",
+   "why_cs": "Oficiální dvouminutový úvod.",
+   "topic_cs": "BPMN",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "bpmn-3min",
+   "topic": "BPMN",
+   "modules": [
+    "04"
+   ],
+   "title": "BPMN Tutorial – Part 01: Simple BPMN Process in 3 min",
+   "channel": "Cawemo (Camunda)",
+   "url": "https://www.youtube.com/watch?v=odhFiGcqwtw",
+   "min": 3,
+   "level": "Beginner",
+   "why": "Your first process diagram.",
+   "why_cs": "Tvůj první procesní diagram.",
+   "topic_cs": "BPMN",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "bpmn-core",
+   "topic": "BPMN",
+   "modules": [
+    "04"
+   ],
+   "title": "BPMN 2.0 Tutorial for Beginners – Core Elements",
+   "channel": "Champa Intelligence",
+   "url": "https://www.youtube.com/watch?v=1ZPLfjkU564",
+   "min": 7,
+   "level": "Beginner",
+   "why": "Events, gateways and lanes.",
+   "why_cs": "Události (events), brány (gateways) a dráhy (lanes).",
+   "topic_cs": "BPMN",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "bpmn-camunda",
+   "topic": "BPMN",
+   "modules": [
+    "04"
+   ],
+   "title": "How to Create a BPMN Diagram in Camunda Modeler",
+   "channel": "Camunda",
+   "url": "https://www.youtube.com/watch?v=0n8MiEmNg1Y",
+   "min": 10,
+   "level": "Beginner",
+   "why": "Hands-on in Camunda Modeler, with an insurance example.",
+   "why_cs": "Prakticky v Camunda Modeleru, na příkladu z pojišťovnictví.",
+   "topic_cs": "BPMN",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "bpmn-boundary",
+   "topic": "BPMN",
+   "modules": [
+    "04"
+   ],
+   "title": "BPMN Boundary Events and How to Use Them",
+   "channel": "Camunda",
+   "url": "https://www.youtube.com/watch?v=t_4F8fSvAvU",
+   "min": 34,
+   "level": "Intermediate",
+   "why": "Timers and exceptions – the next step after the basics.",
+   "why_cs": "Časovače a výjimky – další krok po základech.",
+   "topic_cs": "BPMN",
+   "level_cs": "Mírně pokročilý"
+  },
+  {
+   "id": "asis-tobe",
+   "topic": "BPMN",
+   "modules": [
+    "03",
+    "04"
+   ],
+   "title": "Mapping As Is & To Be Processes",
+   "channel": "Skore",
+   "url": "https://www.youtube.com/watch?v=ZrM3k_cMiO4",
+   "min": 20,
+   "level": "Beginner",
+   "why": "Current vs future state – the core of process improvement.",
+   "why_cs": "Současný vs. budoucí stav – jádro zlepšování procesů.",
+   "topic_cs": "BPMN",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "bpm-tips",
+   "topic": "BPMN",
+   "modules": [
+    "04"
+   ],
+   "title": "Business Process Modelling Tips for Business Analysts",
+   "channel": "Inside Business Analysis",
+   "url": "https://www.youtube.com/watch?v=aXBFGfBxuQE",
+   "min": 19,
+   "level": "Beginner/Intermediate",
+   "why": "Practical modelling advice.",
+   "why_cs": "Praktické rady k modelování.",
+   "topic_cs": "BPMN",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "uml-usecase",
+   "topic": "UML and data models",
+   "modules": [
+    "08"
+   ],
+   "title": "Use Case Diagram Tutorial and EXAMPLE",
+   "channel": "The Business Analysis Doctor",
+   "url": "https://www.youtube.com/watch?v=8V3r5STTmbA",
+   "min": 13,
+   "level": "Beginner",
+   "why": "Actors and system scope.",
+   "why_cs": "Aktéři a hranice systému.",
+   "topic_cs": "UML a datové modely",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "uml-activity",
+   "topic": "UML and data models",
+   "modules": [
+    "08"
+   ],
+   "title": "UML Activity Diagram Tutorial",
+   "channel": "Lucid Software",
+   "url": "https://www.youtube.com/watch?v=F8nmfMsLaSI",
+   "min": 5,
+   "level": "Beginner",
+   "why": "Activity diagrams in five minutes.",
+   "why_cs": "Diagramy aktivit za pět minut.",
+   "topic_cs": "UML a datové modely",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "uml-seq",
+   "topic": "UML and data models",
+   "modules": [
+    "08",
+    "11"
+   ],
+   "title": "How to Make a UML Sequence Diagram",
+   "channel": "Lucid Software",
+   "url": "https://www.youtube.com/watch?v=pCK6prSq8aw",
+   "min": 9,
+   "level": "Beginner",
+   "why": "Who calls whom – key for API and integration specs.",
+   "why_cs": "Kdo volá koho – klíčové pro specifikace API a integrací.",
+   "topic_cs": "UML a datové modely",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "uml-seq-ba",
+   "topic": "UML and data models",
+   "modules": [
+    "08"
+   ],
+   "title": "Learn UML Sequence Diagram Under 10 Minutes for Business Analysts",
+   "channel": "Passionate Business Analyst",
+   "url": "https://www.youtube.com/watch?v=X2rhFIblGiY",
+   "min": 10,
+   "level": "Beginner",
+   "why": "Sequence diagrams from the BA angle.",
+   "why_cs": "Sekvenční diagramy z pohledu BA.",
+   "topic_cs": "UML a datové modely",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "uml-class",
+   "topic": "UML and data models",
+   "modules": [
+    "08",
+    "09"
+   ],
+   "title": "UML Class Diagrams",
+   "channel": "Lucid Software",
+   "url": "https://www.youtube.com/watch?v=6XrL5jXmTwM",
+   "min": 12,
+   "level": "Beginner/Intermediate",
+   "why": "Domain and data model basics.",
+   "why_cs": "Základy doménového a datového modelu.",
+   "topic_cs": "UML a datové modely",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "erd",
+   "topic": "UML and data models",
+   "modules": [
+    "09"
+   ],
+   "title": "ERDs in Lucidchart",
+   "channel": "Lucid Software",
+   "url": "https://www.youtube.com/watch?v=xIXrnHmZmOA",
+   "min": 10,
+   "level": "Beginner",
+   "why": "Entities and relationships – the bridge to SQL.",
+   "why_cs": "Entity a vztahy – most k SQL.",
+   "topic_cs": "UML a datové modely",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "sql-alex-pl",
+   "topic": "SQL",
+   "modules": [
+    "10"
+   ],
+   "title": "SQL Basics for Data Analysts (playlist)",
+   "channel": "Alex The Analyst",
+   "url": "https://www.youtube.com/playlist?list=PLUaB-1hjhk8GT6N5ne2qpf603sF26m2PW",
+   "min": null,
+   "level": "Beginner",
+   "why": "SELECT, WHERE, GROUP BY, ORDER BY in 6–8 minute steps.",
+   "why_cs": "SELECT, WHERE, GROUP BY, ORDER BY v krocích po 6–8 minutách.",
+   "topic_cs": "SQL",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "sql-alex-4h",
+   "topic": "SQL",
+   "modules": [
+    "10"
+   ],
+   "title": "Learn SQL Beginner to Advanced in Under 4 Hours",
+   "channel": "Alex The Analyst",
+   "url": "https://www.youtube.com/watch?v=OT1RErkfLNQ",
+   "min": 245,
+   "level": "Beginner to Intermediate",
+   "why": "Free full course: joins, CTEs, window functions.",
+   "why_cs": "Celý kurz zdarma: joiny, CTE, window functions.",
+   "topic_cs": "SQL",
+   "level_cs": "Začátečník až mírně pokročilý"
+  },
+  {
+   "id": "sql-fcc",
+   "topic": "SQL",
+   "modules": [
+    "10",
+    "09"
+   ],
+   "title": "SQL Tutorial – Full Database Course for Beginners",
+   "channel": "freeCodeCamp.org",
+   "url": "https://www.youtube.com/watch?v=HXV3zeQKqGY",
+   "min": 261,
+   "level": "Beginner",
+   "why": "Classic full course including database design.",
+   "why_cs": "Klasický celý kurz včetně návrhu databáze.",
+   "topic_cs": "SQL",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "api-ibm",
+   "topic": "APIs",
+   "modules": [
+    "11"
+   ],
+   "title": "What is a REST API?",
+   "channel": "IBM Technology",
+   "url": "https://www.youtube.com/watch?v=lsMQRaeKNDk",
+   "min": 9,
+   "level": "Beginner",
+   "why": "Best short conceptual intro.",
+   "why_cs": "Nejlepší krátký úvod do principů.",
+   "topic_cs": "API",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "api-4min",
+   "topic": "APIs",
+   "modules": [
+    "11"
+   ],
+   "title": "APIs Explained (in 4 Minutes)",
+   "channel": "Aced (Exponent)",
+   "url": "https://www.youtube.com/watch?v=bxuYDT-BWaI",
+   "min": 4,
+   "level": "Beginner",
+   "why": "Quick refresher before an interview.",
+   "why_cs": "Rychlé opakování před pohovorem.",
+   "topic_cs": "API",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "api-ba",
+   "topic": "APIs",
+   "modules": [
+    "11"
+   ],
+   "title": "API Tutorial for Business Analysts – No Coding Required",
+   "channel": "Techcanvass",
+   "url": "https://www.youtube.com/watch?v=eB6U8dNN5xg",
+   "min": 60,
+   "level": "Beginner/Intermediate",
+   "why": "How a BA reads and specifies APIs.",
+   "why_cs": "Jak BA čte a specifikuje API.",
+   "topic_cs": "API",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "json-xml",
+   "topic": "APIs",
+   "modules": [
+    "11"
+   ],
+   "title": "API Formats: Why JSON Won over XML",
+   "channel": "Erik Wilde",
+   "url": "https://www.youtube.com/watch?v=jSx84DYwymo",
+   "min": 15,
+   "level": "Beginner/Intermediate",
+   "why": "JSON vs XML in context.",
+   "why_cs": "JSON vs. XML v souvislostech.",
+   "topic_cs": "API",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "postman-first",
+   "topic": "APIs",
+   "modules": [
+    "11"
+   ],
+   "title": "How to Send Your First API Request in Postman",
+   "channel": "Postman",
+   "url": "https://www.youtube.com/watch?v=2oOSnxZ28fA",
+   "min": 9,
+   "level": "Beginner",
+   "why": "Your first hands-on request.",
+   "why_cs": "Tvůj první request v praxi.",
+   "topic_cs": "API",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "postman-fcc",
+   "topic": "APIs",
+   "modules": [
+    "11"
+   ],
+   "title": "Postman Beginner's Course – API Testing",
+   "channel": "freeCodeCamp.org",
+   "url": "https://www.youtube.com/watch?v=VywxIQ2ZXw4",
+   "min": 130,
+   "level": "Beginner/Intermediate",
+   "why": "Collections, tests and variables.",
+   "why_cs": "Kolekce, testy a proměnné.",
+   "topic_cs": "API",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "scrum",
+   "topic": "Agile, Scrum, Jira",
+   "modules": [
+    "02"
+   ],
+   "title": "How Scrum Works – Introduction to Scrum",
+   "channel": "Scrum Inc.",
+   "url": "https://www.youtube.com/watch?v=x5mKltAb2-8",
+   "min": 5,
+   "level": "Beginner",
+   "why": "Scrum from its co-creator's company.",
+   "why_cs": "Scrum od firmy jeho spoluautora.",
+   "topic_cs": "Agile, Scrum, Jira",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "jira-what",
+   "topic": "Agile, Scrum, Jira",
+   "modules": [
+    "07"
+   ],
+   "title": "What is Jira?",
+   "channel": "Atlassian",
+   "url": "https://www.youtube.com/watch?v=Z-a1RB9HvDI",
+   "min": 4,
+   "level": "Beginner",
+   "why": "Official intro.",
+   "why_cs": "Oficiální úvod.",
+   "topic_cs": "Agile, Scrum, Jira",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "jira-tut",
+   "topic": "Agile, Scrum, Jira",
+   "modules": [
+    "07"
+   ],
+   "title": "Ultimate Jira Tutorial for Beginners",
+   "channel": "Stewart Gauld",
+   "url": "https://www.youtube.com/watch?v=8jWKwiIcWPI",
+   "min": 16,
+   "level": "Beginner",
+   "why": "Hands-on in Jira Free.",
+   "why_cs": "Prakticky v Jira Free.",
+   "topic_cs": "Agile, Scrum, Jira",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "confluence",
+   "topic": "Agile, Scrum, Jira",
+   "modules": [
+    "07",
+    "06"
+   ],
+   "title": "Atlassian Confluence Crash Course – Part 1",
+   "channel": "Clyde D'Souza",
+   "url": "https://www.youtube.com/watch?v=BXGcIwJbS_U",
+   "min": 27,
+   "level": "Beginner",
+   "why": "Spaces, pages and templates for requirements.",
+   "why_cs": "Prostory (spaces), stránky a šablony pro požadavky.",
+   "topic_cs": "Agile, Scrum, Jira",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "dmaic",
+   "topic": "Process improvement and low-code",
+   "modules": [
+    "03"
+   ],
+   "title": "DMAIC Methodology – Lean Six Sigma",
+   "channel": "GoSkills",
+   "url": "https://www.youtube.com/watch?v=CZfSpkL4-fE",
+   "min": 5,
+   "level": "Beginner",
+   "why": "A structured way to improve a process.",
+   "why_cs": "Strukturovaný postup, jak zlepšit proces.",
+   "topic_cs": "Zlepšování procesů a low-code",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "pa-lisa",
+   "topic": "Process improvement and low-code",
+   "modules": [
+    "14"
+   ],
+   "title": "Power Automate: Tutorial for Beginners",
+   "channel": "Lisa Crosbie",
+   "url": "https://www.youtube.com/watch?v=in09HzquU5M",
+   "min": 21,
+   "level": "Beginner",
+   "why": "Cloud flows from scratch.",
+   "why_cs": "Cloud flows od nuly.",
+   "topic_cs": "Zlepšování procesů a low-code",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "papps-lisa",
+   "topic": "Process improvement and low-code",
+   "modules": [
+    "14"
+   ],
+   "title": "Power Apps: Tutorial for Beginners (first Canvas App)",
+   "channel": "Lisa Crosbie",
+   "url": "https://www.youtube.com/watch?v=q2gOaI7EtOc",
+   "min": 34,
+   "level": "Beginner",
+   "why": "Your first low-code app.",
+   "why_cs": "Tvoje první low-code aplikace.",
+   "topic_cs": "Zlepšování procesů a low-code",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "ai-agents",
+   "topic": "AI",
+   "modules": [
+    "15"
+   ],
+   "title": "What are AI Agents?",
+   "channel": "IBM Technology",
+   "url": "https://www.youtube.com/watch?v=F8NKVhkZZWI",
+   "min": 12,
+   "level": "Beginner",
+   "why": "Concepts behind AI integration into processes.",
+   "why_cs": "Principy za integrací AI do procesů.",
+   "topic_cs": "AI",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "ai-iiba",
+   "topic": "AI",
+   "modules": [
+    "15"
+   ],
+   "title": "Empowering Business Analysis with AI",
+   "channel": "IIBA",
+   "url": "https://www.youtube.com/watch?v=wXN-HbFXf5U",
+   "min": 61,
+   "level": "Intermediate",
+   "why": "The IIBA's view on AI in BA work.",
+   "why_cs": "Jak IIBA vidí AI v práci BA.",
+   "topic_cs": "AI",
+   "level_cs": "Mírně pokročilý"
+  },
+  {
+   "id": "ai-era",
+   "topic": "AI",
+   "modules": [
+    "15"
+   ],
+   "title": "Business Analysis in the AI Era: What You Need to Know",
+   "channel": "Techcanvass",
+   "url": "https://www.youtube.com/watch?v=jwd2i2-7KpU",
+   "min": 51,
+   "level": "Beginner/Intermediate",
+   "why": "AI in elicitation, user stories and impact analysis.",
+   "why_cs": "AI při elicitaci, psaní user stories a analýze dopadů.",
+   "topic_cs": "AI",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "uat-steps",
+   "topic": "Testing and UAT",
+   "modules": [
+    "13"
+   ],
+   "title": "UAT Best Practice Process Steps Every BA Should Know",
+   "channel": "Karaleise",
+   "url": "https://www.youtube.com/watch?v=2f0S3MTh6Qg",
+   "min": 27,
+   "level": "Beginner",
+   "why": "The BA's role in UAT.",
+   "why_cs": "Role BA v UAT.",
+   "topic_cs": "Testování a UAT",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "uat-plan",
+   "topic": "Testing and UAT",
+   "modules": [
+    "13"
+   ],
+   "title": "How to Plan Your UAT – User Acceptance Test Plans That Work",
+   "channel": "Karaleise",
+   "url": "https://www.youtube.com/watch?v=AU8SV7091-s",
+   "min": 34,
+   "level": "Beginner/Intermediate",
+   "why": "Writing a UAT plan.",
+   "why_cs": "Jak napsat UAT plán.",
+   "topic_cs": "Testování a UAT",
+   "level_cs": "Začátečník–mírně pokročilý"
+  },
+  {
+   "id": "int-jay",
+   "topic": "Interview",
+   "modules": [
+    "17"
+   ],
+   "title": "Business Analyst Interview Questions ANSWERED",
+   "channel": "Jay Feng",
+   "url": "https://www.youtube.com/watch?v=sFcSI1Ta8Xc",
+   "min": 12,
+   "level": "Beginner",
+   "why": "Typical questions with sample answers.",
+   "why_cs": "Typické otázky s ukázkovými odpověďmi.",
+   "topic_cs": "Pohovor",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "int-careervidz",
+   "topic": "Interview",
+   "modules": [
+    "17"
+   ],
+   "title": "Business Analyst Interview Questions & Answers",
+   "channel": "CareerVidz",
+   "url": "https://www.youtube.com/watch?v=rb7JWRVMfr0",
+   "min": 14,
+   "level": "Beginner",
+   "why": "Behavioural questions.",
+   "why_cs": "Behaviorální otázky.",
+   "topic_cs": "Pohovor",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "stake-grid",
+   "topic": "Stakeholders and presenting",
+   "modules": [
+    "16"
+   ],
+   "title": "Stakeholder Analysis: How to Use the Power/Interest Grid",
+   "channel": "AssistKD",
+   "url": "https://www.youtube.com/watch?v=G3R4TO1l6LY",
+   "min": 5,
+   "level": "Beginner",
+   "why": "The standard stakeholder tool.",
+   "why_cs": "Standardní nástroj pro práci se stakeholdery.",
+   "topic_cs": "Stakeholdeři a prezentace",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "pres-3",
+   "topic": "Stakeholders and presenting",
+   "modules": [
+    "16"
+   ],
+   "title": "The 3 Magic Ingredients of Amazing Presentations",
+   "channel": "Phil Waknell (TEDx)",
+   "url": "https://www.youtube.com/watch?v=yoD8RMq2OkU",
+   "min": 15,
+   "level": "Beginner",
+   "why": "Presentation structure.",
+   "why_cs": "Struktura prezentace.",
+   "topic_cs": "Stakeholdeři a prezentace",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "pres-ted",
+   "topic": "Stakeholders and presenting",
+   "modules": [
+    "16"
+   ],
+   "title": "The Trick to Powerful Public Speaking",
+   "channel": "Lawrence Bernstein (TED)",
+   "url": "https://www.youtube.com/watch?v=bsxJVgb6Kls",
+   "min": 15,
+   "level": "Beginner",
+   "why": "Keep the audience in focus.",
+   "why_cs": "Měj publikum stále na očích.",
+   "topic_cs": "Stakeholdeři a prezentace",
+   "level_cs": "Začátečník"
+  },
+  {
+   "id": "pres-leaders",
+   "topic": "Stakeholders and presenting",
+   "modules": [
+    "16"
+   ],
+   "title": "How to Prepare for a Presentation to Senior Leadership",
+   "channel": "Moxie Institute",
+   "url": "https://www.youtube.com/watch?v=N4ORBjoKEiY",
+   "min": 30,
+   "level": "Beginner/Intermediate",
+   "why": "Presenting to management.",
+   "why_cs": "Prezentace pro management.",
+   "topic_cs": "Stakeholdeři a prezentace",
+   "level_cs": "Začátečník–mírně pokročilý"
+  }
+ ]
+}

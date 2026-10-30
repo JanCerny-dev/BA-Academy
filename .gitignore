@@ -1,0 +1,13 @@
+# tajemství (API klíče jen v proměnných prostředí nebo ve Windows Credential Manageru)
+.env
+.env.*
+__pycache__/
+*.pyc
+*.pdf
+*.docx
+*.pptx
+*.zip
+# soukromé poznámky pro Jana (česky, obsahuje kontext studující) – jen lokálně
+/README.md
+/PRAVIDLA_ZPRACOVANI.md
+/KONTROLA_A_PREKLAD.md

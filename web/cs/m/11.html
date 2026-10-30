@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>11 API, JSON/XML a integrace systémů · BA Academy</title>
+<meta name="description" content="Modul 11: API, JSON/XML a integrace systémů">
+<link rel="stylesheet" href="../../assets/styl.css">
+<link rel="alternate" hreflang="en" href="../../m/11.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230f766e'/%3E%3Ctext x='16' y='22' font-family='Arial' font-size='15' font-weight='700' fill='white' text-anchor='middle'%3EBA%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+<a class="preskocit" href="#obsah">Přeskočit na obsah</a>
+<header class="hlavicka">
+  <div class="hlavicka-radek">
+    <a class="logo" href="../index.html"><span class="logo-znak">BA</span> BA Academy</a>
+    <div class="hlavicka-akce">
+      <span class="celkem" data-celkovy-postup title="Celkový postup"></span>
+      <nav class="jazyk" aria-label="Language / Jazyk"><a href="../../m/11.html" lang="en" data-jazyk="en">EN</a><a href="#" lang="cs" aria-current="true" data-jazyk="cs">CZ</a></nav>
+      <button type="button" class="tlacitko ucet-tlacitko" data-ucet hidden>Přihlásit</button>
+      <button type="button" class="tlacitko menu-tlacitko" aria-expanded="false" aria-controls="hlavni-menu">Menu</button>
+    </div>
+  </div>
+  <nav class="menu" id="hlavni-menu" aria-label="Hlavní"><a href="../index.html">Úvod</a><a href="../path.html">Studijní cesta</a><a href="../modules.html" aria-current="page">Moduly</a><a href="../project.html">Capstone</a><a href="../courses.html">Udemy</a><a href="../videos.html">Videa</a><a href="../tools.html">Nástroje</a><a href="../sql.html">SQL lab</a><a href="../api.html">API lab</a><a href="../glossary.html">Slovník</a><a href="../interview.html">Pohovor</a><a href="../certifications.html">Certifikace</a><a href="../jobs.html">Pozice</a></nav>
+</header>
+<main id="obsah">
+
+<div class="modul-hlava">
+  <p class="drobky"><a href="../modules.html">Moduly</a> · Fáze C: Technická gramotnost</p>
+  <h1><span class="cislo">11</span> API, JSON/XML a integrace systémů</h1>
+  <p class="odznaky"><span class="prio prio-p1" title="Inzerát to chce přímo, nebo se na to na pohovoru skoro jistě zeptají.">P1 · Nutné znát</span><span class="stitek">Krátká 5 min</span><span class="stitek">Hloubka 40 min</span></p>
+  
+  <p class="inzerat"><span>V cílovém inzerátu</span> “Disponujete základní znalostí SQL, prací s API a formáty JSON/XML”</p>
+  <div class="proc"><p>Inzerát uvádí API, JSON a XML mezi základními dovednostmi. V pojišťovně se skoro každá změna dotkne nějaké integrace: systém smluv posílá data do systému škod, portál se ptá obchodního rejstříku, finance dostávají soubor s platbami. Analytik integrační kód nepíše, ale píše, co má integrace dělat: jaká data jdou kam, kdy, v jakém formátu a co se stane, když něco selže. K tomu musíš umět číst dokumentaci API, sama API zavolat a vidět skutečná data a popsat mapování polí tak přesně, aby to dodavatel uměl postavit a tester otestovat.</p></div>
+  <div class="postup" data-keys="nat-read-11-quick nat-read-11-deep nat-ex-m11-e1 nat-ex-m11-e2 nat-ex-m11-e3 nat-ex-m11-e4 nat-u-api-with-postman-for-absolute-beginners nat-u-api-documentation-1-json-and-xml nat-v-api-ibm nat-v-api-4min nat-v-api-ba nat-v-json-xml nat-v-postman-first nat-v-postman-fcc"><div class="postup-pruh"><span></span></div><span class="postup-text">postup v modulu</span></div>
+</div>
+<div class="zalozky" data-zalozky="m11">
+  <div class="zalozky-lista" role="tablist"><button type="button" role="tab" id="tab-quick" aria-controls="panel-quick" aria-selected="true">Krátká verze · 5 min</button><button type="button" role="tab" id="tab-deep" aria-controls="panel-deep" aria-selected="false">Do hloubky · 40 min</button><button type="button" role="tab" id="tab-practice" aria-controls="panel-practice" aria-selected="false">Prakticky · 4</button><button type="button" role="tab" id="tab-check" aria-controls="panel-check" aria-selected="false">Ověř se · 7</button><button type="button" role="tab" id="tab-interview" aria-controls="panel-interview" aria-selected="false">Pohovor · 4</button><button type="button" role="tab" id="tab-resources" aria-controls="panel-resources" aria-selected="false">Zdroje · 16</button></div>
+  <section role="tabpanel" id="panel-quick" aria-labelledby="tab-quick" class="panel"><p><strong>API</strong> (application programming interface, aplikační programové rozhraní) je definovaný způsob, jak jeden program požádá jiný program o data nebo o provedení akce. Web je určený lidem; API je určené programům.</p>
+<p><strong>Klient a server.</strong> <strong>Client</strong> (klient) posílá <strong>request</strong> (požadavek); <strong>server</strong> ho zpracuje a vrátí <strong>response</strong> (odpověď). Portál (klient) se ptá PolicyHubu (server) na smlouvu. PolicyHub sám může být klientem jiného serveru, například ARES.</p>
+<p><strong>HTTP požadavek obsahuje:</strong></p>
+<ul><li><strong>method</strong> (metodu, co udělat): <code>GET</code> číst, <code>POST</code> vytvořit, <code>PUT</code> nahradit, <code>PATCH</code> změnit část, <code>DELETE</code> odstranit;</li><li><strong>URL</strong> (kam): adresu serveru plus <strong>path</strong> (cestu, <code>/credit-limits/CL-2026-0041</code>) a volitelné <strong>query parameters</strong> (parametry dotazu, <code>?status=REQUESTED</code>);</li><li><strong>headers</strong> (hlavičky, metadata): typ obsahu, požadovaný formát, autorizaci;</li><li>volitelné <strong>body</strong> (tělo, odesílaná data, obvykle JSON), kterému se říká také <strong>payload</strong>.</li></ul>
+<p><strong>HTTP odpověď obsahuje</strong> <strong>status code</strong> (stavový kód), hlavičky a obvykle tělo. Stavové kódy, které je dobré znát:</p>
+<div class="tabulka"><table><thead><tr><th>Kód</th><th>Význam</th></tr></thead><tbody><tr><td>200 OK</td><td>úspěch, data jsou v těle</td></tr><tr><td>201 Created</td><td>byl vytvořen nový záznam</td></tr><tr><td>204 No Content</td><td>úspěch, nic se nevrací</td></tr><tr><td>400 Bad Request</td><td>požadavek je neplatný (špatný formát, chybějící pole)</td></tr><tr><td>401 Unauthorized</td><td>neautentizováno (chybí nebo jsou neplatné přihlašovací údaje)</td></tr><tr><td>403 Forbidden</td><td>autentizováno, ale nepovoleno</td></tr><tr><td>404 Not Found</td><td>zdroj neexistuje</td></tr><tr><td>409 Conflict</td><td>konflikt s aktuálním stavem (např. duplicita)</td></tr><tr><td>429 Too Many Requests</td><td>klient poslal příliš mnoho požadavků</td></tr><tr><td>500 Internal Server Error</td><td>server selhal</td></tr><tr><td>503 Service Unavailable</td><td>server nejede nebo je přetížený</td></tr></tbody></table></div>
+<p>Praktické pravidlo: 2xx úspěch, 3xx přesměrování, 4xx chybu udělal klient, 5xx má problém server.</p>
+<p><strong>REST</strong> je běžný styl webových API: všechno je <strong>resource</strong> (zdroj) s vlastní URL (<code>/credit-limits</code>, <code>/credit-limits/{id}</code>), pracuje se s ním standardními HTTP metodami a každý požadavek nese vše potřebné (server si mezi voláními nepamatuje žádnou relaci).</p>
+<p><strong>JSON</strong> a <strong>XML</strong> jsou textové formáty pro strukturovaná data:</p>
+<ul><li>JSON: <code>{&quot;status&quot;: &quot;REQUESTED&quot;, &quot;requestedAmount&quot;: 120000}</code>. Lehký, výchozí pro REST.</li><li>XML: <code>&lt;Status&gt;REQUESTED&lt;/Status&gt;</code>. Upovídaný, ale se silnou validací přes schémata <strong>XSD</strong>. Pořád běžný v bankách, pojišťovnách a veřejné správě, často s webovými službami <strong>SOAP</strong>.</li></ul>
+<p><strong>Authentication</strong> (autentizace) prokazuje, kdo API volá: <strong>API key</strong> (API klíč), <strong>Basic</strong> autentizace (uživatel a heslo) nebo <strong>OAuth 2.0</strong> s krátkodobým <strong>bearer tokenem</strong>. Tajné údaje (secrets) nikdy nepatří do dokumentů, kódu, ticketů ani chatu.</p>
+<p><strong>Integrační vzory:</strong> synchronní volání API (odpověď hned), asynchronní zprávy přes frontu (odpověď později, systémy jsou oddělené), dávkový přenos souborů (např. noční CSV přes SFTP), webhooky (server zavolá tebe, když se něco stane), ETL do datového skladu. Volba závisí na tom, jak rychle data potřebuješ, na objemech a spolehlivosti.</p>
+<p><strong>Co analytik píše:</strong> <strong>integration specification</strong> (integrační specifikaci): systémy, spouštěč, směr, frekvenci, <strong>data mapping</strong> (mapování dat) pole po poli, ošetření chyb, objemy, bezpečnost a monitoring.</p>
+<p><strong>Procvičování na skutečných API:</strong> český registr ekonomických subjektů ARES (<code>GET https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/00006947</code> vrátí Ministerstvo financí jako JSON), testovací API JSONPlaceholder, API playground na webu (<code>api.html</code>) a <a href="https://www.postman.com/downloads/" target="_blank" rel="noopener">Postman</a>.</p>
+<p><strong>Na pohovor jednou větou:</strong> „Umím číst dokumentaci API a specifikace OpenAPI, zavolat API v Postmanu, číst JSON a XML a napsat integrační specifikaci s mapováním dat, ošetřením chyb a nefunkčními požadavky.“</p><h2 id='m11-key-terms'>Klíčové pojmy</h2><dl class='pojmy'><dt>API (application programming interface)</dt><dd>(aplikační programové rozhraní) — definovaný způsob, jak programy žádají jiný program o data nebo akce.</dd><dt>Client / server</dt><dd>(klient / server) — program, který posílá požadavek, a program, který na něj odpovídá.</dd><dt>Endpoint</dt><dd>konkrétní URL (a metoda) API, která poskytuje jednu funkci, např. <code>GET /credit-limits/{id}</code>.</dd><dt>HTTP method</dt><dd>(HTTP metoda) — akce požadavku: GET, POST, PUT, PATCH, DELETE.</dd><dt>Path parameter / query parameter</dt><dd>(parametr cesty / parametr dotazu) — část cesty URL, která identifikuje zdroj / část <code>?key=value</code>, která filtruje nebo upravuje požadavek.</dd><dt>Header</dt><dd>(hlavička) — metadata posílaná s požadavkem nebo odpovědí, např. Content-Type nebo Authorization.</dd><dt>Payload (body)</dt><dd>(tělo) — data posílaná v požadavku nebo odpovědi.</dd><dt>Status code</dt><dd>(stavový kód) — trojmístné číslo v odpovědi, které hlásí výsledek (2xx, 3xx, 4xx, 5xx).</dd><dt>REST</dt><dd>architektonický styl API založený na zdrojích s URL, standardních HTTP metodách a bezstavových požadavcích.</dd><dt>JSON</dt><dd>textový formát z objektů, polí a jednoduchých hodnot, výchozí pro REST API.</dd><dt>XML / XSD</dt><dd>textový formát založený na tazích / schéma, které definuje platné XML zprávy.</dd><dt>Namespace</dt><dd>(jmenný prostor) — jedinečný identifikátor, který říká, do jakého slovníku XML elementy patří.</dd><dt>SOAP / WSDL</dt><dd>protokol webových služeb založený na XML / soubor, který popisuje službu SOAP.</dd><dt>OAuth 2.0 / bearer token</dt><dd>rámec pro vydávání přístupových tokenů / token posílaný v hlavičce Authorization pro přístup k API.</dd><dt>OpenAPI</dt><dd>standardní formát v YAML nebo JSON pro popis REST API, který zobrazují nástroje jako Swagger.</dd><dt>Idempotency</dt><dd>(idempotence) — vlastnost, že opakování operace má stejný účinek jako její jedno provedení.</dd><dt>Webhook</dt><dd>volání, které server udělá na URL klienta, když nastane událost.</dd><dt>Data mapping</dt><dd>(mapování dat) — tabulka, která definuje, jak se každé zdrojové pole stane cílovým polem, včetně transformací.</dd><dt>Integration specification</dt><dd>(integrační specifikace) — dokument, který definuje integraci: systémy, spouštěč, data, chyby, bezpečnost, objemy, monitoring.</dd></dl><div class="hotovo"><label class="fajfka "><input type="checkbox" data-key="nat-read-11-quick"> <span>Krátkou verzi mám přečtenou</span></label></div></section><section role="tabpanel" id="panel-deep" aria-labelledby="tab-deep" class="panel" hidden><nav class="obsah-deep" aria-label="Obsah"><strong>V této části</strong><ul><li class="u3"><a href="#m11-klient-server-a-http">Klient, server a HTTP</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m11-rest-jednodu-e">REST jednoduše</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m11-json-a-xml-vedle-sebe">JSON a XML vedle sebe</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m11-soap-a-wsdl">SOAP a WSDL</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m11-autentizace-a-tajn-daje">Autentizace a tajné údaje</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m11-ten-dokumentace-api-a-openapi">Čtení dokumentace API a OpenAPI</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m11-integra-n-vzory">Integrační vzory</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m11-o-et-en-chyb-idempotence-a-opakov-n">Ošetření chyb, idempotence a opakování</a> <span class=prio-mini>P2</span></li><li class="u3"><a href="#m11-psan-integra-n-specifikace">Psaní integrační specifikace</a> <span class=prio-mini>P1</span></li><li class="u3"><a href="#m11-n-stroje-do-praxe-postman-jsonplaceholder-a-api-playground">Nástroje do praxe: Postman, JSONPlaceholder a API playground</a> <span class=prio-mini>P1</span></li></ul></nav><h3 id="m11-klient-server-a-http">Klient, server a HTTP <span class="prio prio-p1">P1</span></h3>
+<p><strong>HTTP</strong> (Hypertext Transfer Protocol) je protokol webu; <strong>HTTPS</strong> je tentýž protokol šifrovaný. Prohlížeč ho používá k načítání stránek a většina API přes něj vyměňuje data.</p>
+<p>Skutečný požadavek na ARES, český veřejný registr ekonomických subjektů, vypadá „na drátě“ takto (zjednodušeně):</p>
+<div class="kod"><pre><code class="jazyk-text">GET /ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/00006947 HTTP/1.1
+Host: ares.gov.cz
+Accept: application/json</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<ul><li><code>GET</code> je metoda: čti data.</li><li>Cesta končí IČO (8 číslic). Je to <strong>path parameter</strong> (parametr cesty): část URL, která identifikuje zdroj.</li><li><code>Host</code> určuje server.</li><li><code>Accept</code> je hlavička, která říká, jaký formát klient chce.</li><li>GET nemá tělo.</li></ul>
+<p>Odpověď (zkrácená; skutečná má víc polí a hodnoty jako datum aktualizace se v čase mění):</p>
+<div class="kod"><pre><code class="jazyk-json">{
+  &quot;ico&quot;: &quot;00006947&quot;,
+  &quot;obchodniJmeno&quot;: &quot;Ministerstvo financí&quot;,
+  &quot;sidlo&quot;: {
+    &quot;kodStatu&quot;: &quot;CZ&quot;,
+    &quot;nazevStatu&quot;: &quot;Česká republika&quot;,
+    &quot;nazevObce&quot;: &quot;Praha&quot;,
+    &quot;nazevUlice&quot;: &quot;Letenská&quot;,
+    &quot;cisloDomovni&quot;: 525,
+    &quot;cisloOrientacni&quot;: 15,
+    &quot;psc&quot;: 11800,
+    &quot;textovaAdresa&quot;: &quot;Letenská 525/15, Malá Strana, 11800 Praha 1&quot;
+  },
+  &quot;pravniForma&quot;: &quot;325&quot;,
+  &quot;dic&quot;: &quot;CZ00006947&quot;,
+  &quot;datumAktualizace&quot;: &quot;2026-03-23&quot;,
+  &quot;czNace&quot;: [&quot;84110&quot;]
+}</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Stavový řádek této odpovědi je <code>200</code> a hlavička <code>Content-Type: application/json</code> říká klientovi, jak tělo číst. Názvy polí jsou česky: <code>obchodniJmeno</code> je obchodní jméno, <code>sidlo</code> sídlo, <code>psc</code> PSČ, <code>dic</code> DIČ, <code>pravniForma</code> kód právní formy, <code>czNace</code> kódy činností.</p>
+<p>Dvě chyby, také skutečné:</p>
+<ul><li>neexistující IČO (např. <code>12345678</code>) vrátí <strong>404</strong> s tělem <code>{&quot;kod&quot;: &quot;NENALEZENO&quot;, ...}</code>;</li><li>IČO ve špatném formátu (např. <code>abc</code> nebo 7 číslic) vrátí <strong>400</strong> s <code>{&quot;kod&quot;: &quot;CHYBA_VSTUPU&quot;, &quot;subKod&quot;: &quot;VSTUP_NEVALIDNI_FORMAT_ICO&quot;, ...}</code>.</li></ul>
+<p>Všimni si, že těla chyb obsahují strojově čitelné kódy plus zprávu pro člověka. Když specifikuješ integraci, chtěj přesně tohle: jaké stavové kódy a chybové kódy existují a co s každým z nich má volající systém udělat.</p>
+<p><strong>Query parameters</strong> (parametry dotazu) následují za <code>?</code> a filtrují nebo upravují požadavek: <code>GET /credit-limits?status=REQUESTED&amp;currency=EUR</code>. Parametry cesty identifikují jednu věc; parametry dotazu filtrují, řadí nebo stránkují seznamy.</p>
+<p><strong>Hlavičky</strong>, které potkáš často: <code>Content-Type</code> (formát odesílaného těla), <code>Accept</code> (požadovaný formát odpovědi), <code>Authorization</code> (přihlašovací údaje) a někdy correlation ID (jedinečné ID požadavku, podle kterého ho dohledáš v logách).</p>
+<h3 id="m11-rest-jednodu-e">REST jednoduše <span class="prio prio-p1">P1</span></h3>
+<p><strong>REST</strong> (Representational State Transfer) je architektonický styl, ne standard se specifikací. V praxi „REST API“ znamená:</p>
+<ul><li><strong>Zdroje</strong> (resources) mají URL: <code>/policies</code>, <code>/policies/ES-2025-1018</code>, <code>/policies/ES-2025-1018/credit-limits</code>.</li><li><strong>HTTP metody</strong> říkají, co s nimi udělat.</li><li><strong>Stateless</strong> (bezstavovost): každý požadavek obsahuje vše, co server potřebuje (včetně přihlašovacích údajů). Server si předchozí volání nepamatuje.</li><li><strong>Standardní stavové kódy</strong> hlásí výsledek.</li><li>Data nesou reprezentace, obvykle JSON.</li></ul>
+<p>CRUD (create, read, update, delete – vytvořit, číst, změnit, smazat) se mapuje na metody:</p>
+<div class="tabulka"><table><thead><tr><th>Operace</th><th>Metoda</th><th>Příklad</th><th>Typický kód úspěchu</th></tr></thead><tbody><tr><td>Vytvořit</td><td>POST</td><td><code>POST /credit-limits</code> s JSON tělem</td><td>201</td></tr><tr><td>Číst jeden</td><td>GET</td><td><code>GET /credit-limits/CL-2026-0041</code></td><td>200</td></tr><tr><td>Číst seznam</td><td>GET</td><td><code>GET /credit-limits?status=REQUESTED</code></td><td>200</td></tr><tr><td>Změnit celé</td><td>PUT</td><td><code>PUT /credit-limits/CL-2026-0041</code></td><td>200 nebo 204</td></tr><tr><td>Změnit část</td><td>PATCH</td><td><code>PATCH /credit-limits/CL-2026-0041</code> s <code>{&quot;status&quot;: &quot;APPROVED&quot;}</code></td><td>200 nebo 204</td></tr><tr><td>Smazat</td><td>DELETE</td><td><code>DELETE /credit-limits/CL-2026-0041</code></td><td>204</td></tr></tbody></table></div>
+<p>GET nesmí měnit data. Záleží na tom monitorovacím nástrojům, cache a opakovaným pokusům (retries), které mohou GET kdykoli zopakovat.</p>
+<h3 id="m11-json-a-xml-vedle-sebe">JSON a XML vedle sebe <span class="prio prio-p1">P1</span></h3>
+<p>Tatáž žádost o úvěrový limit (podle žádosti 41 v datové sadě ExportShield) v obou formátech.</p>
+<p><strong>JSON</strong> (JavaScript Object Notation):</p>
+<div class="kod"><pre><code class="jazyk-json">{
+  &quot;creditLimitId&quot;: &quot;CL-2026-0041&quot;,
+  &quot;policyNo&quot;: &quot;ES-2025-1018&quot;,
+  &quot;buyer&quot;: {
+    &quot;name&quot;: &quot;Nordhafen Logistik GmbH&quot;,
+    &quot;countryCode&quot;: &quot;DE&quot;
+  },
+  &quot;requestedAmount&quot;: 120000.00,
+  &quot;currency&quot;: &quot;EUR&quot;,
+  &quot;status&quot;: &quot;REQUESTED&quot;,
+  &quot;requestedOn&quot;: &quot;2026-09-14&quot;,
+  &quot;paymentTermsDays&quot;: 60,
+  &quot;insuredRisks&quot;: [&quot;COMMERCIAL&quot;, &quot;POLITICAL&quot;],
+  &quot;urgent&quot;: false,
+  &quot;decision&quot;: null
+}</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Pravidla JSON:</p>
+<ul><li><strong>Object</strong> (objekt) je ve složených závorkách <code>{}</code> s dvojicemi <code>&quot;key&quot;: value</code> oddělenými čárkami.</li><li><strong>Array</strong> (pole, seznam) je v hranatých závorkách <code>[]</code>.</li><li>Typy hodnot: řetězec ve dvojitých uvozovkách, číslo (bez uvozovek, s desetinnou tečkou, bez oddělovače tisíců), <code>true</code>/<code>false</code>, <code>null</code>, objekt, pole.</li><li>Objekty a pole se mohou <strong>vnořovat</strong>: <code>buyer</code> je objekt uvnitř hlavního objektu.</li><li>JSON <strong>nemá datový typ pro datum</strong>. Datumy jsou řetězce, takže formát se musí dohodnout (normou je ISO 8601 <code>YYYY-MM-DD</code>).</li><li>Klíče rozlišují velká a malá písmena. Žádné komentáře, žádná čárka za poslední položkou. Jediná špatná čárka udělá celý dokument neplatným; <a href="https://jsonlint.com/" target="_blank" rel="noopener">JSONLint</a> ji najde.</li></ul>
+<p><strong>XML</strong> (Extensible Markup Language):</p>
+<div class="kod"><pre><code class="jazyk-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;CreditLimitRequest xmlns=&quot;urn:exportshield:credit-limit:v1&quot; id=&quot;CL-2026-0041&quot;&gt;
+  &lt;PolicyNo&gt;ES-2025-1018&lt;/PolicyNo&gt;
+  &lt;Buyer countryCode=&quot;DE&quot;&gt;
+    &lt;Name&gt;Nordhafen Logistik GmbH&lt;/Name&gt;
+  &lt;/Buyer&gt;
+  &lt;RequestedAmount currency=&quot;EUR&quot;&gt;120000.00&lt;/RequestedAmount&gt;
+  &lt;Status&gt;REQUESTED&lt;/Status&gt;
+  &lt;RequestedOn&gt;2026-09-14&lt;/RequestedOn&gt;
+  &lt;PaymentTermsDays&gt;60&lt;/PaymentTermsDays&gt;
+  &lt;InsuredRisks&gt;
+    &lt;Risk&gt;COMMERCIAL&lt;/Risk&gt;
+    &lt;Risk&gt;POLITICAL&lt;/Risk&gt;
+  &lt;/InsuredRisks&gt;
+  &lt;Urgent&gt;false&lt;/Urgent&gt;
+  &lt;!-- no Decision element: the request is not decided yet --&gt;
+&lt;/CreditLimitRequest&gt;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Pravidla XML:</p>
+<ul><li><strong>Elements</strong> (elementy) mají počáteční a koncový tag: <code>&lt;Status&gt;REQUESTED&lt;/Status&gt;</code>. Všechno obaluje právě jeden kořenový element.</li><li><strong>Attributes</strong> (atributy) jsou uvnitř počátečního tagu: <code>currency=&quot;EUR&quot;</code>. Typicky nesou metadata o hodnotě.</li><li>Tagy rozlišují velká a malá písmena a musí být správně vnořené.</li><li>Opakované elementy (<code>&lt;Risk&gt;</code> dvakrát) tvoří seznam.</li><li><strong>Namespace</strong> (jmenný prostor, <code>xmlns=&quot;urn:exportshield:credit-limit:v1&quot;</code>) je jedinečný název, který říká, do jakého slovníku tagy patří, aby se <code>&lt;Status&gt;</code> ze dvou různých standardů nepletly. Vypadá jako adresa, ale je to jen identifikátor.</li><li>Komentáře jsou povolené (<code>&lt;!-- ... --&gt;</code>).</li></ul>
+<p><strong>XSD</strong> (XML Schema Definition) je samostatný XML dokument, který definuje, jak vypadá platná zpráva: jaké elementy, v jakém pořadí, které jsou povinné, jejich datové typy a povolené hodnoty. Ukázka:</p>
+<div class="kod"><pre><code class="jazyk-xml">&lt;xs:element name=&quot;Status&quot;&gt;
+  &lt;xs:simpleType&gt;
+    &lt;xs:restriction base=&quot;xs:string&quot;&gt;
+      &lt;xs:enumeration value=&quot;REQUESTED&quot;/&gt;
+      &lt;xs:enumeration value=&quot;APPROVED&quot;/&gt;
+      &lt;xs:enumeration value=&quot;REDUCED&quot;/&gt;
+      &lt;xs:enumeration value=&quot;REJECTED&quot;/&gt;
+    &lt;/xs:restriction&gt;
+  &lt;/xs:simpleType&gt;
+&lt;/xs:element&gt;
+&lt;xs:element name=&quot;RequestedOn&quot; type=&quot;xs:date&quot;/&gt;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>S tímto schématem se <code>&lt;RequestedOn&gt;14.09.2026&lt;/RequestedOn&gt;</code> odmítne, protože <code>xs:date</code> vyžaduje <code>2026-09-14</code>. Proto je XML oblíbené v regulovaném prostředí: kontrakt jde ověřit strojově. JSON má obdobu, <strong>JSON Schema</strong>, a OpenAPI používá jeho variantu.</p>
+<div class="tabulka"><table><thead><tr><th></th><th>JSON</th><th>XML</th></tr></thead><tbody><tr><td>Typické použití</td><td>REST API, webové a mobilní aplikace</td><td>služby SOAP, regulatorní reporting, starší podnikové integrace</td></tr><tr><td>Velikost</td><td>kompaktní</td><td>upovídanější</td></tr><tr><td>Datové typy</td><td>string, number, boolean, null, object, array</td><td>všechno je text; typy dává XSD</td></tr><tr><td>Atributy</td><td>ne</td><td>ano</td></tr><tr><td>Komentáře</td><td>ne</td><td>ano</td></tr><tr><td>Schéma</td><td>JSON Schema, OpenAPI</td><td>XSD</td></tr></tbody></table></div>
+<h3 id="m11-soap-a-wsdl">SOAP a WSDL <span class="prio prio-p2">P2</span></h3>
+<p><strong>SOAP</strong> je starší protokol pro webové služby, který posílá XML zprávy uvnitř <strong>envelope</strong> (obálky), obvykle přes HTTP POST. Potkáš ho v bankách, pojišťovnách a státní správě, protože mnoho klíčových systémů bylo propojeno v nultých letech a pořád dobře funguje.</p>
+<div class="kod"><pre><code class="jazyk-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot;
+                  xmlns:cl=&quot;urn:exportshield:credit-limit:v1&quot;&gt;
+  &lt;soapenv:Header/&gt;
+  &lt;soapenv:Body&gt;
+    &lt;cl:GetCreditLimit&gt;
+      &lt;cl:CreditLimitId&gt;CL-2026-0041&lt;/cl:CreditLimitId&gt;
+    &lt;/cl:GetCreditLimit&gt;
+  &lt;/soapenv:Body&gt;
+&lt;/soapenv:Envelope&gt;</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<ul><li><strong>Envelope</strong> obaluje všechno, volitelný <strong>Header</strong> nese metadata, například bezpečnostní tokeny, <strong>Body</strong> nese operaci a její data.</li><li>Chyby se vrací jako element <strong>SOAP Fault</strong> v těle.</li><li>Soubor <strong>WSDL</strong> (Web Services Description Language) popisuje službu: její operace, XML zprávy (přes XSD) a adresu endpointu. Nástroje z něj generují klientský kód.</li></ul>
+<p>Rozdíly proti RESTu z pohledu analytika: SOAP je postavený na operacích (<code>GetCreditLimit</code>), ne na zdrojích, vždy XML, s přísným kontraktem ve WSDL. Otázky v integrační specifikaci zůstávají stejné.</p>
+<h3 id="m11-autentizace-a-tajn-daje">Autentizace a tajné údaje <span class="prio prio-p1">P1</span></h3>
+<p><strong>Authentication</strong> (autentizace) odpovídá na „kdo jsi?“; <strong>authorization</strong> (autorizace) na „co smíš?“.</p>
+<ul><li><strong>API key</strong> (API klíč): dlouhý tajný řetězec posílaný v hlavičce. Jednoduché; identifikuje volající aplikaci, ne člověka.</li><li><strong>Basic authentication</strong>: uživatelské jméno a heslo v hlavičce <code>Authorization</code>, jen zakódované do Base64, ne zašifrované (kdo hlavičku uvidí, umí je dekódovat). Přijatelné jen přes HTTPS; běžné ve starších interních integracích.</li><li><strong>OAuth 2.0</strong>: klient nejdřív získá <strong>access token</strong> (přístupový token) od autorizačního serveru a pak ho posílá jako <code>Authorization: Bearer &lt;token&gt;</code> s každým voláním. Tokeny vyprší (často po minutách nebo hodinách) a nesou <strong>scopes</strong> (rozsahy oprávnění), které omezují, co volající smí. V integracích systém–systém je typický tok „client credentials“; když se přihlašuje uživatel, používají se jiné toky. Takové tokeny vydává Microsoft Entra ID a podobné identity platformy. Přesně vzato je OAuth 2.0 autorizační rámec (uděluje přístup); přihlášení člověka řeší OpenID Connect, vrstva postavená nad OAuth 2.0.</li><li><strong>Mutual TLS (mTLS)</strong>: obě strany prokazují svou identitu certifikáty. Běžné mezi bankami a pojišťovnami.</li></ul>
+<p>Pravidla, která analytik píše do požadavků a sám dodržuje:</p>
+<ul><li>Přihlašovací údaje a tokeny jsou <strong>secrets</strong> (tajné údaje). Patří do úložiště tajných údajů (např. key vault nebo správce přihlašovacích údajů platformy), nikdy do specifikací, stránek v Confluence, ticketů, kódu, e-mailů, screenshotů ani AI chatů.</li><li>Každá integrace dostane vlastní technický účet s minimálními právy, která potřebuje (<strong>least privilege</strong>, princip nejmenších oprávnění).</li><li>Specifikuj, jak se tajné údaje rotují a kdo technický účet vlastní.</li><li>V Postmanu drž tajné údaje v proměnných označených jako secret a nesdílej kolekce, které je obsahují. Pro veřejná API v tomto modulu žádné tajné údaje nepotřebuješ.</li></ul>
+<h3 id="m11-ten-dokumentace-api-a-openapi">Čtení dokumentace API a OpenAPI <span class="prio prio-p1">P1</span></h3>
+<p>Dobrá dokumentace API odpovídá na: základní URL, autentizaci, seznam endpointů, parametry, těla požadavků a odpovědí s příklady, chybové kódy, limity (rate limits, velikost stránek) a verzování.</p>
+<p><strong>OpenAPI</strong> (dříve Swagger) je standardní formát pro popis REST API v YAML nebo JSON. Mnoho dodavatelů dodá místo wordového dokumentu soubor OpenAPI. Krátká ukázka:</p>
+<div class="kod"><pre><code class="jazyk-yaml">paths:
+  /credit-limits/{id}:
+    get:
+      summary: Get one credit limit
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        &#x27;200&#x27;:
+          description: The credit limit
+        &#x27;404&#x27;:
+          description: No credit limit with this id</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p>Jak to číst: pod <code>paths</code> jsou jednotlivé URL; pod každou URL metody; u každé metody <code>parameters</code> (tady povinný parametr cesty <code>id</code>), případně <code>requestBody</code> a <code>responses</code> podle stavových kódů. <code>components/schemas</code> definují datové struktury s typy, povinnými poli (<code>required</code>), formáty a povolenými hodnotami (<code>enum</code>). Otevři soubor ve <a href="https://editor.swagger.io/" target="_blank" rel="noopener">Swagger Editoru</a> a uvidíš ho vykreslený jako čitelnou dokumentaci; přesně to dělá cvičení 4.</p>
+<p>Jako analytička kontroluj soubor OpenAPI proti svým požadavkům: jsou tam všechna pole z mapování, jsou povinná pole označená, jsou výčty (enums) úplné, jsou popsané chybové odpovědi?</p>
+<h3 id="m11-integra-n-vzory">Integrační vzory <span class="prio prio-p1">P1</span></h3>
+<div class="tabulka"><table><thead><tr><th>Vzor</th><th>Jak funguje</th><th>Kdy použít</th><th>Příklad v ExportShield</th></tr></thead><tbody><tr><td>Synchronní volání API</td><td>Klient zavolá a čeká na odpověď</td><td>Uživatel nebo proces potřebuje odpověď hned; malá data</td><td>PolicyHub ověřuje firmu v ARES, zatímco underwriter čeká</td></tr><tr><td>Asynchronní zprávy (fronta, topic)</td><td>Odesílatel vloží zprávu do fronty; příjemce ji zpracuje později</td><td>Systémy musí být oddělené; příjemce může být pomalý nebo nedostupný; události</td><td>ClaimDesk publikuje „škoda schválena“; finance si ji vyzvednou a zaplatí</td></tr><tr><td>Dávkový přenos souborů</td><td>Soubor (CSV, XML) se podle plánu vytvoří a přesune, často přes SFTP</td><td>Velké objemy, není potřeba reálný čas, starší systémy</td><td>Noční CSV všech vyplacených plnění do účetního systému</td></tr><tr><td>Webhook</td><td>Server zavolá URL klienta, když nastane událost</td><td>Chceš dostat upozornění místo opakovaného ptaní</td><td>Služba pro dokumenty zavolá DocVault, když dorazí podepsaná smlouva</td></tr><tr><td>ETL / replikace dat</td><td>Data se vytáhnou, transformují a nahrají do jiného úložiště</td><td>Reporting, datový sklad, migrace</td><td>Denní nahrání smluv a škod do reportingové databáze</td></tr></tbody></table></div>
+<p>Otázky, které rozhodnou o vzoru: Jak čerstvá musí data být (sekundy, hodiny, další den)? Kolik záznamů? Co se stane, když příjemce nejede: má odesílatel selhat, počkat, nebo zařadit do fronty? Potřebuje business potvrzení, že data dorazila?</p>
+<p><strong>Polling</strong> (dotazování každých pár minut „je něco nového?“) je jednoduchá alternativa k webhookům a zprávám. Funguje, ale plýtvá voláními a přidává zpoždění.</p>
+<h3 id="m11-o-et-en-chyb-idempotence-a-opakov-n">Ošetření chyb, idempotence a opakování <span class="prio prio-p2">P2</span></h3>
+<p>Integrace selhávají: síť vypadne, servery se restartují, data jsou neplatná. Specifikace musí říct, co se stane v každém případě, jinak o tom rozhodne vývojář sám.</p>
+<ul><li><strong>Validační chyby (4xx)</strong>: neopakovat; požadavek selže znovu. Zalogovat, upozornit člověka nebo zařadit do chybové fronty k ručnímu zpracování.</li><li><strong>Dočasné chyby (timeouty, 503, 429)</strong>: opakovat omezeně, s prodlužujícím se čekáním (<strong>exponential backoff</strong>, exponenciální odstup: např. po 1, 2, 4 sekundách), pak to vzdát a vyhlásit alarm.</li><li><strong>Timeouty</strong>: specifikuj, jak dlouho klient čeká. Když uživatel čeká u obrazovky, nanejvýš pár sekund, pak srozumitelná hláška.</li><li><strong>Idempotency</strong> (idempotence): operace je <strong>idempotentní</strong>, když její dvojí provedení má stejný účinek jako jedno. Podle definice ve standardu HTTP (RFC 9110) jsou GET, HEAD, OPTIONS, PUT a DELETE idempotentní; POST není a PATCH to není zaručeně. Když POST „vyplatit plnění“ vyprší a zopakuje se, exportér může dostat zaplaceno dvakrát. Řešení: <strong>idempotency key</strong> (idempotenční klíč, jedinečné ID posílané s požadavkem; server opakování se stejným klíčem ignoruje) nebo business kontrola (jedna platba na číslo splátky škody).</li><li><strong>Částečné selhání v dávkách</strong>: když je řádek 5 000 z 10 000 neplatný, selže celý soubor, nebo jen ten řádek? Zapiš to.</li><li><strong>Monitoring a alerting</strong>: kdo se dozví, že integrace selhala, a jak rychle?</li></ul>
+<p>Příklad požadavku: „Pokud ARES neodpoví do 5 sekund, PolicyHub jednou zopakuje volání. Pokud selže i druhý pokus, PolicyHub zobrazí ‚Registr nedostupný, zkuste později‘, zaloguje chybu s correlation ID a umožní underwriterovi pokračovat bez dat z registru; žádost označí ‚čeká na kontrolu v registru‘.“</p>
+<h3 id="m11-psan-integra-n-specifikace">Psaní integrační specifikace <span class="prio prio-p1">P1</span></h3>
+<p>Šablona, která funguje pro většinu integrací:</p>
+<div class="tabulka"><table><thead><tr><th>Část</th><th>Obsah</th></tr></thead><tbody><tr><td>Účel</td><td>Business důvod v jedné nebo dvou větách</td></tr><tr><td>Systémy</td><td>Zdroj, cíl, vlastník každého z nich, kontakty na dodavatele</td></tr><tr><td>Spouštěč</td><td>Událost (akce uživatele, změna stavu), plán nebo příchod souboru</td></tr><tr><td>Směr a vzor</td><td>Jednosměrná nebo obousměrná; API, zpráva, soubor, webhook</td></tr><tr><td>Frekvence a objemy</td><td>Volání za den, špička za hodinu, velikost souboru, očekávaný růst</td></tr><tr><td>Mapování dat</td><td>Tabulka polí (viz níže)</td></tr><tr><td>Validační pravidla</td><td>Co dělá zprávu platnou; co se stane s neplatnými</td></tr><tr><td>Ošetření chyb</td><td>Pro každý typ chyby: opakování, alarm, ruční zpracování</td></tr><tr><td>Bezpečnost</td><td>Autentizace, šifrování, síť, osobní údaje, logování přístupů</td></tr><tr><td>Monitoring</td><td>Logy, dashboardy, alarmy, kdo drží pohotovost</td></tr><tr><td>Nefunkční požadavky</td><td>Doba odezvy, dostupnost, doba uchování logů a souborů</td></tr><tr><td>Testovací scénáře</td><td>Happy path, každá chybová větev, objemový test</td></tr></tbody></table></div>
+<p>Jádrem je tabulka <strong>data mapping</strong> (mapování dat):</p>
+<div class="tabulka"><table><thead><tr><th>#</th><th>Zdrojové pole</th><th>Cílové pole</th><th>Typ / formát</th><th>Povinné</th><th>Transformace / pravidlo</th></tr></thead><tbody><tr><td>1</td><td><code>ico</code></td><td><code>Party.registrationId</code></td><td>text, 8 číslic</td><td>ano</td><td>ponechat jako text, zachovat úvodní nuly</td></tr><tr><td>2</td><td><code>obchodniJmeno</code></td><td><code>Party.legalName</code></td><td>text, max 255</td><td>ano</td><td>oříznout mezery</td></tr><tr><td>3</td><td><code>sidlo.kodStatu</code></td><td><code>Party.countryCode</code></td><td>ISO 3166 alpha-2</td><td>ano</td><td>zkopírovat beze změny</td></tr><tr><td>4</td><td><code>sidlo.psc</code></td><td><code>Party.postalCode</code></td><td>text</td><td>ne</td><td>ve zdroji číslo; převést na text, formát „118 00“</td></tr></tbody></table></div>
+<p>Typické pasti, které mapování odhalí: čísla versus text (identifikátory a PSČ), formáty datumů, číselníky, které se mezi systémy liší (hodnoty statusů, kódy právní formy), různé délky polí, znakové sady a diakritika a pole, která existují jen na jedné straně.</p>
+<h3 id="m11-n-stroje-do-praxe-postman-jsonplaceholder-a-api-playground">Nástroje do praxe: Postman, JSONPlaceholder a API playground <span class="prio prio-p1">P1</span></h3>
+<p><strong><a href="https://www.postman.com/downloads/" target="_blank" rel="noopener">Postman</a></strong> je desktopový nástroj pro posílání HTTP požadavků a prohlížení odpovědí. Nastavíš metodu, URL, hlavičky a tělo, stiskneš Send a uvidíš stav, čas, hlavičky a tělo. Požadavky lze ukládat do <strong>collections</strong> (kolekcí) a kontrolovat <strong>testy</strong>: krátkými úryvky JavaScriptu, které proběhnou po příchodu odpovědi, například:</p>
+<div class="kod"><pre><code class="jazyk-javascript">pm.test(&quot;Status is 200&quot;, function () {
+  pm.response.to.have.status(200);
+});
+pm.test(&quot;Company ID is returned unchanged&quot;, function () {
+  pm.expect(pm.response.json().ico).to.eql(&quot;00006947&quot;);
+});</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong><a href="https://jsonplaceholder.typicode.com/" target="_blank" rel="noopener">JSONPlaceholder</a></strong> je bezplatné falešné REST API na procvičování. <code>GET /posts/1</code> vrátí ukázkový příspěvek. <code>POST /posts</code> s JSON tělem vrátí <strong>201</strong> a tvoje data s novým <code>id</code> (101), ale nic se doopravdy neuloží; proto je bezpečné na něm zkoušet metody.</p>
+<p><strong>API playground</strong> na webu (<code>api.html</code>) umožní poslat stejné požadavky z prohlížeče bez instalace. Používej ho na rychlé kontroly a Postman na kolekce a testy.</p>
+<p>ARES je veřejná služba českého státu. Používej ho na občasná ruční volání, ne na hromadné stahování, a dodržuj jeho podmínky užití.</p><div class="hotovo"><label class="fajfka "><input type="checkbox" data-key="nat-read-11-deep"> <span>Část do hloubky mám prostudovanou</span></label></div></section><section role="tabpanel" id="panel-practice" aria-labelledby="tab-practice" class="panel" hidden><div class="cviceni" id="m11-e1"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m11-e1"> <span>Kolekce v Postmanu: ARES a JSONPlaceholder s testy</span></label><span class="meta">60 min · Postman</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> volat skutečná API, číst odpovědi a automatizovat jednoduché kontroly.</p>
+<ol><li>Nainstaluj <a href="https://www.postman.com/downloads/" target="_blank" rel="noopener">Postman</a> (stačí bezplatný plán). Vytvoř kolekci „BA Academy – APIs“.</li><li>Požadavek 1: <code>GET https://ares.gov.cz/ekonomicke-subjekty-v-be/rest/ekonomicke-subjekty/00006947</code>. Pošli ho. Najdi v odpovědi <code>obchodniJmeno</code>, <code>sidlo.textovaAdresa</code> a <code>dic</code>.</li><li>Požadavek 2: stejná URL s <code>12345678</code> na konci. Poznamenej si stavový kód a <code>kod</code> v těle.</li><li>Požadavek 3: stejná URL s <code>abc</code> na konci. Poznamenej si stavový kód a <code>subKod</code>.</li><li>Požadavek 4: <code>GET https://jsonplaceholder.typicode.com/posts/1</code>.</li><li>Požadavek 5: <code>POST https://jsonplaceholder.typicode.com/posts</code> s hlavičkou <code>Content-Type: application/json</code> a tělem <code>{&quot;title&quot;: &quot;Credit limit request&quot;, &quot;body&quot;: &quot;Buyer Nordhafen Logistik GmbH, 120000 EUR&quot;, &quot;userId&quot;: 1}</code>. Zkontroluj stavový kód a vrácené <code>id</code>.</li><li>Ke každému požadavku přidej testy (záložka Scripts / Tests): očekávaný stavový kód a u požadavku 1 to, že <code>ico</code> se rovná <code>&quot;00006947&quot;</code>. Použij příklad z tohoto modulu.</li><li>Spusť celou kolekci pomocí Collection Runneru. Zkus stejné požadavky v API playgroundu na webu (<code>api.html</code>).</li></ol>
+<p><strong>Hotovo, když:</strong> kolekce má pět požadavků, každý má aspoň jeden test, běh je zelený a umíš vysvětlit rozdíl mezi odpověďmi 400 a 404 z ARES.</p></div></div>
+<div class="cviceni" id="m11-e2"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m11-e2"> <span>Převeď JSON payload do XML a zvaliduj ho</span></label><span class="meta">45 min · JSONLint and a text editor</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> pochopit oba formáty tím, že jeden převedeš na druhý.</p>
+<p>Použij tento payload hlášení škody (fiktivní data, škoda 12 v datové sadě ExportShield):</p>
+<div class="kod"><pre><code class="jazyk-json">{
+  &quot;claimId&quot;: 12,
+  &quot;invoiceNo&quot;: &quot;INV-2025-06008&quot;,
+  &quot;exporter&quot;: {&quot;name&quot;: &quot;Ostrava Steel Components a.s.&quot;, &quot;policyNo&quot;: &quot;ES-2025-1009&quot;},
+  &quot;buyer&quot;: {&quot;name&quot;: &quot;Steppe Rail Service LLP&quot;, &quot;countryCode&quot;: &quot;KZ&quot;},
+  &quot;claimedAmount&quot;: 11700.00,
+  &quot;currency&quot;: &quot;EUR&quot;,
+  &quot;notifiedOn&quot;: &quot;2026-02-15&quot;,
+  &quot;status&quot;: &quot;IN_REVIEW&quot;,
+  &quot;documents&quot;: [&quot;invoice.pdf&quot;, &quot;reminder-1.pdf&quot;, &quot;delivery-note.pdf&quot;]
+}</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<ol><li>Vlož ho do <a href="https://jsonlint.com/" target="_blank" rel="noopener">JSONLint</a> a zvaliduj. Pak ho schválně rozbij (odstraň čárku, přidej čárku za poslední položku, použij jednoduché uvozovky) a přečti si chybové hlášky.</li><li>Napiš stejná data jako XML v textovém editoru. U každého pole rozhodni: element, nebo atribut? (Nápověda: <code>currency</code> se hodí jako atribut částky.) Použij jeden kořenový element <code>ClaimNotification</code> a namespace <code>urn:exportshield:claim:v1</code>. <code>documents</code> vyjádři opakovanými elementy.</li><li>Ulož soubor jako <code>claim.xml</code> a otevři ho ve webovém prohlížeči. Prohlížeč ukáže chybu, pokud XML není well-formed (správně utvořené). Oprav případné chyby.</li><li>Napiš pět pravidel, která by XSD pro tuto zprávu mělo vynucovat (povinné elementy, formát data, povolené hodnoty statusu, typ částky, délka kódu měny). Volitelně: napiš XSD podle ukázky v tomto modulu a zvaliduj ho v editoru, který umí XML, například ve Visual Studio Code s rozšířením pro XML.</li><li>Napiš tři věty o tom, co šlo snáz vyjádřit v XML a co v JSON.</li></ol>
+<p><strong>Hotovo, když:</strong> tvůj JSON je platný, XML se v prohlížeči otevře bez chyby, každé pole z JSON má protějšek v XML a máš pět pravidel pro XSD.</p></div></div>
+<div class="cviceni" id="m11-e3"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m11-e3"> <span>Mapování polí: z ARES do záznamu subjektu v PolicyHubu</span></label><span class="meta">45 min · Excel or Confluence</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> napsat jádro integrační specifikace pro skutečné API.</p>
+<p>Scénář: když se v PolicyHubu zadá česká firma (exportér při onboardingu nebo český odběratel), PolicyHub má vyplnit její záznam subjektu (party record) z ARES. Záznam subjektu v PolicyHubu (fiktivní) má: <code>registrationId</code> (text 8), <code>legalName</code> (text 255), <code>vatId</code> (text 14), <code>legalFormCode</code> (text 3), <code>street</code> (text 100), <code>houseNumber</code> (text 20), <code>city</code> (text 100), <code>postalCode</code> (text 6, formát „118 00“), <code>countryCode</code> (text 2), <code>registerCheckedOn</code> (datum), <code>activityCodes</code> (seznam textů).</p>
+<ol><li>Zavolej ARES pro <code>00006947</code> (Postman nebo <code>api.html</code>) a odpověď si nech po ruce.</li><li>Sestav tabulku mapování se sloupci: #, pole ARES (JSON cesta, např. <code>sidlo.nazevObce</code>), pole PolicyHubu, zdrojový typ, cílový typ, povinné, transformační pravidlo, příklad hodnoty.</li><li>Rozhodni, jak sestavit <code>houseNumber</code> z <code>cisloDomovni</code> a <code>cisloOrientacni</code> (v českých adresách se píše „525/15“) a co dělat, když jedno chybí.</li><li>Rozhodni, odkud se vezme <code>registerCheckedOn</code> (nápověda: v odpovědi není, je to datum volání) a čím se liší od <code>datumAktualizace</code>.</li><li>Vypiš pole PolicyHubu, která v ARES nemají zdroj, a pole ARES, která záměrně nemapuješ.</li><li>Přidej část o ošetření chyb: co PolicyHub udělá při 404, 400, timeoutu a 5xx.</li></ol>
+<p><strong>Hotovo, když:</strong> každé pole PolicyHubu je buď namapované s pravidlem, nebo výslovně označené „bez zdroje“, transformace čísla domu a PSČ jsou specifikované a všechny čtyři chybové případy mají definované chování.</p></div></div>
+<div class="cviceni" id="m11-e4"><div class="cviceni-hlava"><label class="fajfka"><input type="checkbox" data-key="nat-ex-m11-e4"> <span>Přečti soubor OpenAPI ve Swagger Editoru</span></label><span class="meta">40 min · Swagger Editor</span></div><div class="cviceni-telo"><p><strong>Cíl:</strong> přečíst popis API od dodavatele a zkontrolovat ho proti požadavkům.</p>
+<ol><li>Otevři <a href="https://editor.swagger.io/" target="_blank" rel="noopener">Swagger Editor</a>, vymaž příklad vlevo a vlož YAML níže. Vpravo se zobrazí vykreslená dokumentace. Adresa serveru používá rezervovanou doménu <code>.example</code>, takže neexistuje; skutečné požadavky poslat nemůžeš, jen číst.</li><li>Odpověz: Jaké endpointy existují? Která pole jsou při vytváření úvěrového limitu povinná? Jaké měny jsou povolené? Co API vrátí, když id neexistuje? Jak se klient autentizuje?</li><li>Porovnej s business pravidly ExportShield: žádost má nést i zemi odběratele a platební podmínky nesmí přesáhnout 180 dní. Je každé pravidlo ve specifikaci?</li><li>Najdi aspoň dvě mezery (nápověda: dá se vypsat seznam žádostí podle statusu? Je popsaný kód 409 pro duplicitní žádost? Co vrací 401?).</li><li>Uprav YAML: přidej dotazovací endpoint <code>GET /credit-limits</code> s parametrem dotazu <code>status</code> (<code>in: query</code>). Drž YAML platný: editor označí problémy v textu a dokumentace vpravo musí dál ukazovat všechny endpointy, teď i ten tvůj nový.</li></ol>
+<div class="kod"><pre><code class="jazyk-yaml">openapi: 3.0.3
+info:
+  title: PolicyHub Credit Limit API (training example)
+  version: 1.0.0
+  description: Fictional API of ExportShield Insurance, used for BA Academy exercises.
+servers:
+  - url: https://api.exportshield.example/policyhub/v1
+paths:
+  /credit-limits:
+    post:
+      summary: Submit a credit limit request
+      operationId: createCreditLimit
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: &#x27;#/components/schemas/CreditLimitRequest&#x27;
+      responses:
+        &#x27;201&#x27;:
+          description: Request accepted and stored with status REQUESTED
+          content:
+            application/json:
+              schema:
+                $ref: &#x27;#/components/schemas/CreditLimit&#x27;
+        &#x27;400&#x27;:
+          description: Invalid input, for example a missing field or unknown currency
+          content:
+            application/json:
+              schema:
+                $ref: &#x27;#/components/schemas/Error&#x27;
+        &#x27;401&#x27;:
+          description: Missing or invalid access token
+  /credit-limits/{id}:
+    get:
+      summary: Get one credit limit
+      operationId: getCreditLimit
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          example: CL-2026-0041
+      responses:
+        &#x27;200&#x27;:
+          description: The credit limit
+          content:
+            application/json:
+              schema:
+                $ref: &#x27;#/components/schemas/CreditLimit&#x27;
+        &#x27;404&#x27;:
+          description: No credit limit with this id
+          content:
+            application/json:
+              schema:
+                $ref: &#x27;#/components/schemas/Error&#x27;
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+  schemas:
+    CreditLimitRequest:
+      type: object
+      required:
+        - policyNo
+        - buyerId
+        - requestedAmount
+        - currency
+      properties:
+        policyNo:
+          type: string
+          example: ES-2025-1018
+        buyerId:
+          type: integer
+          example: 2
+        requestedAmount:
+          type: number
+          minimum: 1
+          example: 120000
+        currency:
+          type: string
+          enum:
+            - EUR
+            - USD
+        paymentTermsDays:
+          type: integer
+          minimum: 1
+          maximum: 180
+          example: 60
+    CreditLimit:
+      type: object
+      properties:
+        creditLimitId:
+          type: string
+          example: CL-2026-0041
+        policyNo:
+          type: string
+        buyerId:
+          type: integer
+        requestedAmount:
+          type: number
+        approvedAmount:
+          type: number
+          nullable: true
+        currency:
+          type: string
+        status:
+          type: string
+          enum:
+            - REQUESTED
+            - APPROVED
+            - REDUCED
+            - REJECTED
+        requestedOn:
+          type: string
+          format: date
+        decidedOn:
+          type: string
+          format: date
+          nullable: true
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          example: INVALID_CURRENCY
+        message:
+          type: string
+          example: Currency must be EUR or USD.</code></pre><button type="button" class="kopirovat">Kopírovat</button></div>
+<p><strong>Hotovo, když:</strong> máš odpovědi na pět otázek, aspoň dvě mezery sepsané jako review komentáře a editor po tvé změně nehlásí žádné problémy.</p></div></div></section><section role="tabpanel" id="panel-check" aria-labelledby="tab-check" class="panel" hidden><details class="otazka"><summary><span class="q">Jaký je rozdíl mezi parametrem cesty a parametrem dotazu? Uveď příklad každého.</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>Parametr cesty (path parameter) je součást cesty URL a identifikuje konkrétní zdroj, například IČO v <code>/ekonomicke-subjekty/00006947</code>. Parametr dotazu (query parameter) následuje za <code>?</code> a filtruje, řadí nebo stránkuje výsledek, například <code>/credit-limits?status=REQUESTED</code>. Praktické pravidlo: cesta pro „který“, dotaz pro „které z nich“ nebo „jak“.</p></div></details>
+<details class="otazka"><summary><span class="q">ARES vrátí na jeden požadavek 404 a na jiný 400. Co ti každý z nich říká a jak má volající systém reagovat?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>404 znamená, že požadavek byl platný, ale firma s tímto IČO neexistuje; systém má uživateli říct, že firma v registru není, a nechat ho IČO zkontrolovat. 400 znamená, že neplatný byl samotný požadavek, například IČO nemá 8 číslic; systém tomu má ideálně předejít validací vstupu před voláním. Ani jedno se nemá automaticky opakovat, protože stejný požadavek dá stejný výsledek.</p></div></details>
+<details class="otazka"><summary><span class="q">Proč je problém uložit české IČO nebo PSČ z JSON jako číslo?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>IČO může mít úvodní nuly (<code>00006947</code>), které číslo zahodí, takže hodnota pak neodpovídá registru. IČO a PSČ jsou identifikátory, ne množství; nikdo s nimi nepočítá. ARES vrací <code>psc</code> jako číslo, takže mapování ho musí převést na text a doplnit formátování. To je typické transformační pravidlo v mapování dat.</p></div></details>
+<details class="otazka"><summary><span class="q">Kdy zvolíš asynchronní zprávy místo synchronního volání API?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>Když odesílatel nepotřebuje odpověď hned, když příjemce může být pomalý nebo dočasně nedostupný, nebo když na stejnou událost musí reagovat víc systémů. Například ClaimDesk publikuje „škoda schválena“ a finance zpracují platbu později. Synchronní volání se hodí, když uživatel čeká na odpověď u obrazovky, třeba při kontrole v registru.</p></div></details>
+<details class="otazka"><summary><span class="q">POST „vytvoř platbu“ vyprší (timeout) a klient ho zopakuje. Co se může pokazit a co má říkat požadavek?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>První požadavek mohl na serveru projít ještě před timeoutem, takže opakování může vytvořit druhou platbu a exportér dostane zaplaceno dvakrát. POST není idempotentní. Požadavek má vyžadovat idempotenční klíč nebo business kontrolu jedinečnosti, aby se opakovaný požadavek rozpoznal a neprovedl dvakrát, a má definovat, kolik opakování je povoleno.</p></div></details>
+<details class="otazka"><summary><span class="q">Jmenuj tři věci, ve kterých se JSON a XML liší.</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>JSON má nativní typy pro čísla, booleovské hodnoty a null, zatímco v XML je všechno text a typy dává XSD. XML má atributy, jmenné prostory a komentáře; JSON nic z toho. JSON je kompaktnější a výchozí pro REST, kdežto XML s XSD je běžné ve službách SOAP a v regulatorním reportingu.</p></div></details>
+<details class="otazka"><summary><span class="q">Kolega vloží bearer token na stránku v Confluence, aby dodavatel mohl API otestovat. Co je špatně a co se má stát místo toho?</span><span class="ukaz">Zobrazit odpověď</span></summary><div class="odpoved"><p>Token je tajný údaj, který dává přístup; kdokoli, kdo stránku čte, může volat API pod tímto účtem, dokud token nevyprší nebo nebude zneplatněn, a historie stránky si ho uchová. Token se má hned zneplatnit nebo vyměnit. Dodavatel má dostat vlastní testovací přístupové údaje schváleným kanálem, uložené v úložišti tajných údajů, jen s právy, která potřebuje.</p></div></details></section><section role="tabpanel" id="panel-interview" aria-labelledby="tab-interview" class="panel" hidden><details class="pohovor"><summary><span class="q">Vysvětli business stakeholderovi, co je API. <em>EN: Explain what an API is to a business stakeholder.</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li>Definovaný způsob, jak jeden systém požádá jiný o data nebo o provedení akce, bez člověka mezi nimi.</li><li>Přirovnání: přepážka s pevným formulářem; vyplníš formulář (požadavek) a dostaneš standardní odpověď.</li><li>Konkrétní příklad: PolicyHub se zeptá obchodního rejstříku na adresu firmy, místo aby ji underwriter opisoval.</li><li>Přínosy: méně ručních kroků a překlepů, rychlejší rozhodování, data vždy aktuální.</li></ul>
+<p>Typická chyba: odpovídat technickými pojmy (REST, JSON, OAuth), na které se stakeholder neptal.</p></div></details>
+<details class="pohovor"><summary><span class="q">Jak bys specifikovala integraci mezi systémem smluv a systémem škod? <em>EN: How would you specify an integration between the policy system and the claims system?</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li>Účel, systémy, vlastníci, spouštěč a směr.</li><li>Volba vzoru (API, zprávy, soubor) podle potřeb na čerstvost dat, objem a spolehlivost.</li><li>Tabulka mapování dat s typy, povinností a transformacemi.</li><li>Ošetření chyb: validační chyby, timeouty, opakování, idempotence, alarmy.</li><li>Nefunkční požadavky: objemy, doby odezvy, bezpečnost, osobní údaje, monitoring.</li><li>Testovací scénáře pro každou větev, odsouhlasené s dodavatelem a testery.</li></ul>
+<p>Typická chyba: specifikovat jen pole a happy path.</p></div></details>
+<details class="pohovor"><summary><span class="q">Jaké HTTP stavové kódy znáš a co znamenají? <em>EN: What HTTP status codes do you know and what do they mean?</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li>Skupiny: 2xx úspěch, 3xx přesměrování, 4xx chyba klienta, 5xx chyba serveru.</li><li>200 OK, 201 Created, 204 No Content.</li><li>400 neplatný požadavek, 401 neautentizováno, 403 nepovoleno, 404 nenalezeno, 409 konflikt, 429 příliš mnoho požadavků.</li><li>500 chyba serveru, 503 služba nedostupná.</li><li>Proč na tom BA záleží: každý kód potřebuje v požadavcích definovanou reakci a test.</li></ul>
+<p>Typická chyba: plést si 401 (kdo jsi?) a 403 (vím, kdo jsi, ale nesmíš).</p></div></details>
+<details class="pohovor"><summary><span class="q">Pracovala jsi někdy sama s API? <em>EN: Have you ever worked with an API yourself?</em></span><span class="ukaz">Co má obsahovat silná odpověď</span></summary><div class="odpoved"><ul><li>Konkrétní příklad: volání ARES pro IČO v Postmanu, čtení JSON, porovnání odpovědí 200, 400 a 404.</li><li>Testy v Postmanu: stavový kód a hodnota pole.</li><li>Čtení souboru OpenAPI a hledání mezer proti požadavkům.</li><li>Mapování dat odvozené ze skutečné odpovědi, včetně transformací (identifikátory jako text, formátování adresy).</li></ul>
+<p>Typická chyba: tvrdit, že máš zkušenost s API, a nebýt schopná popsat jediný požadavek a odpověď.</p></div></details></section><section role="tabpanel" id="panel-resources" aria-labelledby="tab-resources" class="panel" hidden><h3>Udemy</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-u-api-with-postman-for-absolute-beginners"></label><div><a href="https://www.udemy.com/course/api-with-postman-for-absolute-beginners/" target="_blank" rel="noopener">Introduction to REST APIs for Absolute Beginners</a> <span class="stitek stitek-core">Hlavní</span><div class="meta">Valentin Despa · 3,5 h · ★ 4,6 (8 737 hodnocení) · aktualizace 2026-05</div><p>Vysvětluje API bez předpokladu, že umíš programovat, a procvičuje se v Postmanu. API jsou přímo v inzerátu.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-u-api-documentation-1-json-and-xml"></label><div><a href="https://www.udemy.com/course/api-documentation-1-json-and-xml/" target="_blank" rel="noopener">Learn API Technical Writing: JSON and XML for Writers</a> <span class="stitek stitek-core">Hlavní</span><div class="meta">Peter Gruenbaum · 1,5 h · ★ 4,6 (14 023 hodnocení) · aktualizace 2023-10</div><p>JSON a XML vysvětlené pro neprogramátory za 90 minut. Oba formáty jsou v inzerátu.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-u-api-and-web-service-introduction"></label><div><a href="https://www.udemy.com/course/api-and-web-service-introduction/" target="_blank" rel="noopener">API and Web Service Introduction</a> <span class="stitek">Volitelný</span><div class="meta">Nate Ross · 8,5 h · ★ 4,6 (40 816 hodnocení) · aktualizace 2026-10</div><p>Pokrývá i SOAP, XML a webové služby – v bankách a pojišťovnách pořád běžné.</p></div></li></ul><h3>Videa (zdarma)</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-uml-seq"></label><div><a href="https://www.youtube.com/watch?v=pCK6prSq8aw" target="_blank" rel="noopener">How to Make a UML Sequence Diagram</a><div class="meta">Lucid Software · 9 min · Začátečník</div><p>Kdo volá koho – klíčové pro specifikace API a integrací.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-api-ibm"></label><div><a href="https://www.youtube.com/watch?v=lsMQRaeKNDk" target="_blank" rel="noopener">What is a REST API?</a><div class="meta">IBM Technology · 9 min · Začátečník</div><p>Nejlepší krátký úvod do principů.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-api-4min"></label><div><a href="https://www.youtube.com/watch?v=bxuYDT-BWaI" target="_blank" rel="noopener">APIs Explained (in 4 Minutes)</a><div class="meta">Aced (Exponent) · 4 min · Začátečník</div><p>Rychlé opakování před pohovorem.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-api-ba"></label><div><a href="https://www.youtube.com/watch?v=eB6U8dNN5xg" target="_blank" rel="noopener">API Tutorial for Business Analysts – No Coding Required</a><div class="meta">Techcanvass · 60 min · Začátečník–mírně pokročilý</div><p>Jak BA čte a specifikuje API.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-json-xml"></label><div><a href="https://www.youtube.com/watch?v=jSx84DYwymo" target="_blank" rel="noopener">API Formats: Why JSON Won over XML</a><div class="meta">Erik Wilde · 15 min · Začátečník–mírně pokročilý</div><p>JSON vs. XML v souvislostech.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-postman-first"></label><div><a href="https://www.youtube.com/watch?v=2oOSnxZ28fA" target="_blank" rel="noopener">How to Send Your First API Request in Postman</a><div class="meta">Postman · 9 min · Začátečník</div><p>Tvůj první request v praxi.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-v-postman-fcc"></label><div><a href="https://www.youtube.com/watch?v=VywxIQ2ZXw4" target="_blank" rel="noopener">Postman Beginner&#x27;s Course – API Testing</a><div class="meta">freeCodeCamp.org · 130 min · Začátečník–mírně pokročilý</div><p>Kolekce, testy a proměnné.</p></div></li></ul><h3>Nástroje k vyzkoušení</h3><ul class='zdroje'><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-apilab"></label><div><a href="../api.html">API lab (this site)</a> <span class="stitek">Zdarma · přímo na webu</span><p>Posílej z prohlížeče skutečné GET/POST requesty na ARES a JSONPlaceholder a čti vrácený JSON.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-postman"></label><div><a href="https://www.postman.com/downloads/" target="_blank" rel="noopener">Postman</a> <span class="stitek">Bezplatný tarif</span><p>Standardní nástroj pro volání a testování API. Testeři i vývojáři budou čekat, že ho znáš.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-jsonplaceholder"></label><div><a href="https://jsonplaceholder.typicode.com/" target="_blank" rel="noopener">JSONPlaceholder</a> <span class="stitek">Zdarma · bez klíče</span><p>Falešné (fake) REST API na procvičení GET, POST, PUT a DELETE.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-ares"></label><div><a href="https://ares.gov.cz/" target="_blank" rel="noopener">ARES API (Czech business register)</a> <span class="stitek">Zdarma · veřejné · bez klíče</span><p>Skutečné veřejné API Ministerstva financí: vyhledání české firmy podle IČO. Používá se v závěrečném projektu (capstone).</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-jsonlint"></label><div><a href="https://jsonlint.com/" target="_blank" rel="noopener">JSONLint</a> <span class="stitek">Zdarma · v prohlížeči</span><p>Validace a formátování JSONu. Použij ho pokaždé, když payload „nefunguje“.</p></div></li><li class="zdroj"><label class="fajfka "><input type="checkbox" data-key="nat-t-swagger"></label><div><a href="https://editor.swagger.io/" target="_blank" rel="noopener">Swagger Editor</a> <span class="stitek">Zdarma · v prohlížeči</span><p>Čtení a psaní specifikací OpenAPI – formát, kterým dodavatelé popisují svá API.</p></div></li></ul><h3>Ke čtení (zdarma)</h3><ul class='zdroje'><li class="zdroj zdroj-bez"><div><a href="https://learning.postman.com/" target="_blank" rel="noopener">Postman Learning Center</a><p>Oficiální dokumentace a návody k Postmanu.</p></div></li><li class="zdroj zdroj-bez"><div><a href="https://ares.gov.cz/stranky/vyvojar-info" target="_blank" rel="noopener">ARES – informace pro vývojáře (česky)</a><p>Oficiální dokumentace ARES API včetně Swagger UI.</p></div></li><li class="zdroj zdroj-bez"><div><a href="https://api.cnb.cz/cnbapi/swagger-ui.html" target="_blank" rel="noopener">ČNB API (Swagger)</a><p>API kurzů ČNB v JSONu – porovnej ho s textovým souborem denních kurzů.</p></div></li></ul></section>
+</div>
+<nav class="dalsi" aria-label="Navigace mezi moduly"><a href="10.html">← 10 SQL pro business analytiky</a><a href="12.html">12 Systémy a architektura pro analytiky →</a></nav>
+
+</main>
+<footer class="paticka">
+  <p>BA Academy · samostudium k pozici IT Business Analyst · postup se ukládá v tomto prohlížeči
+  <span data-ucet-info hidden>a po přihlášení Googlem i v účtu</span>.</p>
+  <p class="pozn">Odkazy na Udemy a YouTube vedou na cizí weby. Obsah kurzů se sem nekopíruje, všechny výklady jsou vlastní.</p>
+</footer>
+<script src="../../assets/ucet-konfig.js"></script>
+<script src="../../assets/ucet.js"></script>
+<script src="../../assets/app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,281 @@
+{
+ "_pozn": "Nástroje k vyzkoušení. modules = moduly, kde se používají (první = hlavní).",
+ "tools": [
+  {
+   "id": "bpmnio",
+   "name": "bpmn.io demo",
+   "url": "https://demo.bpmn.io/",
+   "free": "Free · browser · no sign-up",
+   "modules": [
+    "04"
+   ],
+   "what": "Draw BPMN 2.0 diagrams in the browser and download them as .bpmn or image. The fastest way to start modelling.",
+   "what_cs": "Kresli diagramy BPMN 2.0 v prohlížeči a stáhni si je jako .bpmn nebo obrázek. Nejrychlejší způsob, jak začít modelovat.",
+   "free_cs": "Zdarma · v prohlížeči · bez registrace"
+  },
+  {
+   "id": "camunda-modeler",
+   "name": "Camunda Modeler",
+   "url": "https://camunda.com/download/modeler/",
+   "free": "Free · desktop",
+   "modules": [
+    "04"
+   ],
+   "what": "Desktop BPMN and DMN editor used in real automation projects. Try a DMN decision table for the pre-check rules.",
+   "what_cs": "Desktopový editor BPMN a DMN, který se používá ve skutečných automatizačních projektech. Zkus si v DMN rozhodovací tabulku (decision table) pro pravidla předběžné kontroly.",
+   "free_cs": "Zdarma · desktop"
+  },
+  {
+   "id": "drawio",
+   "name": "draw.io (diagrams.net)",
+   "url": "https://app.diagrams.net/",
+   "free": "Free · browser or desktop",
+   "modules": [
+    "08",
+    "09",
+    "04",
+    "12"
+   ],
+   "what": "General diagramming: BPMN, UML, ER diagrams, flowcharts, wireframes. Many companies use it inside Confluence.",
+   "what_cs": "Univerzální kreslení diagramů: BPMN, UML, ER diagramy, vývojové diagramy, wireframy. Hodně firem ho používá přímo v Confluence.",
+   "free_cs": "Zdarma · v prohlížeči nebo desktop"
+  },
+  {
+   "id": "mermaid",
+   "name": "Mermaid Live",
+   "url": "https://mermaid.live/",
+   "free": "Free · browser",
+   "modules": [
+    "08",
+    "09"
+   ],
+   "what": "Diagrams written as text (sequence, ER, state, flowchart). Same syntax as the diagrams on this site; also supported in GitHub, GitLab and Confluence add-ons.",
+   "what_cs": "Diagramy zapsané textem (sekvenční, ER, stavové, flowchart). Stejná syntaxe jako diagramy na tomto webu; podporují ji i GitHub, GitLab a doplňky do Confluence.",
+   "free_cs": "Zdarma · v prohlížeči"
+  },
+  {
+   "id": "plantuml",
+   "name": "PlantUML online",
+   "url": "https://www.plantuml.com/plantuml/",
+   "free": "Free · browser",
+   "modules": [
+    "08"
+   ],
+   "what": "UML from text. Common in technical documentation written by developers.",
+   "what_cs": "UML z textu. Běžné v technické dokumentaci, kterou píšou vývojáři.",
+   "free_cs": "Zdarma · v prohlížeči"
+  },
+  {
+   "id": "sqllab",
+   "name": "SQL lab (this site)",
+   "url": "sql.html",
+   "free": "Free · in this site",
+   "modules": [
+    "10",
+    "09"
+   ],
+   "what": "SQLite in your browser with the ExportShield dataset. No installation, nothing leaves your computer.",
+   "what_cs": "SQLite v tvém prohlížeči s datasetem ExportShield. Bez instalace, nic neopouští tvůj počítač.",
+   "free_cs": "Zdarma · přímo na webu"
+  },
+  {
+   "id": "sqlbolt",
+   "name": "SQLBolt",
+   "url": "https://sqlbolt.com/",
+   "free": "Free · browser",
+   "modules": [
+    "10"
+   ],
+   "what": "Short interactive SQL lessons with exercises. Good warm-up before the SQL module.",
+   "what_cs": "Krátké interaktivní lekce SQL s cvičeními. Dobrá rozcvička před modulem SQL.",
+   "free_cs": "Zdarma · v prohlížeči"
+  },
+  {
+   "id": "sqliteonline",
+   "name": "SQLite Online",
+   "url": "https://sqliteonline.com/",
+   "free": "Free · browser",
+   "modules": [
+    "10"
+   ],
+   "what": "Online SQL editor; paste the ExportShield script and query it in a tool that looks like a real database client.",
+   "what_cs": "Online SQL editor: vlož skript ExportShield a dotazuj se v nástroji, který vypadá jako skutečný databázový klient.",
+   "free_cs": "Zdarma · v prohlížeči"
+  },
+  {
+   "id": "apilab",
+   "name": "API lab (this site)",
+   "url": "api.html",
+   "free": "Free · in this site",
+   "modules": [
+    "11"
+   ],
+   "what": "Send real GET/POST requests to ARES and JSONPlaceholder from the browser and read the JSON.",
+   "what_cs": "Posílej z prohlížeče skutečné GET/POST requesty na ARES a JSONPlaceholder a čti vrácený JSON.",
+   "free_cs": "Zdarma · přímo na webu"
+  },
+  {
+   "id": "postman",
+   "name": "Postman",
+   "url": "https://www.postman.com/downloads/",
+   "free": "Free plan",
+   "modules": [
+    "11"
+   ],
+   "what": "The standard tool for calling and testing APIs. Testers and developers will expect you to know it.",
+   "what_cs": "Standardní nástroj pro volání a testování API. Testeři i vývojáři budou čekat, že ho znáš.",
+   "free_cs": "Bezplatný tarif"
+  },
+  {
+   "id": "jsonplaceholder",
+   "name": "JSONPlaceholder",
+   "url": "https://jsonplaceholder.typicode.com/",
+   "free": "Free · no key",
+   "modules": [
+    "11"
+   ],
+   "what": "A fake REST API for practising GET, POST, PUT and DELETE.",
+   "what_cs": "Falešné (fake) REST API na procvičení GET, POST, PUT a DELETE.",
+   "free_cs": "Zdarma · bez klíče"
+  },
+  {
+   "id": "ares",
+   "name": "ARES API (Czech business register)",
+   "url": "https://ares.gov.cz/",
+   "free": "Free · public · no key",
+   "modules": [
+    "11",
+    "14"
+   ],
+   "what": "Real public API of the Ministry of Finance: look up a Czech company by its IČO. Used in the capstone.",
+   "what_cs": "Skutečné veřejné API Ministerstva financí: vyhledání české firmy podle IČO. Používá se v závěrečném projektu (capstone).",
+   "free_cs": "Zdarma · veřejné · bez klíče"
+  },
+  {
+   "id": "jsonlint",
+   "name": "JSONLint",
+   "url": "https://jsonlint.com/",
+   "free": "Free · browser",
+   "modules": [
+    "11"
+   ],
+   "what": "Validate and format JSON. Use it whenever a payload \"doesn't work\".",
+   "what_cs": "Validace a formátování JSONu. Použij ho pokaždé, když payload „nefunguje“.",
+   "free_cs": "Zdarma · v prohlížeči"
+  },
+  {
+   "id": "swagger",
+   "name": "Swagger Editor",
+   "url": "https://editor.swagger.io/",
+   "free": "Free · browser",
+   "modules": [
+    "11"
+   ],
+   "what": "Read and write OpenAPI specifications – the format vendors use to describe their APIs.",
+   "what_cs": "Čtení a psaní specifikací OpenAPI – formát, kterým dodavatelé popisují svá API.",
+   "free_cs": "Zdarma · v prohlížeči"
+  },
+  {
+   "id": "jira",
+   "name": "Jira & Confluence (Free plan)",
+   "url": "https://www.atlassian.com/software/free",
+   "free": "Free up to 10 users",
+   "modules": [
+    "07",
+    "02"
+   ],
+   "what": "Backlogs, user stories, sprints and documentation. The most common tool pair in Czech IT teams.",
+   "what_cs": "Backlogy, user stories, sprinty a dokumentace. Nejběžnější dvojice nástrojů v českých IT týmech.",
+   "free_cs": "Zdarma až pro 10 uživatelů"
+  },
+  {
+   "id": "trello",
+   "name": "Trello",
+   "url": "https://trello.com/",
+   "free": "Free plan",
+   "modules": [
+    "02",
+    "07"
+   ],
+   "what": "Simple Kanban boards – a gentle start before Jira.",
+   "what_cs": "Jednoduché Kanban boardy – mírný start před Jirou.",
+   "free_cs": "Bezplatný tarif"
+  },
+  {
+   "id": "miro",
+   "name": "Miro",
+   "url": "https://miro.com/",
+   "free": "Free plan (limited boards)",
+   "modules": [
+    "05",
+    "16",
+    "03"
+   ],
+   "what": "Online whiteboard for workshops, stakeholder maps, story mapping and fishbone diagrams.",
+   "what_cs": "Online tabule pro workshopy, mapy stakeholderů, story mapping a diagramy rybí kosti (fishbone).",
+   "free_cs": "Bezplatný tarif (omezený počet boardů)"
+  },
+  {
+   "id": "powerautomate",
+   "name": "Power Automate",
+   "url": "https://make.powerautomate.com/",
+   "free": "Needs a Microsoft work or school account",
+   "modules": [
+    "14"
+   ],
+   "what": "Microsoft's low-code automation – the platform you are most likely to meet in Czech corporates. Use it only where your employer allows; otherwise practise in Make or n8n.",
+   "what_cs": "Low-code automatizace od Microsoftu – platforma, na kterou v českých korporátech narazíš nejspíš. Používej ji jen tam, kde to zaměstnavatel dovolí; jinak trénuj v Make nebo n8n.",
+   "free_cs": "Potřebuje pracovní nebo školní účet Microsoft"
+  },
+  {
+   "id": "powerapps",
+   "name": "Power Apps",
+   "url": "https://make.powerapps.com/",
+   "free": "Needs a Microsoft work or school account",
+   "modules": [
+    "14"
+   ],
+   "what": "Low-code apps (forms, approvals) on top of SharePoint or Dataverse.",
+   "what_cs": "Low-code aplikace (formuláře, schvalování) nad SharePointem nebo Dataverse.",
+   "free_cs": "Potřebuje pracovní nebo školní účet Microsoft"
+  },
+  {
+   "id": "make",
+   "name": "Make",
+   "url": "https://www.make.com/",
+   "free": "Free plan",
+   "modules": [
+    "14"
+   ],
+   "what": "Visual automation platform with a free plan – the easiest place to build the capstone intake automation with your own account.",
+   "what_cs": "Vizuální automatizační platforma s bezplatným tarifem – nejjednodušší místo, kde si s vlastním účtem postavíš automatizaci příjmu požadavků ze závěrečného projektu.",
+   "free_cs": "Bezplatný tarif"
+  },
+  {
+   "id": "n8n",
+   "name": "n8n",
+   "url": "https://n8n.io/",
+   "free": "Open source / cloud trial",
+   "modules": [
+    "14"
+   ],
+   "what": "Open-source workflow automation, popular for AI automations. Similar concepts to Power Automate.",
+   "what_cs": "Open-source automatizace workflow, oblíbená pro AI automatizace. Principy podobné Power Automate.",
+   "free_cs": "Open source / zkušební cloudová verze"
+  },
+  {
+   "id": "ai-assistant",
+   "name": "AI assistant (ChatGPT, Claude or Copilot)",
+   "url": "https://claude.ai/",
+   "free": "Free tiers",
+   "modules": [
+    "15",
+    "05",
+    "07"
+   ],
+   "what": "Draft interview questions, user stories and test cases – then review them critically. Only fictional data, never company data.",
+   "what_cs": "Připrav si návrhy otázek na rozhovor, user stories a test cases – a pak je kriticky zkontroluj. Jen fiktivní data, nikdy firemní.",
+   "free_cs": "Bezplatné tarify"
+  }
+ ]
+}

@@ -1,0 +1,587 @@
+{
+ "_pozn": "Kurzy vybrané v katalogu Udemy Business, odkazy na veřejné www.udemy.com (stejné adresy kurzů), údaje z API detailu kurzu 30. 10. 2026. tier: core = doporučený, optional = do hloubky / alternativa.",
+ "base": "https://www.udemy.com/course/",
+ "courses": [
+  {
+   "slug": "business-analysis-ba",
+   "title": "Business Analysis Fundamentals – IIBA endorsed",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 8.5,
+   "rating": 4.55,
+   "reviews": 74040,
+   "updated": "2025-09",
+   "tier": "core",
+   "modules": [
+    "01",
+    "05"
+   ],
+   "why": "The most-reviewed beginner BA course on the platform. Gives you the vocabulary and the full BA lifecycle in one place. Start here.",
+   "why_cs": "Nejhodnocenější kurz BA pro začátečníky na celé platformě. Na jednom místě ti dá slovník i celý životní cyklus BA. Začni tady."
+  },
+  {
+   "slug": "agile-fundamentals-scrum-kanban-scrumban",
+   "title": "Agile Fundamentals: Including Scrum & Kanban",
+   "author": "Jeremy Aschenbrenner, Vivek Khattri",
+   "hours": 4.5,
+   "rating": 4.52,
+   "reviews": 97685,
+   "updated": "2026-02",
+   "tier": "core",
+   "modules": [
+    "02",
+    "07"
+   ],
+   "why": "Almost every IT team you will join runs some form of Scrum or Kanban. Short, clear, BA-friendly.",
+   "why_cs": "Skoro každý IT tým, do kterého nastoupíš, jede v nějaké podobě Scrumu nebo Kanbanu. Krátký, srozumitelný a psaný s ohledem na BA."
+  },
+  {
+   "slug": "identify-the-problem",
+   "title": "Identify & Define the Problem with Business Analysis",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 3.5,
+   "rating": 4.5,
+   "reviews": 22718,
+   "updated": "2025-03",
+   "tier": "core",
+   "modules": [
+    "03"
+   ],
+   "why": "Root cause, problem statements and selling the value of a fix – exactly the step you already do intuitively before proposing an automation.",
+   "why_cs": "Root cause (příčina problému), problem statement a jak prodat přínos řešení – přesně ten krok, který už intuitivně děláš, než navrhneš automatizaci."
+  },
+  {
+   "slug": "bpmnwithbrian",
+   "title": "Practical BPMN 2.0 for Real Enterprise Process Flows",
+   "author": "Brian Prenderville",
+   "hours": 3,
+   "rating": 4.72,
+   "reviews": 2820,
+   "updated": "2026-01",
+   "tier": "core",
+   "modules": [
+    "04"
+   ],
+   "why": "Highest-rated BPMN course in the catalogue, practical and short. BPMN is named in the job ad.",
+   "why_cs": "Nejlépe hodnocený BPMN kurz v katalogu, praktický a krátký. BPMN je přímo v inzerátu."
+  },
+  {
+   "slug": "business-analysis-write-manage-prioritize-requirements",
+   "title": "Requirements Mastery – Write, Document, Manage & Prioritize",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 4.5,
+   "rating": 4.52,
+   "reviews": 284,
+   "updated": "2025-09",
+   "tier": "core",
+   "modules": [
+    "06"
+   ],
+   "why": "How to write requirements a vendor can build and a tester can test. The core of 'technical specifications for suppliers'.",
+   "why_cs": "Jak psát požadavky, podle kterých dodavatel dokáže stavět a tester testovat. Jádro „technických specifikací pro dodavatele“."
+  },
+  {
+   "slug": "writing-effective-user-stories",
+   "title": "The Ultimate User Story Guide: Crafting Agile Requirements",
+   "author": "Tom and Angela Hathaway",
+   "hours": 4,
+   "rating": 4.49,
+   "reviews": 2004,
+   "updated": "2026-05",
+   "tier": "core",
+   "modules": [
+    "07"
+   ],
+   "why": "User stories, acceptance criteria and Gherkin, plus how to check AI-generated stories. Updated 2026.",
+   "why_cs": "User stories, acceptance criteria a Gherkin, plus jak zkontrolovat stories vygenerované AI. Aktualizováno 2026."
+  },
+  {
+   "slug": "visual-modeling-master-class",
+   "title": "Business Analysis Modeling Skills & Techniques",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 6.5,
+   "rating": 4.54,
+   "reviews": 18937,
+   "updated": "2025-12",
+   "tier": "core",
+   "modules": [
+    "08",
+    "03",
+    "16"
+   ],
+   "why": "Process flows, use cases, RACI, SWOT, org charts – the everyday diagrams of a BA, practised hands-on.",
+   "why_cs": "Procesní diagramy, use cases, RACI, SWOT, organizační schémata – běžné diagramy BA, procvičené prakticky."
+  },
+  {
+   "slug": "the-complete-sql-bootcamp",
+   "title": "The Complete SQL Bootcamp: Go from Zero to Hero",
+   "author": "Jose Portilla",
+   "hours": 9,
+   "rating": 4.63,
+   "reviews": 259186,
+   "updated": "2022-12",
+   "tier": "core",
+   "modules": [
+    "10",
+    "09"
+   ],
+   "why": "The classic SQL course (260k ratings). Uses PostgreSQL; the site's SQL playground uses SQLite – basic SQL is the same.",
+   "why_cs": "Klasický SQL kurz (260 tisíc hodnocení). Používá PostgreSQL, SQL hřiště na tomto webu běží na SQLite – základní SQL je stejné."
+  },
+  {
+   "slug": "api-with-postman-for-absolute-beginners",
+   "title": "Introduction to REST APIs for Absolute Beginners",
+   "author": "Valentin Despa",
+   "hours": 3.5,
+   "rating": 4.59,
+   "reviews": 8737,
+   "updated": "2026-05",
+   "tier": "core",
+   "modules": [
+    "11"
+   ],
+   "why": "Explains APIs without assuming a programming background, practised in Postman. APIs are named in the job ad.",
+   "why_cs": "Vysvětluje API bez předpokladu, že umíš programovat, a procvičuje se v Postmanu. API jsou přímo v inzerátu."
+  },
+  {
+   "slug": "api-documentation-1-json-and-xml",
+   "title": "Learn API Technical Writing: JSON and XML for Writers",
+   "author": "Peter Gruenbaum",
+   "hours": 1.5,
+   "rating": 4.57,
+   "reviews": 14023,
+   "updated": "2023-10",
+   "tier": "core",
+   "modules": [
+    "11"
+   ],
+   "why": "JSON and XML explained for non-programmers in 90 minutes. Both formats are named in the job ad.",
+   "why_cs": "JSON a XML vysvětlené pro neprogramátory za 90 minut. Oba formáty jsou v inzerátu."
+  },
+  {
+   "slug": "software-testing-business-analyst",
+   "title": "Business Analyst: Software Testing Processes & Techniques",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 3,
+   "rating": 4.55,
+   "reviews": 12762,
+   "updated": "2023-07",
+   "tier": "core",
+   "modules": [
+    "13"
+   ],
+   "why": "Testing from the BA's point of view: test cases from requirements, UAT, defects. The ad asks you to support testers and test deliveries.",
+   "why_cs": "Testování z pohledu BA: test cases z požadavků, UAT, defekty. Inzerát chce, abys podporoval testery a testovací dodávky."
+  },
+  {
+   "slug": "microsoft-power-automate-crash-course",
+   "title": "Microsoft Power Automate Crash Course – 2026 Update",
+   "author": "Alireza Aliabadi",
+   "hours": 6.5,
+   "rating": 4.71,
+   "reviews": 12790,
+   "updated": "2026-09",
+   "tier": "core",
+   "modules": [
+    "14"
+   ],
+   "why": "Best-rated, freshly updated Power Automate course. Power Platform is the most common low-code platform in Czech corporates.",
+   "why_cs": "Nejlépe hodnocený a čerstvě aktualizovaný kurz Power Automate. Power Platform je v českých korporátech nejběžnější low-code platforma."
+  },
+  {
+   "slug": "ai-for-business-analysts-the-complete-training-course",
+   "title": "AI for Business Analysts – The Complete Course",
+   "author": "Georgi Smarts",
+   "hours": 4.5,
+   "rating": 4.53,
+   "reviews": 1367,
+   "updated": "2026-10",
+   "tier": "core",
+   "modules": [
+    "15"
+   ],
+   "why": "Updated this month. Using AI in BA work and analysing AI use cases – the ad lists AI integration projects.",
+   "why_cs": "Aktualizováno tento měsíc. Použití AI v práci BA a analýza AI use cases – inzerát zmiňuje projekty integrace AI."
+  },
+  {
+   "slug": "business-analysis-study-guide",
+   "title": "Full Business Analysis (21 IIBA PDUs)",
+   "author": "Igor Arkhipov (Analyst's Corner)",
+   "hours": 8.5,
+   "rating": 4.61,
+   "reviews": 3473,
+   "updated": "2026-10",
+   "tier": "optional",
+   "modules": [
+    "01",
+    "05",
+    "06"
+   ],
+   "why": "A second, more structured view of the whole discipline by an experienced practitioner. Good before a certification.",
+   "why_cs": "Druhý, strukturovanější pohled na celý obor od zkušeného praktika. Hodí se před certifikací."
+  },
+  {
+   "slug": "business-analysis-masterclass",
+   "title": "Business Analysis \"A to Z\" Masterclass",
+   "author": "Meetul Patel",
+   "hours": 11.5,
+   "rating": 4.6,
+   "reviews": 12731,
+   "updated": "2026-01",
+   "tier": "optional",
+   "modules": [
+    "01",
+    "17"
+   ],
+   "why": "Job-training style with practice exercises (use cases, stories) and interview angle.",
+   "why_cs": "Ve stylu přípravy na práci, s praktickými cvičeními (use cases, stories) a pohledem na pohovor."
+  },
+  {
+   "slug": "understanding-user-requirements-the-key-to-product-success",
+   "title": "Understanding User Requirements and Business Analysis",
+   "author": "Dejan Majkic",
+   "hours": 10.5,
+   "rating": 4.56,
+   "reviews": 1436,
+   "updated": "2025-10",
+   "tier": "optional",
+   "modules": [
+    "05",
+    "06"
+   ],
+   "why": "Deep dive into the whole requirements cycle: identification → elicitation → analysis → documentation → validation.",
+   "why_cs": "Do hloubky celým cyklem požadavků: identifikace → elicitace → analýza → dokumentace → validace."
+  },
+  {
+   "slug": "requirements_engineering",
+   "title": "Requirements Engineering (IREB / ISO/IEC/IEEE 29148)",
+   "author": "Christopher Olson",
+   "hours": 16.5,
+   "rating": 4.44,
+   "reviews": 1693,
+   "updated": "2026-02",
+   "tier": "optional",
+   "modules": [
+    "06"
+   ],
+   "why": "Path to the IREB CPRE Foundation certificate. Only if you decide to certify.",
+   "why_cs": "Cesta k certifikátu IREB CPRE Foundation. Jen pokud se rozhodneš certifikovat."
+  },
+  {
+   "slug": "bpmn-for-business-analysts",
+   "title": "BPMN for Business Analysts",
+   "author": "Zbigniew Misiak",
+   "hours": 6,
+   "rating": 4.51,
+   "reviews": 5717,
+   "updated": "2026-08",
+   "tier": "optional",
+   "modules": [
+    "04"
+   ],
+   "why": "Deeper BPMN with many modelling exercises, by a well-known BPMN practitioner.",
+   "why_cs": "Hlubší BPMN se spoustou modelovacích cvičení od známého BPMN praktika."
+  },
+  {
+   "slug": "business-process-bpmn",
+   "title": "BPMN for Business Process Modelling (8 PDUs)",
+   "author": "Igor Arkhipov (Analyst's Corner)",
+   "hours": 5.5,
+   "rating": 4.68,
+   "reviews": 306,
+   "updated": "2026-10",
+   "tier": "optional",
+   "modules": [
+    "04"
+   ],
+   "why": "Alternative to Misiak, very fresh, from the BA perspective.",
+   "why_cs": "Alternativa k Misiakovi, hodně čerstvá, z pohledu BA."
+  },
+  {
+   "slug": "process-improvement-an-introduction",
+   "title": "Fundamentals of Process Improvement",
+   "author": "Robert Chapman",
+   "hours": 5,
+   "rating": 4.64,
+   "reviews": 2034,
+   "updated": "2026-08",
+   "tier": "optional",
+   "modules": [
+    "03"
+   ],
+   "why": "Lean and process improvement methods – the theory behind your instinct to automate.",
+   "why_cs": "Lean a metody zlepšování procesů – teorie za tvým instinktem automatizovat."
+  },
+  {
+   "slug": "usecases",
+   "title": "Business Analysis: Working with Use Cases",
+   "author": "Don Hussey",
+   "hours": 2,
+   "rating": 4.49,
+   "reviews": 10151,
+   "updated": "2018-05",
+   "tier": "optional",
+   "modules": [
+    "06",
+    "08"
+   ],
+   "why": "Older but still the clearest short course on written use cases.",
+   "why_cs": "Starší, ale pořád nejsrozumitelnější krátký kurz o psaných use cases."
+  },
+  {
+   "slug": "uml-and-object-oriented-design-foundations",
+   "title": "UML and Object-Oriented Design Foundations",
+   "author": "Karoly Nyisztor",
+   "hours": 2.5,
+   "rating": 4.51,
+   "reviews": 9578,
+   "updated": "2026-07",
+   "tier": "optional",
+   "modules": [
+    "08"
+   ],
+   "why": "UML diagrams from the software side – helps you read what developers draw.",
+   "why_cs": "UML diagramy ze strany vývoje – pomůže ti číst, co kreslí vývojáři."
+  },
+  {
+   "slug": "data-modeling-for-beginners",
+   "title": "Data Modeling Made Easy: A Beginner's Guide",
+   "author": "Step2C Education",
+   "hours": 2.5,
+   "rating": 4.51,
+   "reviews": 190,
+   "updated": "2025-08",
+   "tier": "optional",
+   "modules": [
+    "09"
+   ],
+   "why": "Entities, relationships and ER diagrams for beginners.",
+   "why_cs": "Entity, vztahy a ER diagramy pro začátečníky."
+  },
+  {
+   "slug": "learn-sql-from-scratch",
+   "title": "SQL for Beginners: The Easiest Way to Learn SQL Step by Step",
+   "author": "Code Star Academy",
+   "hours": 8.5,
+   "rating": 4.59,
+   "reviews": 10720,
+   "updated": "2026-09",
+   "tier": "optional",
+   "modules": [
+    "10"
+   ],
+   "why": "Alternative to the SQL Bootcamp if you prefer a slower pace. Updated 2026.",
+   "why_cs": "Alternativa k SQL Bootcampu, pokud ti vyhovuje pomalejší tempo. Aktualizováno 2026."
+  },
+  {
+   "slug": "api-and-web-service-introduction",
+   "title": "API and Web Service Introduction",
+   "author": "Nate Ross",
+   "hours": 8.5,
+   "rating": 4.6,
+   "reviews": 40816,
+   "updated": "2026-10",
+   "tier": "optional",
+   "modules": [
+    "11",
+    "12"
+   ],
+   "why": "Covers SOAP, XML and web services too – still common in banks and insurers.",
+   "why_cs": "Pokrývá i SOAP, XML a webové služby – v bankách a pojišťovnách pořád běžné."
+  },
+  {
+   "slug": "business-analyst-managers-intro-to-software-development",
+   "title": "IT Business Analyst & Project Managers Technical Awareness",
+   "author": "Patrick Videos",
+   "hours": 2.5,
+   "rating": 4.4,
+   "reviews": 2323,
+   "updated": "2024-03",
+   "tier": "optional",
+   "modules": [
+    "12"
+   ],
+   "why": "How software is built and run, explained for non-developers.",
+   "why_cs": "Jak se software vyvíjí a provozuje, vysvětleno pro nevývojáře."
+  },
+  {
+   "slug": "architecting-software-modeling-viewpoints-c4",
+   "title": "Modeling Software Architecture: C4, Viewpoints, Perspectives",
+   "author": "Ilya Hardzeenka",
+   "hours": 6,
+   "rating": 4.39,
+   "reviews": 124,
+   "updated": "2026-03",
+   "tier": "optional",
+   "modules": [
+    "12"
+   ],
+   "why": "Only for depth: how architects describe systems (C4).",
+   "why_cs": "Jen do hloubky: jak architekti popisují systémy (C4)."
+  },
+  {
+   "slug": "the-complete-guide-to-jira-with-real-world-examples",
+   "title": "Learn Jira with real-world examples (+Confluence bonus)",
+   "author": "Kosh Sarkar",
+   "hours": 10.5,
+   "rating": 4.55,
+   "reviews": 45193,
+   "updated": "2025-05",
+   "tier": "optional",
+   "modules": [
+    "07"
+   ],
+   "why": "Pick the user sections (boards, backlog, issues, JQL, Confluence); skip administration.",
+   "why_cs": "Vyber si uživatelské části (boardy, backlog, issues, JQL, Confluence), administraci přeskoč."
+  },
+  {
+   "slug": "learn-how-to-run-a-successful-user-acceptance-test-uat",
+   "title": "Master User Acceptance Testing (UAT) – Project Manager's Guide",
+   "author": "Robert Hean",
+   "hours": 2.5,
+   "rating": 4.54,
+   "reviews": 343,
+   "updated": "2026-08",
+   "tier": "optional",
+   "modules": [
+    "13"
+   ],
+   "why": "How to plan and run UAT with business users. Short and fresh.",
+   "why_cs": "Jak naplánovat a vést UAT s uživateli z byznysu. Krátké a čerstvé."
+  },
+  {
+   "slug": "complete-guide-to-microsoft-powerapps-basic-to-advanced",
+   "title": "Power Apps – Complete Guide to Microsoft PowerApps",
+   "author": "Henry Habib",
+   "hours": 9,
+   "rating": 4.52,
+   "reviews": 21430,
+   "updated": "2025-08",
+   "tier": "optional",
+   "modules": [
+    "14"
+   ],
+   "why": "Low-code apps (forms, approvals) – the natural next step after Power Automate.",
+   "why_cs": "Low-code aplikace (formuláře, schvalování) – přirozený další krok po Power Automate."
+  },
+  {
+   "slug": "pl-900-microsoft-power-platform-fundamentals-r",
+   "title": "PL-900 prep: Microsoft Power Platform Fundamentals",
+   "author": "Phillip Burton",
+   "hours": 5,
+   "rating": 4.57,
+   "reviews": 15272,
+   "updated": "2026-10",
+   "tier": "optional",
+   "modules": [
+    "14"
+   ],
+   "why": "Overview of the whole Power Platform and prep for the PL-900 exam.",
+   "why_cs": "Přehled celé Power Platform a příprava na zkoušku PL-900."
+  },
+  {
+   "slug": "the-complete-generative-ai-for-business-analysis",
+   "title": "The Complete Generative AI for Business Analysis",
+   "author": "Igor Arkhipov, Codestars",
+   "hours": 6,
+   "rating": 4.46,
+   "reviews": 4044,
+   "updated": "2026-08",
+   "tier": "optional",
+   "modules": [
+    "15"
+   ],
+   "why": "IIBA-endorsed: prompting for analysis techniques and ethical AI use.",
+   "why_cs": "S podporou IIBA: prompting pro analytické techniky a etické používání AI."
+  },
+  {
+   "slug": "business-analysis-for-ai-transformation",
+   "title": "Business Analysis for AI Transformation (18 PDUs)",
+   "author": "Igor Arkhipov (Analyst's Corner)",
+   "hours": 8.5,
+   "rating": 4.65,
+   "reviews": 53,
+   "updated": "2026-10",
+   "tier": "optional",
+   "modules": [
+    "15"
+   ],
+   "why": "How a BA frames and runs AI projects. Few reviews yet, but a strong author.",
+   "why_cs": "Jak BA uchopí a vede AI projekty. Zatím málo hodnocení, ale silný autor."
+  },
+  {
+   "slug": "stakeholder-management",
+   "title": "Stakeholder Management",
+   "author": "K Raj",
+   "hours": 1,
+   "rating": 4.51,
+   "reviews": 11299,
+   "updated": "2026-07",
+   "tier": "optional",
+   "modules": [
+    "16"
+   ],
+   "why": "One-hour overview of stakeholder analysis and engagement.",
+   "why_cs": "Hodinový přehled analýzy stakeholderů a práce s nimi."
+  },
+  {
+   "slug": "public-speaking-and-presenting-at-work",
+   "title": "Public Speaking and Presenting at Work",
+   "author": "Transformation Services",
+   "hours": 2.5,
+   "rating": 4.48,
+   "reviews": 9667,
+   "updated": "2026-10",
+   "tier": "optional",
+   "modules": [
+    "16"
+   ],
+   "why": "The ad asks you to present outputs and train colleagues.",
+   "why_cs": "Inzerát chce, abys prezentoval výstupy a školil kolegy."
+  },
+  {
+   "slug": "5-steps-to-becoming-a-business-analyst",
+   "title": "Land Your First Business Analyst Position",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 3,
+   "rating": 4.48,
+   "reviews": 2075,
+   "updated": "2023-07",
+   "tier": "optional",
+   "modules": [
+    "17"
+   ],
+   "why": "Career change into BA: CV, transferable experience, interviews.",
+   "why_cs": "Změna kariéry na BA: CV, přenositelné zkušenosti, pohovory."
+  },
+  {
+   "slug": "babok-essentials-business-analysis-body-of-knowledge",
+   "title": "BABOK Essentials – Learn Core Business Analysis Standards",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 1.5,
+   "rating": 4.63,
+   "reviews": 921,
+   "updated": "2025-04",
+   "tier": "optional",
+   "modules": [
+    "01"
+   ],
+   "why": "90-minute map of the BABOK standard – useful before ECBA/CCBA.",
+   "why_cs": "Devadesátiminutová mapa standardu BABOK – užitečná před ECBA/CCBA."
+  },
+  {
+   "slug": "pass-the-ecba",
+   "title": "Pass the ECBA: Business Analysis Certification Exam Prep",
+   "author": "Jeremy Aschenbrenner (The BA Guide)",
+   "hours": 2.5,
+   "rating": 4.52,
+   "reviews": 283,
+   "updated": "2025-11",
+   "tier": "optional",
+   "modules": [
+    "17"
+   ],
+   "why": "Only if you go for the IIBA ECBA certificate.",
+   "why_cs": "Jen pokud jdeš na certifikát IIBA ECBA."
+  }
+ ]
+}

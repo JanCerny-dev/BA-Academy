@@ -1,0 +1,11 @@
+# Kontrola modulu 09 – Data and databases for analysts
+
+Relační model, PK/FK, surrogate vs. natural key, referenční integrita, junction table, crow's foot notace, úrovně datového modelu a definice 1NF–3NF („the key, the whole key, and nothing but the key“; 2NF = částečná závislost na složeném klíči, 3NF = tranzitivní závislost) jsou správně. Všechna tvrzení o datové sadě ověřena dotazy proti `data/sql/exportshield.sql`: 8 tabulek, buyer 24 bez země, customer 9 s IČO o 7 číslicích, `claims` má 7 sloupců, mezi claims porušujícími pravidla jsou alespoň 2 (claim 8 indemnity > claimed, claim 15 na zaplacenou fakturu, claim 7 PAID bez platby), Moravia AgroTech (Olomouc) s odběrateli Dunaj Agro (SK) a Parana Agro (BR), Hana Food Export (Prostějov) s Bosphorus Gida (TR), ER vazby odpovídají `REFERENCES` ve schématu. Opraveny tři věcné nepřesnosti.
+
+| Místo | Bylo | Opraveno na | Proč (zdroj) |
+|---|---|---|---|
+| Deep dive, „Personal data and GDPR“, seznam principů (+ Interview corner, otázka GDPR) | Access control a Security uvedeny jako samostatné principy; chyběla accuracy | Doplněn výčet 7 principů čl. 5 GDPR; access control a security uvedeny jako praktické naplnění principu integrity and confidentiality; doplněna accuracy | GDPR čl. 5 odst. 1 písm. a)–f) a odst. 2: lawfulness/fairness/transparency, purpose limitation, data minimisation, accuracy, storage limitation, integrity and confidentiality, accountability |
+| Deep dive, „Data in reports and BI“, příklad měřítka | „claims ratio = sum of indemnity paid / sum of insured invoice amounts“ | „loss ratio = indemnities paid and reserved for claims / earned premium“ | V pojišťovnictví se škodní poměr (loss ratio) počítá vůči zaslouženému pojistnému, ne vůči pojištěnému obratu; původní vzorec by studující z pojišťovny uvedl v omyl |
+| Deep dive, „Data quality dimensions“, věta o zasazených chybách | „The dataset contains planted problems of each kind.“ | „…of the first five kinds (timeliness cannot be checked…)“ | Vnitřní rozpor: o odstavec výš modul říká, že timeliness v sadě nejde ověřit, a hlavička SQL souboru uvádí 11 chyb jen v dimenzích uniqueness, validity, completeness, consistency, accuracy |
+
+Bez stylistických změn.
